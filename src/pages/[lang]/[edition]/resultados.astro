@@ -26,6 +26,14 @@ for (const row of rows) {
 }
 const grouped = order.map((key) => ({ track: key, rows: byTrack.get(key)! }));
 const sealColor: Record<string, string> = { D: 'var(--seal-d)', F: 'var(--seal-f)', S: 'var(--seal-s)', R: 'var(--seal-r)' };
+
+// Localized labels for canonical track codes; unknown codes fall back to the raw string.
+const trackLabels: Record<Lang, Record<string, string>> = {
+  pt: { TP: 'Trilha Principal (TP)', SF: 'Salão de Ferramentas (SF)', WTICG: 'WTICG' },
+  en: { TP: 'Main Track (TP)', SF: 'Tools Track (SF)', WTICG: 'WTICG' },
+  es: { TP: 'Pista Principal (TP)', SF: 'Salón de Herramientas (SF)', WTICG: 'WTICG' },
+};
+const trackLabel = (key: string | null): string | null => (key ? (trackLabels[lang][key] ?? key) : null);
 ---
 
 <EditionLayout lang={lang} r={r} active="resultados" title={`${t('nav.results')} · ${heading}`}>
@@ -39,7 +47,7 @@ const sealColor: Record<string, string> = { D: 'var(--seal-d)', F: 'var(--seal-f
         <p class="intro">{t('results.intro')}</p>
         {grouped.map((group) => (
           <section class="group">
-            {group.track && <h3>{group.track}</h3>}
+            {group.track && <h3>{trackLabel(group.track)}</h3>}
             <div class="table-wrap">
               <table>
                 <thead>

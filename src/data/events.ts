@@ -45,7 +45,7 @@ export const events: CtaEvent[] = [
           es: 'Salón de Herramientas + Pista Principal',
         },
         officialUrl: 'https://sbrc.sbc.org.br/2026/',
-        proceedingsUrl: 'https://sol.sbc.org.br/index.php/sbrc/issue/archive',
+        proceedingsUrl: 'https://sol.sbc.org.br/index.php/sbrc/issue/view/1678',
       },
       {
         slug: 'sbrc-2025',
@@ -57,7 +57,7 @@ export const events: CtaEvent[] = [
           es: 'Salón de Herramientas',
         },
         officialUrl: 'https://sbrc.sbc.org.br/2025/pt_br/',
-        proceedingsUrl: 'https://sol.sbc.org.br/index.php/sbrc/issue/archive',
+        proceedingsUrl: 'https://sol.sbc.org.br/index.php/sbrc/issue/view/1500',
       },
       {
         slug: 'wgrs-2024',
@@ -69,8 +69,8 @@ export const events: CtaEvent[] = [
           es: 'WGRS — Taller de Gestión y Operación de Redes y Servicios',
         },
         officialUrl: 'https://sbrc.sbc.org.br/2024/workshops_aceitos.html',
-        // WGRS proceedings are published within the SBRC anais.
-        proceedingsUrl: 'https://sol.sbc.org.br/index.php/sbrc/issue/archive',
+        // WGRS proceedings are published within the SBRC 2024 anais.
+        proceedingsUrl: 'https://sol.sbc.org.br/index.php/sbrc/issue/view/1340',
       },
     ],
   },
@@ -117,8 +117,8 @@ export const events: CtaEvent[] = [
           es: 'Salón de Herramientas + WTICG',
         },
         officialUrl: 'https://sbseg2024.ita.br/chamadas/wticg/',
-        // WTICG proceedings are published within the SBSeg anais.
-        proceedingsUrl: 'https://sol.sbc.org.br/index.php/sbseg/issue/archive',
+        // SF and WTICG proceedings are published within the SBSeg 2024 anais.
+        proceedingsUrl: 'https://sol.sbc.org.br/index.php/sbseg/issue/view/1348',
       },
       {
         slug: 'wticg-2023',
@@ -131,7 +131,8 @@ export const events: CtaEvent[] = [
         },
         officialUrl:
           'https://www2.ufjf.br/noticias/2023/09/22/23a-edicao-do-simposio-brasileiro-em-seguranca-da-informacao-termina-com-recorde-de-participantes/',
-        proceedingsUrl: 'https://sol.sbc.org.br/index.php/sbseg/issue/archive',
+        // WTICG 2023 proceedings are published within the SBSeg 2023 anais.
+        proceedingsUrl: 'https://sol.sbc.org.br/index.php/sbseg/issue/view/1209',
       },
     ],
   },
