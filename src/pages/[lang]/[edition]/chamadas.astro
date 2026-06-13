@@ -1,6 +1,7 @@
 ---
 import EditionLayout from '../../../layouts/EditionLayout.astro';
 import { editionStaticPaths, editionTitle, type ResolvedEdition } from '../../../data/editions';
+import { resolveInstructionsYear } from '../../../data/instructions';
 import { localizePath, useTranslations, type Lang } from '../../../i18n/utils';
 
 export const getStaticPaths = editionStaticPaths;
@@ -10,7 +11,7 @@ const lang = Astro.params.lang as Lang;
 const t = useTranslations(lang);
 const heading = editionTitle(r);
 const body = t('edition.call').replace('{event}', heading);
-const year = r.edition.year;
+const year = (await resolveInstructionsYear(lang, r.edition.year)) ?? r.edition.year;
 ---
 
 <EditionLayout lang={lang} r={r} active="chamadas" title={`${t('nav.call')} · ${heading}`}>

@@ -19,11 +19,12 @@ const year = new Date().getFullYear();
       <a href={localizePath(lang, 'eventos')}>{t('nav.events')}</a>
       <a href={localizePath(lang, 'instrucoes')}>{t('nav.instructions')}</a>
       <a href={localizePath(lang, 'selos')}>{t('nav.seals')}</a>
+      <a href={localizePath(lang, 'contato')}>{t('nav.contact')}</a>
       <a href="https://github.com/artifact-eval/artifact-eval.github.io" target="_blank" rel="noopener">
         GitHub
       </a>
     </nav>
-    <small class="copy">© {year} SBC · CTA</small>
+    <small class="copy">© {year} {t('site.title')}</small>
   </div>
 </footer>
 

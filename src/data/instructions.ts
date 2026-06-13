@@ -26,3 +26,16 @@ export async function instructionYears(lang: Lang): Promise<number[]> {
   const entries = await getInstructions(lang);
   return [...new Set(entries.map((e) => e.data.year))].sort((a, b) => b - a);
 }
+
+/**
+ * The best instructions year to link to for a given edition year.
+ * Prefers an exact match, else the newest available year not after `preferred`
+ * (instructions in effect at the time), else the newest available year overall.
+ * Returns null when no instructions exist for the language at all.
+ */
+export async function resolveInstructionsYear(lang: Lang, preferred: number): Promise<number | null> {
+  const years = await instructionYears(lang); // newest first
+  if (years.length === 0) return null;
+  if (years.includes(preferred)) return preferred;
+  return years.find((y) => y < preferred) ?? years[0];
+}

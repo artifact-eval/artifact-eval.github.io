@@ -2,6 +2,7 @@
 import EditionLayout from '../../../layouts/EditionLayout.astro';
 import Seals from '../../../components/Seals.astro';
 import { editionStaticPaths, editionTitle, type ResolvedEdition } from '../../../data/editions';
+import { resolveInstructionsYear } from '../../../data/instructions';
 import { localizePath, useTranslations, type Lang } from '../../../i18n/utils';
 
 export const getStaticPaths = editionStaticPaths;
@@ -11,11 +12,11 @@ const lang = Astro.params.lang as Lang;
 const t = useTranslations(lang);
 const heading = editionTitle(r);
 const intro = t('edition.intro').replace('{event}', heading);
-const year = r.edition.year;
+const instrYear = (await resolveInstructionsYear(lang, r.edition.year)) ?? r.edition.year;
 
 const links = [
   { label: t('nav.call'), href: localizePath(lang, r.edition.slug, 'chamadas') },
-  { label: t('edition.seeInstructions').replace('{year}', String(year)), href: localizePath(lang, 'instrucoes', String(year)) },
+  { label: t('edition.seeInstructions').replace('{year}', String(instrYear)), href: localizePath(lang, 'instrucoes', String(instrYear)) },
   { label: t('nav.committee'), href: localizePath(lang, r.edition.slug, 'comite') },
   { label: t('nav.results'), href: localizePath(lang, r.edition.slug, 'resultados') },
 ];

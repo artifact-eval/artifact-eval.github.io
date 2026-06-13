@@ -43,8 +43,12 @@ export interface Contact {
   name?: string;
 }
 
+// The committee's shared inbox; used as the default per-edition contact and on
+// the CTA-level contact page.
+export const COMMITTEE_EMAIL = 'comite.tecnico.de.artefatos@gmail.com';
+
 // Per-edition contact overrides; defaults to the committee's shared inbox.
-const DEFAULT_CONTACT: Contact = { email: 'comite.tecnico.de.artefatos@gmail.com' };
+const DEFAULT_CONTACT: Contact = { email: COMMITTEE_EMAIL };
 const contactBySlug: Record<string, Contact> = {
   'wgrs-2024': { name: 'Tiago Heinrich (UFPR)', email: 'theinrich@inf.ufpr.br' },
 };

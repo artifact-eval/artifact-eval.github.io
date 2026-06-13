@@ -2,6 +2,7 @@
 import Base from './Base.astro';
 import { localizePath, useTranslations, type Lang } from '../i18n/utils';
 import { editionTitle, type ResolvedEdition } from '../data/editions';
+import { resolveInstructionsYear } from '../data/instructions';
 
 interface Props {
   lang: Lang;
@@ -13,7 +14,7 @@ const { lang, r, active, title } = Astro.props;
 const t = useTranslations(lang);
 const heading = editionTitle(r);
 const slug = r.edition.slug;
-const year = r.edition.year;
+const year = (await resolveInstructionsYear(lang, r.edition.year)) ?? r.edition.year;
 
 const tabs = [
   { id: 'overview', label: t('nav.events'), href: localizePath(lang, slug) },
@@ -33,6 +34,23 @@ const tabs = [
         {r.edition.current && <span class="cur">{t('edition.current')}</span>}
       </div>
       <p class="full">{r.event.name[lang]}</p>
+      {
+        (r.edition.track || r.edition.officialUrl || r.edition.proceedingsUrl) && (
+          <div class="edmeta">
+            {r.edition.track && <span class="track">{r.edition.track[lang]}</span>}
+            {r.edition.officialUrl && (
+              <a class="ext" href={r.edition.officialUrl} target="_blank" rel="noopener">
+                {t('edition.officialSite')} ↗
+              </a>
+            )}
+            {r.edition.proceedingsUrl && (
+              <a class="ext" href={r.edition.proceedingsUrl} target="_blank" rel="noopener">
+                {t('edition.proceedings')} ↗
+              </a>
+            )}
+          </div>
+        )
+      }
     </div>
     <nav class="subnav" aria-label={heading}>
       <div class="container subnav__inner">
@@ -89,8 +107,32 @@ const tabs = [
   }
   .full {
     color: var(--muted);
-    margin: 8px 0 22px;
+    margin: 8px 0 14px;
     max-width: 60ch;
+  }
+  .edmeta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 18px;
+    margin-bottom: 22px;
+  }
+  .track {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: var(--r-pill);
+    padding: 5px 12px;
+  }
+  .ext {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .ext:hover {
+    text-decoration: underline;
   }
   .subnav {
     overflow-x: auto;

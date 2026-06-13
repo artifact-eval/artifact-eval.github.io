@@ -13,7 +13,7 @@ export const ui = {
   pt: {
     'site.title': 'Comitê Técnico de Artefatos',
     'site.short': 'CTA',
-    'site.tagline': 'Avaliação de Artefatos · SBC',
+    'site.tagline': 'Avaliação de Artefatos',
     'nav.events': 'Eventos',
     'nav.instructions': 'Instruções',
     'nav.seals': 'Selos',
@@ -46,6 +46,9 @@ export const ui = {
     'edition.call':
       'Autores com artigos aceitos no {event} são incentivados a submeter seus artefatos para avaliação pelo Comitê Técnico de Artefatos (CTA). Um artefato pode ser software, dados, documentação, resultados brutos, provas, modelos, benchmarks, etc. Quatro selos de qualidade podem ser considerados. Antes de submeter, verifique os requisitos de cada selo. Em caso de dúvida, entre em contato.',
     'edition.contact.lead': 'Dúvidas sobre a avaliação de artefatos? Fale com o comitê.',
+    'edition.officialSite': 'Site oficial do evento',
+    'edition.proceedings': 'Anais na SOL/SBC',
+    'cta.contact.lead': 'Fale com o Comitê Técnico de Artefatos (CTA). Dúvidas sobre submissão, avaliação ou selos? Entre em contato.',
     'edition.seeInstructions': 'Instruções {year}',
     'committee.tbd': 'A definir.',
     'results.intro': 'Trabalhos com selos atribuídos.',
@@ -58,7 +61,7 @@ export const ui = {
   en: {
     'site.title': 'Artifact Technical Committee',
     'site.short': 'CTA',
-    'site.tagline': 'Artifact Evaluation · SBC',
+    'site.tagline': 'Artifact Evaluation',
     'nav.events': 'Events',
     'nav.instructions': 'Instructions',
     'nav.seals': 'Badges',
@@ -91,6 +94,9 @@ export const ui = {
     'edition.call':
       'Authors with papers accepted at {event} are encouraged to submit their artifacts for evaluation by the Artifact Technical Committee (CTA). An artifact can be software, data, documentation, raw results, proofs, models, benchmarks, etc. Four quality badges can be considered. Before submitting, check the requirements for each badge. If in doubt, get in touch.',
     'edition.contact.lead': 'Questions about artifact evaluation? Reach the committee.',
+    'edition.officialSite': 'Official event website',
+    'edition.proceedings': 'Proceedings on SOL/SBC',
+    'cta.contact.lead': 'Reach the Artifact Technical Committee (CTA). Questions about submission, evaluation, or badges? Get in touch.',
     'edition.seeInstructions': 'Instructions {year}',
     'committee.tbd': 'To be announced.',
     'results.intro': 'Works with awarded badges.',
@@ -103,7 +109,7 @@ export const ui = {
   es: {
     'site.title': 'Comité Técnico de Artefactos',
     'site.short': 'CTA',
-    'site.tagline': 'Evaluación de Artefactos · SBC',
+    'site.tagline': 'Evaluación de Artefactos',
     'nav.events': 'Eventos',
     'nav.instructions': 'Instrucciones',
     'nav.seals': 'Sellos',
@@ -136,6 +142,9 @@ export const ui = {
     'edition.call':
       'Se anima a los autores con artículos aceptados en {event} a enviar sus artefactos para evaluación por el Comité Técnico de Artefactos (CTA). Un artefacto puede ser software, datos, documentación, resultados brutos, pruebas, modelos, benchmarks, etc. Se pueden considerar cuatro sellos de calidad. Antes de enviar, verifique los requisitos de cada sello. Si tiene dudas, contáctenos.',
     'edition.contact.lead': '¿Preguntas sobre la evaluación de artefactos? Contacte al comité.',
+    'edition.officialSite': 'Sitio oficial del evento',
+    'edition.proceedings': 'Anales en SOL/SBC',
+    'cta.contact.lead': 'Contacte al Comité Técnico de Artefactos (CTA). ¿Preguntas sobre envío, evaluación o sellos? Póngase en contacto.',
     'edition.seeInstructions': 'Instrucciones {year}',
     'committee.tbd': 'Por definir.',
     'results.intro': 'Trabajos con sellos asignados.',
