@@ -9,11 +9,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# Default to read-only; the elevated scopes needed for deployment are granted
+# per-job below (only the deploy job gets pages: write / id-token: write).
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -25,6 +24,8 @@ jobs:
   # Build the Astro site into ./dist
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -45,6 +46,9 @@ jobs:
   # Deploy the built artifact to GitHub Pages
   deploy:
     needs: build
+    permissions:
+      pages: write       # to deploy to Pages
+      id-token: write    # to verify the deployment originates from this workflow
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
