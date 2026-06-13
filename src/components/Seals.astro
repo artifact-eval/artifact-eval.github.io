@@ -1,0 +1,66 @@
+---
+import { seals } from '../data/events';
+import { useTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  /** Larger seals with labels (for the seals section) vs. compact row (hero). */
+  withLabels?: boolean;
+}
+const { lang, withLabels = false } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<ul class:list={['seals', { 'seals--labeled': withLabels }]} aria-label={t('seals.title')}>
+  {
+    seals.map((s) => (
+      <li class="seal-item">
+        <span class="seal" style={`background:${s.color}`} aria-hidden="true">
+          {s.key}
+        </span>
+        {withLabels && <span class="seal-label">{t(`seal.${s.key}` as const)}</span>}
+        {!withLabels && <span class="visually-hidden">{t(`seal.${s.key}` as const)}</span>}
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .seals {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .seal-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .seal {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--r-sm);
+    color: #fff;
+    font-weight: 800;
+    font-size: 15px;
+    box-shadow: var(--shadow-pop);
+  }
+  .seals--labeled {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .seals--labeled .seal {
+    width: 44px;
+    height: 44px;
+    font-size: 17px;
+  }
+  .seal-label {
+    font-weight: 600;
+    color: var(--ink);
+  }
+</style>

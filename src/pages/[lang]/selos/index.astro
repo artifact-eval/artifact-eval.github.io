@@ -1,0 +1,177 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { sealInfo } from '../../../data/seals';
+import { localizePath, useTranslations, langOrder, type Lang } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+  return langOrder.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+---
+
+<Base lang={lang} title={t('seals.title')} description={t('seals.lead')}>
+  <section class="head">
+    <div class="container">
+      <span class="pill">{t('site.tagline')}</span>
+      <h1>{t('seals.title')}</h1>
+      <p class="lead">{t('seals.lead')}</p>
+    </div>
+  </section>
+
+  <section class="container body">
+    <div class="grid">
+      {
+        sealInfo.map((s) => (
+          <article class="seal-card" style={`--c:${s.color}`}>
+            <header>
+              <span class="badge" aria-hidden="true">
+                {s.key}
+              </span>
+              <h2>{t(`seal.${s.key}` as const)}</h2>
+            </header>
+            <p class="desc">{s.desc[lang]}</p>
+            <h3>{t('seals.req')}</h3>
+            <ul>
+              {s.requirements[lang].map((r) => (
+                <li>{r}</li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+
+    <a class="callout" href={localizePath(lang, 'instrucoes')}>
+      <span><strong>{t('home.callout.title')}</strong> — {t('home.callout.body')}</span>
+      <span class="callout__btn">{t('home.callout.cta')} →</span>
+    </a>
+  </section>
+</Base>
+
+<style>
+  .head {
+    background: var(--hero-bg);
+    padding-block: clamp(36px, 6vw, 52px);
+  }
+  .pill {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: var(--r-pill);
+    padding: 6px 14px;
+  }
+  .head h1 {
+    font-size: clamp(30px, 5vw, 40px);
+    margin: 16px 0 0;
+  }
+  .lead {
+    color: var(--muted);
+    max-width: 62ch;
+    margin: 12px 0 0;
+  }
+  .body {
+    padding-block: clamp(32px, 5vw, 44px);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .seal-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--c);
+    border-radius: var(--r-lg);
+    padding: 26px;
+    box-shadow: var(--shadow-card);
+  }
+  .seal-card header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .badge {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--r-md);
+    background: var(--c);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 18px;
+    flex: none;
+    box-shadow: var(--shadow-pop);
+  }
+  .seal-card h2 {
+    font-size: 22px;
+    margin: 0;
+  }
+  .desc {
+    color: var(--ink-2);
+    margin: 0 0 18px;
+  }
+  .seal-card h3 {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+    margin: 0 0 10px;
+  }
+  .seal-card ul {
+    margin: 0;
+    padding-left: 1.2em;
+    color: var(--muted);
+    font-size: 14.5px;
+  }
+  .seal-card li {
+    margin: 0.3em 0;
+  }
+  .callout {
+    margin-top: 28px;
+    border-radius: var(--r-lg);
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: linear-gradient(120deg, var(--ink), #27306b);
+    color: #dfe6f5;
+    text-decoration: none;
+  }
+  .callout:hover {
+    text-decoration: none;
+  }
+  .callout strong {
+    color: #fff;
+  }
+  .callout__btn {
+    margin-left: auto;
+    background: #fff;
+    color: var(--ink);
+    border-radius: var(--r-pill);
+    padding: 11px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 720px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .callout {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .callout__btn {
+      margin-left: 0;
+    }
+  }
+</style>

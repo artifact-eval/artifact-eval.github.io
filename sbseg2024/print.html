@@ -1,0 +1,498 @@
+<!DOCTYPE HTML>
+<html lang="pt" class="rust" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Avaliação de Artefato</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introducao.html">Avaliação de Artefato</a></li><li class="chapter-item expanded affix "><li class="part-title">SBSeg '24</li><li class="spacer"></li><li class="chapter-item expanded "><a href="chamadaSBSeg24.html">Chamada para Artefatos</a></li><li class="chapter-item expanded "><a href="subinstrucoes.html">Instruções de submissão</a></li><li class="chapter-item expanded "><a href="revinstrucoes.html">Instruções para revisão</a></li><li class="chapter-item expanded "><a href="chamadaCTA.html">Chamada para membros do CTA</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="resultados.html">Resultados</a></li><li class="chapter-item expanded "><a href="comite.html">Comitê</a></li><li class="chapter-item expanded "><a href="contato.html">Contato</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Avaliação de Artefato</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="avaliação-de-artefato-do-sbseg24"><a class="header" href="#avaliação-de-artefato-do-sbseg24">Avaliação de Artefato do SBSeg'24</a></h1>
+<p>O Salão de Ferramentas (SF) e Workshop de Trabalhos de Iniciação Científica e de Graduação (WTICG) irão permitir que autores submetam artefatos  relacionados ao artigo submetido, podendo tais artefatos serem software, dados, documentação complementar, resultados brutos, provas de conceito, modelos, avaliações detalhadas, benchmarks etc.</p>
+<p>Este recurso é essencial para a completa compreensão de  um artigo científico, que vai além do documento em si. A qualidade de um artefato tende a ser tão importante quanto o próprio artigo científico. Normalmente, as conferências no Brasil não oferecem meios formais para submeter e avaliar nada além do próprio artigo. Rompendo com essa tradição, o SBSeg realizará a coleta de artefatos,  sendo estes obrigatórios para o Salão de Ferramentas (SF) e opcionais para o Workshop de Trabalhos de Iniciação Científica e de Graduação (WTICG). O processo de submissão de artefatos vai ocorrer em conjunto com a submissão dos artigos e os autores deverão descrever os <a href="./chamadaSBSeg24.html">selos de qualidade</a> que devem ser considerados para o artefato, bem como uma documentação detalhada seguindo as <a href="./subinstrucoes.html">regras de submissão.</a></p>
+<p>O processo de avaliação de artefatos vai ter como base o processo de avaliação realizado por conferências de renome como USENIX, CoNEXT, SIGCOMM e EuroSys e será realizado pelo Comitê Técnico de Artefatos (CTA). Para os autores que submeterão artefatos, é fundamental que façam a leitura das descrições dos selos disponíveis e das instruções sobre o que é esperado de um artefato.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chamada-para-artefatos"><a class="header" href="#chamada-para-artefatos">Chamada para Artefatos</a></h1>
+<p>Um artefato pode ser um software, dados, documentação complementar, resultados brutos, provas  de conceito, modelos, avaliações detalhadas, benchmarks etc.</p>
+<p>Quatro selos de qualidade podem ser considerados para um artefato:</p>
+<ol>
+<li>Artefatos Disponíveis (SeloD);</li>
+<li>Artefatos Funcionais (SeloF);</li>
+<li>Artefatos Sustentáveis (SeloS); e</li>
+<li>Experimentos Reprodutíveis (SeloR).</li>
+</ol>
+<p>Antes de enviar seu artefato, verifique os <a href="./subinstrucoes.html">requisitos para a obtenção de cada selo</a>. Caso tenha alguma dúvida, entre em <a href="./contato.html">contato</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="instruções-de-submissão"><a class="header" href="#instruções-de-submissão">Instruções de submissão</a></h1>
+<p>Quatro selos de qualidade podem ser considerados para um artefato. Junto com a submissão da versão final (camera ready) do artigo, os autores podem submeter o(s) artefato(s) relacionado(s) ao artigo.
+Para que os artefatos sejam julgados, é <strong>obrigatória a submissão de um apêndice</strong> descrevendo quais selos devem ser considerados na avaliação do(s) artefato(s) do trabalho e fornecendo as instruções necessárias para os revisores conseguirem lidar adequadamente com os mesmos (especialmente no caso de software ou dados).</p>
+<h2 id="requisitos"><a class="header" href="#requisitos">Requisitos</a></h2>
+<p>Para que o trabalho/artefato esteja apto a receber um selo, alguns requisitos devem ser satisfeitos, como descrito a seguir.</p>
+<h3 id="artefatos-disponíveis-selod"><a class="header" href="#artefatos-disponíveis-selod">Artefatos Disponíveis (SeloD)</a></h3>
+<p>É esperado que o código e/ou dados estejam <strong>disponíveis em um repositório estável</strong> (como GitHub ou GitLab). Nesse repositório é esperado um <a href="https://github.com/matiassingers/awesome-readme">README.md</a> com uma <strong>documentação mínima</strong> (mas suficientemente clara para o entendimento), descrevendo o objetivo do(s) artefato(s), com o respectivo <strong>título</strong> e <strong>resumo</strong> do artigo.</p>
+<h3 id="artefatos-funcionais-selof"><a class="header" href="#artefatos-funcionais-selof">Artefatos Funcionais (SeloF)</a></h3>
+<p>É esperado que o(s) código(s) de programa(s) do(s) artefato(s) possa(m) ser <strong>executado(s)</strong> e os revisores consigam observar suas <strong>funcionalidades</strong>. Para obter esse selo, é importante que informações adicionais estejam presentes no README.md do repositório, como:</p>
+<ol>
+<li>lista de dependências;</li>
+<li>lista de versões das dependências/linguagens/ambiente;</li>
+<li>descrição do ambiente de execução;</li>
+<li>instruções de instalação e execução;</li>
+<li>um ou mais exemplos de execução.</li>
+</ol>
+<h3 id="artefatos-sustentáveis-selos"><a class="header" href="#artefatos-sustentáveis-selos">Artefatos Sustentáveis (SeloS)</a></h3>
+<p>É esperado que o(s) código(s) de programa(s) do(s) artefato(s) esteja(m) modularizado(s), organizado(s), inteligível(is) e seja(m) de fácil compreensão**. 
+Para obter o selo é necessário que:</p>
+<ol>
+<li>exista uma documentação do(s) código(s) (descrevendo arquivos, funções, APIs etc);</li>
+<li>haja uma legibilidade mínima no(s) código(s) e outros artefatos;</li>
+<li>seja possível para os avaliadores identificar as principais reivindicações do artigo no(s) artefato(s).</li>
+</ol>
+<h3 id="experimentos-reprodutíveis-selor"><a class="header" href="#experimentos-reprodutíveis-selor">Experimentos Reprodutíveis (SeloR)</a></h3>
+<p>É esperado que o <strong>revisor consiga reproduzir as principais reivindicações apresentadas no artigo</strong>. 
+Para obter este selo é necessário que haja:</p>
+<ol>
+<li>instrução para executar o(s) código(s) de forma a reproduzir e confirmar as principais reivindicações do artigo (e.g., resultados dos principais gráficos/tabelas);</li>
+<li>descrição do processo de execução dos experimentos para chegar ao(s) resultado(s) do artigo;</li>
+<li>descrição de detalhes técnicos específicos do ambiente (quando aplicável) como, por exemplo, detalhes da infraestrutura utilizada na Amazon Cloud ou Google Cloud. Eventualmente, incluir chaves de acesso e outras informações que permitam a reprodução do experimento.</li>
+</ol>
+<h2 id="apêndice-obrigatório"><a class="header" href="#apêndice-obrigatório">Apêndice (obrigatório)</a></h2>
+<p>Para facilitar o processo de avaliação dos artefatos, foi criado um modelo de apêndice (obrigatório) onde os autores descrevem quais selos devem ser considerados no processo de avaliação do artefato e incluem informações para auxiliar os revisores do Comitê Técnico de Artefatos. O modelo LaTeX de apêndice está disponível em <a href="https://www.overleaf.com/read/jscjwsnqsxfh">Exemplo-Apendice</a>.</p>
+<p>É obrigatório que as Seções de 1 a 4 estejam presentes. Se você tiver qualquer dúvida, por favor, entre em <a href="./contato.html">contato</a> conosco.</p>
+<blockquote>
+<p><strong>Note:</strong>
+Antes de submeter o seu artefato (apêndice), é fortemente recomendado que os autores realizem a instalação e execução do seu artefato em um ambiente novo (máquina virtual) seguindo somente as instruções presente no apêndice para confirmar que as instruções estão consistentes e completas.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note:</strong>
+Lembre que todo processo de revisão do CTA leva em consideração as informações presentes no Apêndice.</p>
+</blockquote>
+<h2 id="exemplos-de-artefatos"><a class="header" href="#exemplos-de-artefatos">Exemplos de Artefatos</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Evento</th><th>Apêndice</th><th>Artefato</th><th>Artigo</th></tr></thead><tbody>
+<tr><td>SBSeg'23</td><td><a href="./data/235027-5.pdf">Apêndice link</a></td><td><a href="https://github.com/AleMarquis/ArtigoWTICGSBSeg23">Artefato link</a></td><td><a href="./data/235027-2-selos-de-artefatos.pdf">Artigo link</a></td></tr>
+<tr><td>USENIX'23</td><td><a href="https://www.usenix.org/system/files/usenixsecurity23-appendix-shen-bingyu-logging.pdf">Apêndice link</a></td><td><a href="https://github.com/byshen/seclog_ae">Artefato link</a></td><td><a href="https://www.usenix.org/system/files/sec23summer_2-shen-prepub.pdf">Artigo link</a></td></tr>
+<tr><td>USENIX'23</td><td><a href="https://www.usenix.org/system/files/usenixsecurity23-appendix-liu-sihang.pdf">Apêndice link</a></td><td><a href="https://github.com/Systems-ShiftLab/optane_sec23_ae/">Artefato link</a></td><td><a href="https://www.usenix.org/system/files/sec23summer_39-liu_shang-prepub_1.pdf">Artigo link</a></td></tr>
+<tr><td>USENIX'23</td><td><a href="https://www.usenix.org/system/files/usenixsecurity23-appendix-henzinger.pdf">Apêndice link</a></td><td><a href="https://github.com/ahenzinger/simplepir">Artefato link</a></td><td><a href="https://www.usenix.org/system/files/sec23summer_27-henzinger-prepub.pdf">Artigo link</a></td></tr>
+<tr><td>USENIX'23</td><td><a href="https://www.usenix.org/system/files/usenixsecurity23-appendix-eykholt.pdf">Apêndice link</a></td><td><a href="https://github.com/IBM/URET">Artefato link</a></td><td><a href="https://www.usenix.org/system/files/sec23summer_347-eykholt-prepub.pdf">Artigo link</a></td></tr>
+<tr><td>USENIX'23</td><td><a href="https://www.usenix.org/system/files/usenixsecurity23-appendix-liu-zhibo.pdf">Apêndice link</a></td><td><a href="https://github.com/monkbai/DNN-decompiler/tree/b4f64783846b85cac4b0eb6c7a5595535cc858d3">Artefato link</a></td><td><a href="https://www.usenix.org/system/files/sec23summer_406-liu_zhibo-prepub.pdf">Artigo link</a></td></tr>
+<tr><td>USENIX'23</td><td><a href="https://www.usenix.org/system/files/usenixsecurity23-appendix-yu-zhiyuan-smack.pdf">Apêndice link</a></td><td><a href="https://github.com/WUSTL-CSPL/SMACK">Artefato link</a></td><td><a href="https://www.usenix.org/system/files/sec23summer_371-yu_zhiyuan-prepub.pdf">Artigo link</a></td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="intruções-para-revisão"><a class="header" href="#intruções-para-revisão">Intruções para revisão</a></h1>
+<p>Seu objetivo como um revisor de artefato consiste em garantir que a qualidade do artefato corresponda com o conteúdo do artigo e os requisitos mínimos esperados para a obtenção de cada selo. Para realizar esta atividade com excelência, antes de avaliar os artefatos <strong>(i)</strong> leia o artigo; e <strong>(ii)</strong> defina as principais contribuições do trabalho. Estas duas etapas tornam o processo de avaliação de cada selo mais simples.</p>
+<blockquote>
+<p><strong>Note:</strong>
+Observe que o período de revisão é relativamente curto. Recomendamos iniciar suas revisões assim que receber sua tarefa.</p>
+</blockquote>
+<h2 id="passos-para-a-avaliação-de-um-artefato"><a class="header" href="#passos-para-a-avaliação-de-um-artefato">Passos para a avaliação de um artefato</a></h2>
+<p>O processo de revisão pode ser realizado em um ambiente de sua preferência, desde que satisfaça os requisitos mínimos do ambiente de execução esperado para o artefato. Recomendamos a execução do artefato (quando aplicável) em um ambiente virtual, por trazer praticidade para os revisores e garantir que componentes presentes na sua máquina local não prejudiquem o processo de avaliação (uma instalação limpa em um ambiente novo pode reduzir imprevistos).</p>
+<p>Todos os recursos adicionais necessários para execução do artefato (infraestrutura de nuvem, chaves SSH etc.) devem estar presentes no apêndice que descreve o artefato.</p>
+<p>O artefato em avaliação está relacionado a um  artigo em avaliação pelos comitês do SF e WTICG. O foco de um revisor do CTA está voltado para o artefato e não para a revisão do artigo. No entanto, caso seja encontrado algum problema, ele deve ser relatado aos  coordenadores de avaliação de artefatos.</p>
+<blockquote>
+<p><strong>Note:</strong>
+Lembre-se de que todos os artefatos, análises e discussões são confidenciais.</p>
+</blockquote>
+<h2 id="processo-de-revisão"><a class="header" href="#processo-de-revisão">Processo de Revisão</a></h2>
+<p>O processo de revisão está dividido em duas etapas. <strong>Primeiramente</strong>, você deve selecionar os trabalhos cujos temas lhe sejam familiares para o posterior processo de revisão. Faça a escolha de trabalhos o quanto antes para que o comitê tenha conhecimento das revisões de cada membro. Os trabalhos estão presentes em uma planilha online que será compartilhada com os membros do CTA. Cada membro do CTA irá escolher 3 ou mais trabalhos para avaliar (número a ser confirmado pelos coordenadores posteriormente).</p>
+<p>Após ter selecionado seus trabalhos, você já pode começar a realizar as revisões. Para orientar esta <strong>segunda etapa</strong>, um conjunto de instruções com pontos chaves do processo de avaliação de artefato foi definido pelo comitê, conforme consta nas definições de requisitos para a obtenção de cada selo.
+Para que o artefato esteja apto a receber um selo, os respectivos requisitos devem ser satisfeitos.</p>
+<p>Para que o trabalho/artefato seja apto a receber o selo, os respectivos requisitos devem ser alcançados:</p>
+<h3 id="artefatos-disponíveis-selod-1"><a class="header" href="#artefatos-disponíveis-selod-1">Artefatos Disponíveis (SeloD)</a></h3>
+<p>É esperado que o código e/ou dados estejam <strong>disponíveis em um repositório estável</strong> (como GitHub ou GitLab). Nesse repositório é esperado um <a href="https://github.com/matiassingers/awesome-readme">README.md</a> com uma <strong>documentação mínima</strong> (mas suficientemente clara para o entendimento), descrevendo o objetivo do(s) artefato(s), com o respectivo <strong>título</strong> e <strong>resumo</strong> do artigo.</p>
+<h3 id="artefatos-funcionais-selof-1"><a class="header" href="#artefatos-funcionais-selof-1">Artefatos Funcionais (SeloF)</a></h3>
+<p>É esperado que o(s) código(s) de programa(s) do(s) artefato(s) possa(m) ser <strong>executado(s)</strong> e os revisores consigam observar suas <strong>funcionalidades</strong>. Para obter esse selo, é importante que informações adicionais estejam presentes no README.md do repositório, como:</p>
+<ol>
+<li>lista de dependências;</li>
+<li>lista de versões das dependências/linguagens/ambiente;</li>
+<li>descrição do ambiente de execução;</li>
+<li>instruções de instalação e execução;</li>
+<li>um ou mais exemplos de execução.</li>
+</ol>
+<h3 id="artefatos-sustentáveis-selos-1"><a class="header" href="#artefatos-sustentáveis-selos-1">Artefatos Sustentáveis (SeloS)</a></h3>
+<p>É esperado que o(s) código(s) de programa(s) do(s) artefato(s) esteja(m) modularizado(s), organizado(s), inteligível(is) e seja(m) de fácil compreensão**. 
+Para obter o selo é necessário que:</p>
+<ol>
+<li>exista uma documentação do(s) código(s) (descrevendo arquivos, funções, APIs etc);</li>
+<li>haja uma legibilidade mínima no(s) código(s) e outros artefatos;</li>
+<li>seja possível para os avaliadores identificar as principais reivindicações do artigo no(s) artefato(s).</li>
+</ol>
+<h3 id="experimentos-reprodutíveis-selor-1"><a class="header" href="#experimentos-reprodutíveis-selor-1">Experimentos Reprodutíveis (SeloR)</a></h3>
+<p>É esperado que o <strong>revisor consiga reproduzir as principais reivindicações apresentadas no artigo</strong>. 
+Para obter este selo é necessário que haja:</p>
+<ol>
+<li>instrução para executar o(s) código(s) de forma a reproduzir e confirmar as principais reivindicações do artigo (e.g., resultados dos principais gráficos/tabelas);</li>
+<li>descrição do processo de execução dos experimentos para chegar ao(s) resultado(s) do artigo;</li>
+<li>descrição de detalhes técnicos específicos do ambiente (quando aplicável) como, por exemplo, detalhes da infraestrutura utilizada na Amazon Cloud ou Google Cloud. Eventualmente, incluir chaves de acesso e outras informações que permitam a reprodução do experimento.</li>
+</ol>
+<h2 id="entrega-das-revisões"><a class="header" href="#entrega-das-revisões">Entrega das Revisões</a></h2>
+<p>Para cada artefato, você deve produzir um breve texto de revisão justificando a razão por atribuir ou negar um selo ao artefato. Esse texto de revisão  só deve ser escrito após  completado o processo de avaliação.</p>
+<p>Para facilitar o processo de avaliação, complete os comentários para cada selo seguindo o seguinte modelo que leva em consideração os requisitos de cada um.</p>
+<p>Exemplos:</p>
+<pre><code>(caso 1, selo atribuído) SeloD: artefato(s)  publicamente disponível(is) (comentários)
++ disponíveis em um repositório estável
++ documentação suficiente
++ título
++ resumo
+Recomendo a atribuição do selo.
+</code></pre>
+<pre><code>(caso 2, selo não atribuído) SeloD: artefato(s) publicamente disponível(is) (comentários)
++ disponíveis em um repositório estável
+- documentação suficiente
++ título
+- resumo
+Não posso recomendar a atribuição do selo, porque o artefato não  possui uma documentação considerada suficiente para o entendimento e reprodução de suas características e porque o resumo do artigo não foi fornecido.
+</code></pre>
+<pre><code>(caso 3, CASO O SELO NÃO TENHA SIDO SOLICITADO) SeloD: artefato(s) publicamente disponível (comentários)
+O selo não foi solicitado para esta categoria.
+</code></pre>
+<p>Utilize os sinais (-) e (+) para demonstrar qual(is) dos critérios o artefato não satisfaz (sinal de -) ou satisfaz (sinal de +). Também é importante incluir uma conclusão na revisão, explicando as motivações para não atribuir o selo quando o artefato não alcança os critérios mínimos esperados.</p>
+<blockquote>
+<p><strong>Note</strong>
+Procure escrever sua revisão de forma precisa, impessoal e polida, considerando que a mesma estará disponível para os autores em uma fase posterior do processo.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chamada-para-membros-do-cta"><a class="header" href="#chamada-para-membros-do-cta">Chamada para membros do CTA</a></h1>
+<p>Pelo segundo ano o SBSeg irá permitir que autores submetam artefatos tais como software, dados, documentação complementar, resultados brutos, provas de conceito, modelos, avaliações detalhadas, benchmarks etc.</p>
+<p>Esperamos que os membros do comitê técnico de artefatos (CTA) sejam estudantes de pós-graduação, pós-doutorandos, pesquisadores ou profissionais atuando na área de segurança cibernética. Para o processo de revisão é esperado que o revisor dedique uma média de 5hs por artefato (considerando que todos os quatro selos tenham sido solicitados pelos autores).</p>
+<p>Como membro do CTA, é esperado que você ajude a decidir se o artefato proposto está de acordo com o conteúdo apresentado no artigo e os respectivos critérios para a outorga do selo solicitado. Será permitida a discussão entre os membros do comitê durante o processo de avaliação. No entanto, nenhuma interação com os autores será permitida para que o processo permaneça anônimo.</p>
+<p>Esperamos poder contar com a sua ajuda para termos um excelente processo com boas e valiosas revisões sobre a qualidade dos artefatos apresentados pelos artigos.</p>
+<h2 id="como-se-inscrevernomination"><a class="header" href="#como-se-inscrevernomination">Como se inscrever/Nomination</a></h2>
+<p>Se você estiver interessado em fazer parte do CTA, realize a <a href="https://docs.google.com/forms/d/e/1FAIpQLScBQqEBaezwUG7PhI6rojiXoBq3Fm9LDq7lzTmQe7qSbgWX4w/viewform?usp=sf_link">inscrição pelo formulário</a>. Observe que existe um número limitado de vagas.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="estatísticas-gerais"><a class="header" href="#estatísticas-gerais">Estatísticas gerais</a></h1>
+<p>Estatísticas do processo de avaliação dos artefatos: </p>
+<ul>
+<li>29 trabalhos avaliados;</li>
+<li>134 revisões (média de 4,6 por trabalho);</li>
+<li>30+ threads de emails;</li>
+<li>220+ emails trocados entre coordenação, autores e revisores;</li>
+<li>206 comentários  registrados no HotCRP (interações entre: autores e revisores; revisores e revisores; chairs e revisores);</li>
+<li>3.951 atividades registradas no HotCRP por chairs, membros do CTA e autores;</li>
+<li>578 horas estimadas em trabalho somado dos chairs, membros do CTA e do Comitê de Seleção;</li>
+<li>Importante ressaltar que vários artefatos passaram por múltiplas revisões devido às interações contínuas com os respectivos autores;</li>
+<li>8 membros compuseram o Comitê de Seleção dos artefatos e revisores destaque.</li>
+</ul>
+<h2 id="trabalhos-com-selos-atribuídos"><a class="header" href="#trabalhos-com-selos-atribuídos">Trabalhos com Selos Atribuídos</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Selos Atribuídos</th><th>Título do Trabalho</th><th>Track</th></tr></thead><tbody>
+<tr><td>SeloD	SeloF	SeloS SeloR</td><td>Autenticação de Sistemas Baseados em Biometria Comportamental</td><td>WTICG</td></tr>
+<tr><td>SeloD	SeloF	SeloS SeloR</td><td>IWSHAP: Uma Ferramenta para Seleção Incremental de Caracterı́sticas utilizando IWSS e SHAP</td><td>SF</td></tr>
+<tr><td>SeloD	SeloF	SeloS SeloR</td><td>MH-FSF: um Framework para Reprodução, Experimentação e Avaliação de Métodos de Seleção de Caracterı́sticas</td><td>SF</td></tr>
+<tr><td>SeloD	SeloF	SeloS SeloR</td><td>MH-AutoML: Transparência, Interpretabilidade e Desempenho na Detecção de Malware Android</td><td>SF</td></tr>
+<tr><td>SeloD	SeloF	SeloS SeloR</td><td>SigAPI AutoCraft: uma ferramenta de seleção de caracterı́sticas com capacidade de generalização</td><td>SF</td></tr>
+<tr><td>SeloD	SeloF	SeloS SeloR</td><td>MalSynGen: redes neurais artificiais na geração de dados tabulares sintéticos para detecção de malware</td><td>SF</td></tr>
+<tr><td>SeloD	SeloF	SeloR</td><td>Seleção de Características Multi-objetivo para Detecção de Malwares Android PreviousNext</td><td>WTICG</td></tr>
+<tr><td>SeloD	SeloF	SeloR</td><td>EXSS: Um Emulador Educativo de Ataques Cross-Site Scripting (Código Aberto)</td><td>SF</td></tr>
+<tr><td>SeloD	SeloF	SeloR</td><td>Identificação de Ataques de Phishing através de Machine Learning PreviousNext</td><td>WTICG</td></tr>
+<tr><td>SeloD	SeloF	SeloS</td><td>Web xKaliBurr: uma Plataforma Online para Levantamento de Informações em Pentest em Aplicações na Internet</td><td>SF</td></tr>
+<tr><td>SeloD	SeloF	SeloS</td><td>Mininet-Sec: plataforma de experimentação para segurança cibernética em redes programáveis</td><td>SF</td></tr>
+<tr><td>SeloD	SeloF</td><td>Compact Memory Implementations of the ML-DSA Post-Quantum Digital Signature Algorithm</td><td>WTICG</td></tr>
+<tr><td>SeloD	SeloF</td><td>Melhorias no Processo de Armazenamento de Dados em TPM para Gerenciamento de Integridade PreviousNext</td><td>WTICG</td></tr>
+<tr><td>SeloD	SeloF</td><td>HuskyCI: um orquestrador de testes de segurança em software para ciclos ágeis de desenvolvimento</td><td>SF</td></tr>
+<tr><td>SeloD	SeloF</td><td>APKAnalyzer: Ferramenta de Classificação de Malwares Android Baseada em Multi-view e Seleção de Caracterı́sticas Multiobjetivo</td><td>SF</td></tr>
+<tr><td>SeloD	SeloF</td><td>Evaluating the network traffic on an improved version of the Committeeless Proof-of-Stake blockchain consensus algorithm PreviousNext</td><td>WTICG</td></tr>
+<tr><td>SeloD</td><td>Detecção de Intrusões na Internet das Coisas (IoT): Um Ambiente de Experimentação para Obtenção de Dados Reais sobre Protocolos Emergentes</td><td>WTICG</td></tr>
+<tr><td>SeloD</td><td>Comparando Médias Móveis com Integral de Choquet para Detectar Anomalias no Tráfego de Redes PreviousNext</td><td>WTICG</td></tr>
+<tr><td>SeloD</td><td>Aplicação da Técnica Fuzzing em Testes da Implementação de Referência do SPDM PreviousNext</td><td>WTICG</td></tr>
+</tbody></table>
+</div>
+<h2 id="trabalhos-destaque-na-categoria-artefatos"><a class="header" href="#trabalhos-destaque-na-categoria-artefatos">Trabalhos Destaque na Categoria Artefatos</a></h2>
+<p>Título: <strong>Autenticação de Sistemas Baseados em Biometria Comportamental</strong><br />
+Autores: Lucas Rafael Azevedo Correa, Agda Beatriz Gonçalves Costa, Paulo Sérgio de Souza Lei Assumpção, Wilson de Souza Melo Jr<br />
+Paper: <a href="https://doi.org/10.5753/sbseg_estendido.2024.243402">https://doi.org/10.5753/sbseg_estendido.2024.243402</a></p>
+<p>Título: <strong>IWSHAP: Uma Ferramenta para Seleção Incremental de Características utilizando IWSS e SHAP</strong><br />
+Autores: Felipe Scherer, Felipe Dresch, Diego Kreutz, Silvio Quincozes, Vagner Quincozes<br />
+Paper: <a href="https://doi.org/10.5753/sbseg_estendido.2024.243376">https://doi.org/10.5753/sbseg_estendido.2024.243376</a></p>
+<p>Título: <strong>MH-AutoML: Transparência, Interpretabilidade e Desempenho na Detecção de Malware Android</strong><br />
+Autores: Joner Assolin, Diego Kreutz, Gabriel Sousa Canto, Eduardo Feitosa<br />
+Paper: <a href="https://doi.org/10.5753/sbseg_estendido.2024.243362">https://doi.org/10.5753/sbseg_estendido.2024.243362</a></p>
+<p>Título: <strong>MH-FSF: um Framework para Reprodução, Experimentação e Avaliação de Métodos de Seleção de Caracterı́sticas</strong><br />
+Autores: Vanderson Rocha, Hendrio Luis Bragança, Diego Kreutz, Eduardo Feitosa<br />
+Paper: <a href="https://doi.org/10.5753/sbseg_estendido.2024.243363">https://doi.org/10.5753/sbseg_estendido.2024.243363</a></p>
+<p>Título: <strong>MalSynGen: redes neurais artificiais na geração de dados tabulares sintéticos para detecção de malware</strong><br />
+Autores:  Angelo Diniz, Kayuã Paim, Rodrigo Mansilha, Hendrio Luis Bragança, Diego Kreutz<br />
+Paper: <a href="https://doi.org/10.5753/sbseg_estendido.2024.243359">https://doi.org/10.5753/sbseg_estendido.2024.243359</a></p>
+<p>Título: <strong>SigAPI AutoCraft: uma ferramenta de seleção de caracterı́sticas com capacidade de generalização</strong><br />
+Autores: Laura Tschiedel, Joner Assolin, Diego Kreutz, Silvio Quincozes, Hendrio Luis Bragança, Vanderson Rocha<br />
+Paper: <a href="https://doi.org/10.5753/sbseg_estendido.2024.243361">https://doi.org/10.5753/sbseg_estendido.2024.243361</a></p>
+<p>Título: <strong>EXSS: Um Emulador Educativo de Ataques Cross-Site Scripting</strong><br />
+Autores:  Bianca Guarizi, Isabela Alves, Júlia Souza, Guilherme Pimentel, João Watanabe, Dalbert Mascarenhas, Ian Vilar Bastos, Marcelo Rubinstein, Igor Moraes<br />
+Paper: <a href="https://doi.org/10.5753/sbseg_estendido.2024.243354">https://doi.org/10.5753/sbseg_estendido.2024.243354</a></p>
+<p>Título: <strong>Seleção de Características Multi-objetivo para Detecção de Malwares Android PreviousNext</strong><br />
+Autores: Philipe Fransozi, Jhonatan Geremias, Eduardo Kugler Viegas, Altair Olivo Santin<br />
+Paper: <a href="https://doi.org/10.5753/sbseg_estendido.2024.241836">https://doi.org/10.5753/sbseg_estendido.2024.241836</a></p>
+<h2 id="revisores-destaque"><a class="header" href="#revisores-destaque">Revisores Destaque</a></h2>
+<p>Aline de Lurdes Zuliani Lunkes (PUCPR)<br />
+Amanda Viescinski (UFPR)<br />
+Angelo Gaspar Diniz Nogueira (UNIPAMPA)<br />
+Anselmo Lacerda Gomes (Instituto Atlântico)<br />
+Bruno Albertini (USP)<br />
+Diego Kreutz (UNIPAMPA)<br />
+Françoa Taffarel (ITA e Marinha do Brasil)<br />
+Ioram Schechtman Sette (CESAR)<br />
+Leandro Bertholdo (UFRGS)<br />
+Leonardo Toshinobu Kimura (USP)<br />
+Roben Lunardi (IFRS)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="organizadores"><a class="header" href="#organizadores">Organizadores</a></h1>
+<h2 id="coordenadores-do-cta"><a class="header" href="#coordenadores-do-cta">Coordenadores do CTA</a></h2>
+<p>Tiago Heinrich (UFPR/MPI)<br />
+Diego Kreutz (UNIPAMPA)</p>
+<h2 id="comitê-técnico-de-artefatos-cta"><a class="header" href="#comitê-técnico-de-artefatos-cta">Comitê Técnico de Artefatos (CTA)</a></h2>
+<p>Aline de Lurdes Zuliani Lunkes, PUCPR<br />
+Amanda Viescinski, UFPR<br />
+Anderson Aparecido do Carmo Frasão, UFPA<br />
+Anderson Bergamini de Neira, UFPR<br />
+Andre Leon Sampaio Gradvohl, Unicamp<br />
+Angelo Gaspar Diniz Nogueira, UNIPAMPA<br />
+Anselmo Lacerda Gomes, Instituto Atlântico<br />
+Antonio João Gonçalves de Azambuja, UFRGS<br />
+Augusto Parisot de Gusmão Neto, UFF<br />
+Bruno Albertini, USP<br />
+Diego Kreutz, UNIPAMPA<br />
+Eduardo Feitosa, UFAM<br />
+Eduardo Kugler Viegas, PUCPR<br />
+Eduardo Takeo Ueda, IPT<br />
+Felipe José Aguiar Rampazzo, Unicamp<br />
+Françoa Taffarel, Marinha do Brasil<br />
+Galileu Batista de Sousa, IFRN / Polícia Federal<br />
+Hugo Pereira Kuribayashi, UFPA<br />
+Ioram Schechtman Sette, CESAR<br />
+Jeandro de Mesquita Bezerra, UFC Quixadá/UFMG<br />
+Jéferson Campos Nobre, UFRGS<br />
+João Gondim, UnB<br />
+Joner Melo Assolin, UFAM<br />
+Jorge Pires Correia, UFPR<br />
+Kalinka Castelo Branco, ICMC/USP<br />
+Kamilla Dória da Silveira, UNIT<br />
+Leandro Bertholdo, UFRGS<br />
+Leonardo Toshinobu Kimura, USP<br />
+Lucas Airam Castro de Souza, UFRJ<br />
+Marcio Barbado Junior, YDUQS Estácio<br />
+Marco Antonio Torrez Rojas, IFC<br />
+Mateus Tymburibá, CEFET-MG<br />
+Natascha Sander de Abreu, GGF Agro<br />
+Roben Castagna Lunardi, IFRS<br />
+Rodrigo Brandão Mansilha, UNIPAMPA<br />
+Rodrigo Carneiro Munhoz Coimbra, TSE<br />
+Sidnei Barbieri, ITA<br />
+Thiago Guimarães Tavares, IFTO<br />
+Tiago Heinrich, UFPR/MPI<br />
+Vanderson da Silva Rocha, UFAM<br />
+Vitor Satoru Machi Matsumine, Unicamp / SiDi<br />
+William Akihiro Alves Aisawa, USP</p>
+<h3 id="comitê-de-seleção"><a class="header" href="#comitê-de-seleção">Comitê de Seleção</a></h3>
+<p>Aline de Lurdes Zuliani Lunkes (PUCPR)<br />
+Anselmo Lacerda Gomes (Instituto Atlântico)<br />
+Antonio João Azambuja (UFRGS)<br />
+Diego Kreutz (UNIPAMPA)<br />
+Eder John Scheid (UFRGS) - externo<br />
+Leandro Bertholdo (UFRGS)<br />
+Ramon dos Reis Fontes(UFRN) - externo<br />
+Tiago Heinrich (UFPR/MPI)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contato"><a class="header" href="#contato">Contato</a></h1>
+<p>Email: <code>Comite.Tecnico.de.Artefatos@gmail.com</code></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

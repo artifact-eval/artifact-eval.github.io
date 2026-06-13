@@ -1,0 +1,617 @@
+<!DOCTYPE HTML>
+<html lang="pt" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Avaliação de Artefato</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Avaliação de Artefato</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="avaliação-de-artefato-do-sbrc-2026"><a class="header" href="#avaliação-de-artefato-do-sbrc-2026">Avaliação de Artefato do SBRC 2026</a></h1>
+<p>Em 2026, o SBRC 2026 contará com um Comitê Técnico de Artefatos (CTA) para avaliar os artefatos dos artigos aceitos. Tais artefatos incluem software, dados, documentação complementar, resultados brutos, provas de conceito, modelos, avaliações detalhadas, benchmarks, etc. O artefato é um recurso essencial para os trabalhos de pesquisa e a qualidade dele é tão importante quanto a do próprio artigo científico.</p>
+<p>O artefato será avaliado por um comitê específico, que poderá atribuir até quatro selos:</p>
+<ul>
+<li>Artefatos Disponíveis (SeloD),</li>
+<li>Artefatos Funcionais (SeloF),</li>
+<li>Artefatos Sustentáveis (SeloS), e</li>
+<li>Experimentos Reprodutíveis (SeloR).</li>
+</ul>
+<p>O processo de avaliação de artefatos terá como base o processo de avaliação realizado por conferências renomadas como SIGCOMM, USENIX, CoNEXT e EuroSys. É fundamental que os autores leiam as descrições dos selos disponíveis para artefatos, bem como a descrição do que é esperado de um artefato.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chamada-para-artefatos"><a class="header" href="#chamada-para-artefatos">Chamada para Artefatos</a></h1>
+<p>Autores com artigos aceitos no SBRC 2026 são incentivados a enviar artefatos para serem avaliados pelo comitê técnico de artefatos (CTA).
+Um artefatos pode ser um software, dados, documentação, resultados brutos, provas, modelos, benchmarks, etc.</p>
+<p>Quatro selos de qualidade podem ser considerados para um artefato. Estes sendo:</p>
+<ol>
+<li>Artefatos Disponíveis (SeloD);</li>
+<li>Artefatos Funcionais (SeloF);</li>
+<li>Artefatos Sustentáveis (SeloS); e</li>
+<li>Experimentos Reprodutíveis (SeloR).</li>
+</ol>
+<p>Antes de enviar seu artefato, verifique os <a href="./subinstrucoes.html">requisitos para a aquisição de cada selo</a>.
+Caso você tenha alguma dúvida ou preocupação, você pode entrar em <a href="./contato.html">contato</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="instruções-de-submissão"><a class="header" href="#instruções-de-submissão">Instruções de submissão</a></h1>
+<p>Quatro selos de qualidade podem ser considerados para um artefato.
+Após a notificação de aceite do artigo, os autores podem opcionalmente submeter o(s) artefato(s) relacionado(s) (os autores do Salão de Ferramentas são obrigados a fazer a submissão do artefato).</p>
+<p>Os autores devem fazer o registro do artefato na plataforma <a href="https://hotcrp.c3sl.ufpr.br/">hotcrp</a>.
+Este registro requer algumas informações como contato dos autores, um link para o artefato e opcionalmente um apêndice.
+Vale lembrar que o processo de revisão do CTA é independente da revisão do artigo no JEMS e as submissões são single-blind.</p>
+<p>Importante ressaltar que para um artefato o comitê de revisão espera que:</p>
+<ol>
+<li><a href="subinstrucoes.html#requisitos-m%C3%ADnimo-readmemd-obrigat%C3%B3rio">Os requisitos mínimos do README</a> estejam presentes no repositório;</li>
+<li>Informações sobre <a href="subinstrucoes.html#recursos-espec%C3%ADficos-ou-restri%C3%A7%C3%B5es">recursos específicos</a> estejam presentes no apêndice.</li>
+<li>O artefato atenda os <a href="subinstrucoes.html#requisitos-por-selo">critérios dos selos solicitados</a>;</li>
+<li>Os autores respondam as perguntas postadas pelos revisores na plataforma, como enviem a carta de rebuttal dentro do prazo.</li>
+</ol>
+<p>Todo o processo de revisão do artefato será realizado pela plataforma <a href="https://hotcrp.c3sl.ufpr.br/">hotcrp</a>.
+Os autores com artefatos registrados para o processo de revisão serão notificados sobre o acesso à plataforma e devem observar por emails enviados pela plataforma com dúvidas do comitê de revisão.
+Todo o processo de comunicação dos revisores de artefatos com os autores é realizado pelo hotcrp.</p>
+<h2 id="requisitos-mínimo-readmemd-obrigatório"><a class="header" href="#requisitos-mínimo-readmemd-obrigatório">Requisitos mínimo README.md (Obrigatório)</a></h2>
+<p>Para facilitar o processo de avaliação dos artefatos, foi criado um modelo de README.md (Obrigatório) com todos os campos mínimos esperados para um artefato. Veja <a href="./exemplos-4selos.html">exemplos de README.md de Artefatos com 4 Selos</a>.</p>
+<pre><code># Título projeto
+
+Resumo descrevendo o objetivo do artefato, com o respectivo título e resumo do artigo.
+
+# Estrutura do readme.md
+
+Apresenta a estrutura do readme.md, descrevendo como o repositório está organizado.
+
+# Selos Considerados
+
+Os autores devem descrever quais selos devem ser considerados no processo de avaliação. Como por exemplo: ``Os selos considerados são: Disponíveis e Funcionais.''
+
+# Informações básicas
+
+Esta seção deve apresentar informações básicas de todos os componentes necessários para a execução e replicação dos experimentos.
+Descrevendo todo o ambiente de execução, com requisitos de hardware e software.
+
+# Dependências
+
+Informações relacionadas a benchmarks utilizados e dependências para a execução devem ser descritas nesta seção.
+Busque deixar o mais claro possível, apresentando informações como versões de dependências e processos para acessar recursos de terceiros caso necessário.
+
+# Preocupações com segurança
+
+Caso a execução do artefato ofereça algum tipo de risco para os avaliadores. Este risco deve ser descrito e o processo adequado para garantir a segurança dos revisores deve ser apresentado.
+
+# Instalação
+
+O processo de baixar e instalar a aplicação deve ser descrito nesta seção. Ao final deste processo já é esperado que a aplicação/benchmark/ferramenta consiga ser executada.
+
+# Teste mínimo
+
+Esta seção deve apresentar um passo a passo para a execução de um teste mínimo.
+Um teste mínimo de execução permite que os revisores consigam observar algumas funcionalidades do artefato.
+Este teste é útil para a identificação de problemas durante o processo de instalação.
+
+# Experimentos
+
+Esta seção deve descrever um passo a passo para a execução e obtenção dos resultados do artigo. Permitindo que os revisores consigam alcançar as reivindicações apresentadas no artigo.
+Cada reivindicações deve ser apresentada em uma subseção, com detalhes de arquivos de configurações a serem alterados, comandos a serem executados, flags a serem utilizadas, tempo esperado de execução, expectativa de recursos a serem utilizados como 1GB RAM/Disk e resultado esperado.
+
+Caso o processo para a reprodução de todos os experimentos não seja possível em tempo viável. Os autores devem escolher as principais reivindicações apresentadas no artigo e apresentar o respectivo processo para reprodução.
+
+## Reivindicações #X
+
+## Reivindicações #Y
+
+# LICENSE
+
+Apresente a licença.
+
+</code></pre>
+<p>É obrigatório que <strong>TODAS</strong> as Seções apresentadas no requisito mínimo README.md estejam presentes.
+Se você tiver qualquer dúvida, por favor, entre em contato conosco.</p>
+<blockquote>
+<p><strong>Note</strong>
+Antes de submeter o seu artefato, é interessante que os autores realizem a instalação e execução do seu artefato em um ambiente novo (máquina virtual) seguindo somente as instruções presente no README.md.</p>
+</blockquote>
+<h3 id="recursos-específicos-ou-restrições"><a class="header" href="#recursos-específicos-ou-restrições">Recursos específicos ou restrições</a></h3>
+<p>Caso <strong>recursos adicionais</strong> sejam necessários (infraestrutura de nuvem, chaves SSH, etc.) para a avaliação do artefato, estas informações devem ser submetidas através de um apêndice.
+Neste os autores incluem informações adicionais (privadas, como chaves SSH para acessar o Google Cloud) para auxiliar os revisores do Comitê Técnico de Artefatos.
+O modelo LaTeX de apêndice está disponível em <a href="https://www.overleaf.com/read/jscjwsnqsxfh">Exemplo-Apendice</a>.
+Todos os campos devem ser apresentados no apêndice, além dos requisitos mínimos para o README.md que são obrigatórios.</p>
+<p>O apêndice é um critério <strong>adicional</strong> no momento que recursos específicos acabam sendo necessários para a avaliação do artefato ou restrições de acesso existam.</p>
+<h2 id="requisitos-por-selo"><a class="header" href="#requisitos-por-selo">Requisitos por selo</a></h2>
+<p>Para que o trabalho/artefato seja apto a receber o selo, os respectivos requisitos devem ser alcançados:</p>
+<h3 id="artefatos-disponíveis-selod"><a class="header" href="#artefatos-disponíveis-selod">Artefatos Disponíveis (SeloD)</a></h3>
+<p>É esperado que o código e/ou dados estejam <strong>disponíveis em um repositório estável</strong> (como GitHub e GitLab).
+Neste repositório é esperado encontrar um <a href="https://github.com/matiassingers/awesome-readme">README.md</a> com os <strong>requisitos mínimos</strong>. O arquivo README.md do repositório pode ser o mesmo arquivo submetido para apreciação do CTA.</p>
+<h3 id="artefatos-funcionais-selof"><a class="header" href="#artefatos-funcionais-selof">Artefatos Funcionais (SeloF)</a></h3>
+<p>É esperado que o código e/ou artefato possa ser <strong>executado</strong> e o revisor consiga observar algumas de suas <strong>funcionalidades</strong>.
+Para adquirir este artefato, é importante que informações adicionais estejam presentes no README.md do repositório, como</p>
+<ol>
+<li>lista de dependências;</li>
+<li>lista de versões das dependências/linguagens/ambiente;</li>
+<li>descrição do ambiente de execução;</li>
+<li>instruções de instalação e execução;</li>
+<li>um exemplo de execução mínima.</li>
+</ol>
+<h3 id="artefatos-sustentáveis-selos"><a class="header" href="#artefatos-sustentáveis-selos">Artefatos Sustentáveis (SeloS)</a></h3>
+<p>É esperado que o código e/ou <strong>artefato esteja modularizado, organizado, inteligível e de fácil compreensão</strong>. Para obter o selo é interessante que:</p>
+<ol>
+<li>exista uma documentação mínima do código (descrevendo arquivos, funções,..);</li>
+<li>legibilidade mínima de código;</li>
+<li>permita que os avaliadores consigam identificar as principais reivindicações do artigo no artefato.</li>
+</ol>
+<h3 id="experimentos-reprodutíveis-selor"><a class="header" href="#experimentos-reprodutíveis-selor">Experimentos Reprodutíveis (SeloR)</a></h3>
+<p>É esperado que o <strong>revisor consiga reproduzir as principais reivindicações apresentadas no artigo</strong>. Sugere-se a utilização de máquinas virtuais, containers ou scripts que facilitem e reduzam o tempo de criação do ambiente. Para obter este selo é esperado:</p>
+<ol>
+<li>instrução para executar as principais reivindicações (e.g., resultados dos principais gráficos/tabelas);</li>
+<li>descrição de um processo de como foram executados os experimentos para chegar até o resultado do artigo.
+Para atender esses requisitos sugere-se a inclusão de script(s) que automatizem ao máximo todo o processo de reprodução;</li>
+</ol>
+<h2 id="processo-de-revisão"><a class="header" href="#processo-de-revisão">Processo de revisão</a></h2>
+<p>O processo de revisão de artefatos está dividido em duas etapas de revisão, como autor você deve ficar atento às perguntas levantadas pelos revisores na plataforma. Após o término da primeira etapa de revisão (r1), os autores devem submeter uma carta de rebuttal que visa esclarecer problemas encontrados pelos revisores e auxiliar no processo de revisão. Por fim, os revisores vão considerar as revisões da primeira fase e a carta de rebuttal para tomar uma decisão na segunda fase de avaliação (r2-decision).</p>
+<p>Calendário de revisão para o ciclo de revisão:</p>
+<ul>
+<li>Prazo para Submissão de Artefatos</li>
+<li>Rodada 1 de Revisão (r1)</li>
+<li>Fase de Rebuttal</li>
+<li>Decisão do Revisor (r2-decision)</li>
+</ul>
+<p>*As datas estão disponíveis no <a href="https://hotcrp.c3sl.ufpr.br/">hotcrp</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="instruções-para-revisão"><a class="header" href="#instruções-para-revisão">Instruções para revisão</a></h1>
+<p>Seu objetivo como um revisor de artefato consiste em garantir que a qualidade do artefato corresponda com o conteúdo do artigo e os <strong>requisitos mínimos esperados para a obtenção de cada selo</strong>.</p>
+<blockquote>
+<p><strong>Note:</strong>
+Observe que o período de revisão é relativamente curto. Recomendamos iniciar suas revisões assim que receber sua tarefa, já que dois selos requerem a execução do artefato.</p>
+</blockquote>
+<h2 id="passos-para-a-avaliação-de-um-artefato"><a class="header" href="#passos-para-a-avaliação-de-um-artefato">Passos para a Avaliação de um Artefato</a></h2>
+<p>O processo de revisão pode ser realizado em um ambiente de sua preferência, desde que satisfaça os requisitos mínimos do ambiente de execução esperado para o artefato. Recomendamos a execução do artefato (quando aplicável) em um ambiente virtual, por trazer praticidade para os revisores e garantir que componentes presentes na sua máquina local não prejudiquem o processo de avaliação (uma instalação limpa em um ambiente novo pode reduzir imprevistos).</p>
+<p>Todos os recursos adicionais necessários para execução do artefato (infraestrutura de nuvem, chaves SSH etc.) devem estar presentes no apêndice que descreve o artefato.</p>
+<p>O artefato em avaliação está relacionado a um artigo em avaliação pelos comitês técnicos da conferência. O foco de um revisor do CTA está voltado para o artefato e não para a revisão do artigo. No entanto, caso seja encontrado algum problema, ele deve ser relatado aos coordenadores de avaliação de artefatos.</p>
+<blockquote>
+<p><strong>Note:</strong>
+Lembre-se de que todos os artefatos, análises e discussões são confidenciais.</p>
+</blockquote>
+<h2 id="processo-de-revisão-1"><a class="header" href="#processo-de-revisão-1">Processo de Revisão</a></h2>
+<p>No momento que um artefato é alocado para revisão, você já pode começar o trabalho de revisão. Quanto antes você começar melhor, pois permite que problemas sejam encontrados e discutidos com os autores. Neste ano teremos <strong>a revisão em 2 etapas</strong>:</p>
+<ul>
+<li>
+<p>Na primeira etapa (<strong>r1</strong>) os revisores fazem a revisão do artefato considerando os <a href="revinstrucoes.html#crit%C3%A9rios-de-avalia%C3%A7%C3%A3o">critérios de avaliação</a>. Durante este processo mensagens podem ser postadas na plataforma hotcrp, estas podem ser discussões entre membros do comitê de revisão, como perguntas para os autores, como por exemplo perguntas em relação a problemas encontrados no artefato.
+No final do processo de revisão você deve submeter um parecer que será apresentado para os autores. Este deve destacar as etapas que foram realizadas para a avaliação de cada selo, o processo de execução observado e resultado alcançado (problemas no processo de execução deve estar claramente explicados na revisão). Os autores vão responder aos pontos levantados nesta etapa na fase de rebuttal.</p>
+</li>
+<li>
+<p>A segunda etapa (<strong>r2-decision</strong>) ocorrerá após a fase de rebuttal dos autores. No qual, os autores com base na revisão realizada na primeira fase devem esclarecer dúvidas, solucionar problemas encontrados, informar eventuais equívocos e/ou explicar algo que passou despercebido aos revisores. Seu papel como revisor na segunda etapa consiste em considerar os pontos levantados na primeira fase e na fase de rebuttal para tomar uma decisão em quais selos devem ser atribuídos ou não.</p>
+</li>
+</ul>
+<p>Calendário de revisão para o ciclo de revisão:</p>
+<ul>
+<li>Prazo para Submissão de Artefatos</li>
+<li>Rodada 1 de Revisão (r1)</li>
+<li>Fase de Rebuttal</li>
+<li>Decisão do Revisor (r2-decision)</li>
+</ul>
+<p>*As datas estão disponíveis no <a href="https://hotcrp.c3sl.ufpr.br/">hotcrp</a>.</p>
+<blockquote>
+<p><strong>Note</strong>
+Procure escrever sua revisão de forma precisa, impessoal e polida, considerando que a mesma estará disponível para os autores em uma fase posterior do processo.</p>
+</blockquote>
+<h2 id="critérios-de-avaliação"><a class="header" href="#critérios-de-avaliação">Critérios de avaliação</a></h2>
+<p>Para realizar esta atividade com excelência, você deve considerar os quatro Selos e seus respectivos requisitos mínimos que devem ser alcançados para a alocação de um selo:</p>
+<h3 id="artefatos-disponíveis-selod-1"><a class="header" href="#artefatos-disponíveis-selod-1">Artefatos Disponíveis (SeloD)</a></h3>
+<p>É esperado que o código e/ou dados estejam <strong>disponíveis em um repositório estável</strong> (como GitHub e GitLab). Neste repositório é esperado encontrar um <a href="https://github.com/matiassingers/awesome-readme">README.md</a> com os <strong>requisitos mínimos do README.md</strong>. Os requisitos mínimos do README.md sendo:</p>
+<pre><code># Título projeto
+
+Resumo descrevendo o objetivo do artefato, com o respectivo título e resumo do artigo.
+
+# Estrutura do readme.md
+
+Apresenta a estrutura do readme.md, descrevendo como o repositório está organizado.
+
+# Selos Considerados
+
+Os autores devem descrever quais selos devem ser considerados no processo de avaliação. Como por exemplo: ``Os selos considerados são: Disponíveis e Funcionais.''
+
+# Informações básicas
+
+Esta seção deve apresentar informações básicas de todos os componentes necessários para a execução e replicação dos experimentos.
+Descrevendo todo o ambiente de execução, com requisitos de hardware e software.
+
+# Dependências
+
+Informações relacionadas a benchmarks utilizados e dependências para a execução devem ser descritas nesta seção.
+Busque deixar o mais claro possível, apresentando informações como versões de dependências e processos para acessar recursos de terceiros caso necessário.
+
+# Preocupações com segurança
+
+Caso a execução do artefato ofereça algum tipo de risco para os avaliadores. Este risco deve ser descrito e o processo adequado para garantir a segurança dos revisores deve ser apresentado.
+
+# Instalação
+
+O processo de baixar e instalar a aplicação deve ser descrito nesta seção. Ao final deste processo já é esperado que a aplicação/benchmark/ferramenta consiga ser executada.
+
+# Teste mínimo
+
+Esta seção deve apresentar um passo a passo para a execução de um teste mínimo.
+Um teste mínimo de execução permite que os revisores consigam observar algumas funcionalidades do artefato.
+Este teste é útil para a identificação de problemas durante o processo de instalação.
+
+# Experimentos
+
+Esta seção deve descrever um passo a passo para a execução e obtenção dos resultados do artigo. Permitindo que os revisores consigam alcançar as reivindicações apresentadas no artigo.
+Cada reivindicações deve ser apresentada em uma subseção, com detalhes de arquivos de configurações a serem alterados, comandos a serem executados, flags a serem utilizadas, tempo esperado de execução, expectativa de recursos a serem utilizados como 1GB RAM/Disk e resultado esperado.
+
+Caso o processo para a reprodução de todos os experimentos não seja possível em tempo viável. Os autores devem escolher as principais reivindicações apresentadas no artigo e apresentar o respectivo processo para reprodução.
+
+## Reivindicações #X
+
+## Reivindicações #Y
+
+# LICENSE
+
+Apresente a licença.
+
+</code></pre>
+<h3 id="artefatos-funcionais-selof-1"><a class="header" href="#artefatos-funcionais-selof-1">Artefatos Funcionais (SeloF)</a></h3>
+<p>É esperado que o código e/ou artefato possa ser <strong>executado</strong> e o revisor consiga observar algumas de suas <strong>funcionalidades</strong>. Para adquirir este artefato, é importante que informações adicionais estejam presentes no README.md do repositório, como</p>
+<ol>
+<li>lista de dependências;</li>
+<li>lista de versões das dependências/linguagens/ambiente;</li>
+<li>descrição do ambiente de execução;</li>
+<li>instruções de instalação e execução;</li>
+<li>um exemplo de execução mínima.</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong>
+Como revisor além de verificar que o artefato possua os respectivos critérios é <strong>necessário a execução do artefato</strong>. Na sua revisão será esperado uma prova de execução, com alguns dos <em>outputs</em> apresentados pela ferramenta.</p>
+</blockquote>
+<h3 id="artefatos-sustentáveis-selos-1"><a class="header" href="#artefatos-sustentáveis-selos-1">Artefatos Sustentáveis (SeloS)</a></h3>
+<p>É esperado que o código e/ou <strong>artefato esteja modularizado, organizado, inteligível e de fácil compreensão</strong>. Para obter o selo é interessante que:</p>
+<ol>
+<li>exista uma documentação mínima do código (descrevendo arquivos, funções,..);</li>
+<li>legibilidade mínima de código;</li>
+<li>permita que os avaliadores consigam identificar as principais reivindicações do artigo no artefato.</li>
+</ol>
+<h3 id="experimentos-reprodutíveis-selor-1"><a class="header" href="#experimentos-reprodutíveis-selor-1">Experimentos Reprodutíveis (SeloR)</a></h3>
+<p>É esperado que o <strong>revisor consiga reproduzir as principais reivindicações apresentadas no artigo</strong>. Para obter este selo é esperado:</p>
+<ol>
+<li>instrução para executar as principais reivindicações (e.g., resultados dos principais gráficos/tabelas);</li>
+<li>descrição de um processo de como foram executados os experimentos para chegar até o resultado do artigo;</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong>
+Para a atribuição do selo você deve reproduzir (executar) os experimentos apresentados no artigo através do conteúdo encontrado no artefato. Alcançando as reinvidicações encontradas no artigo, reproduzindo tabelas e figuras. Na sua revisão é esperado um resumo com estes resultados.</p>
+</blockquote>
+<h2 id="entrega-das-revisões"><a class="header" href="#entrega-das-revisões">Entrega das Revisões</a></h2>
+<p>Para cada artefato, você deve produzir uma breve revisão justificando a razão por atribuir ou negar um selo ao artefato. Esta avaliação só deve ser completada após o processo de avaliação ter sido realizado.</p>
+<p>Para facilitar o processo de avaliação, um exemplo está disponível junto ao formulário de submissão.</p>
+<h3 id="melhores-trabalhos"><a class="header" href="#melhores-trabalhos">Melhores trabalhos</a></h3>
+<p>Para atribuir os prêmios de melhores trabalhos, utilizaremos como um dos critérios a classificação atribuída pelos revisores na categoria “Candidato ao Prêmio Artefato Distinto”. Dessa forma, espera-se que os revisores atribuam notas mais elevadas (3 e 4) para trabalhos com pelo menos 3 selos e que se destaquem pela qualidade em relação aos demais. Ainda, se espera que trabalhos que não obtiveram mais de dois selos não possuam nota superior a nota mínima (1).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="exemplos-de-artefatos-com-4-selos-do-sfsbrc-2025"><a class="header" href="#exemplos-de-artefatos-com-4-selos-do-sfsbrc-2025">Exemplos de Artefatos com 4 Selos do SF/SBRC 2025</a></h1>
+<p>A seguir, apresentam-se alguns dos principais artefatos contemplados com os quatro selos no Salão de Ferramentas do SBRC 2025. Os respectivos arquivos README.md servem como exemplos de boas práticas de documentação e organização.</p>
+<ul>
+<li><a href="https://github.com/MalwareDataLab/autodroid-sbrc25">Cloud AutoDroid: Um Sistema Distribuído Escalável para Execução de Ferramentas de IA Generativa</a></li>
+<li><a href="https://github.com/hackinsdn/dashboard">HackInSDN Dashboard</a></li>
+<li><a href="https://github.com/latarc/mininet-gui">Mininet-GUI: Uma Abordagem Visual e Interativa para Experimentação em Redes SDN</a></li>
+<li><a href="https://gitlab.com/maxwellfdasilva/THEXCAD_APP">THEXCAD - Sistema de Tesselação Hexagonal para cobertura de área com drones</a></li>
+<li><a href="https://github.com/intrig-unicamp/UNetyEmu">UNetyEmu: Unity-based simulator for aerial and non-aerial vehicles with integrated network emulation</a></li>
+<li><a href="https://github.com/datasets-community/VulnSyncAI">VulnSyncAI: PLN e LLMs para Construção e Atualização Contínua de Datasets de Vulnerabilidades</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="resultados"><a class="header" href="#resultados">Resultados</a></h1>
+<h2 id="trabalhos-com-selos-atribuídos"><a class="header" href="#trabalhos-com-selos-atribuídos">Trabalhos com Selos Atribuídos</a></h2>
+<h3 id="trilha-principal-tp"><a class="header" href="#trilha-principal-tp">Trilha Principal (TP)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Disp.</th><th>Func.</th><th>Sus.</th><th>Repr.</th><th>Título do Trabalho</th></tr></thead><tbody>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>Agente K-alibra: Estratégia para Seleção de K-Clientes em Aprendizado Federado autônoma</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>Unsupervised DDoS Detection in High-Speed Networks: An Evaluation Using Real Transit Provider Data</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>Flex-Cubic: A Runtime-Adaptive Loss-Tolerant TCP Cubic</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>GlobalAmBC-DRL: Reproducible Artifact for "A New Centralized DRL-Based Control Module for Dense Batteryless IoT Networks with Ambient Backscatter"</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>ORION: Escalonamento de Tarefas baseado em Otimização Multiobjetivo para Nuvens Veiculares</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>PRINCE: A Proactive Client Selection in Federated Learning for Connected and Autonomous Vehicles</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>CAIROS: Controle Adaptativo do aprendIzado fedeRadO em redes Sem fio</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>Tronco: Um Operador Genético para Remapeamento de Serviços de Rede Sensível ao Histórico</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>Aprendizado Federado com Geração de Embeddings para Controle da Heterogeneidade Estatística</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>Ataques de Envenenamento de Rótulos contra a Detecção de Zero-Day em Sistemas de Detecção de Intrusão Colaborativos</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>Seleção de Clientes Federados usando Aprendizado por Reforço Multiagente</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>Modelagem e Otimização do Aprendizado Federado para Justiça do Nível de Energia em Redes Sem Fio</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>Avaliação de Inferência em Edge AI sob Restrições Embarcadas em um Sistema Robótico Simulado Baseado na Internet das Coisas Robóticas</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>Uma Análise Comparativa de Algoritmos de Machine Learning e Explicabilidade para Detecção de Intrusão de Redes</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>Recomendação de rotas consciente de QoE com Atenção e Comunicação</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>Uma Extensão Pós-Quântica Híbrida para o Protocolo Matrix: Avaliação Experimental e Impacto Sistêmico</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>IMPA: Novo algoritmo para atribuição de potência de forma adaptativa em SDM-EONs</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>Uma Abordagem Declarativa e Modular para Adaptação Dinâmica da Camada de Enlace de Redes Heterogêneas</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>Agente VAMOS! Planejamento de Rotas Veiculares Cientes de Contexto Semântico com Agentes de LLM</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>NOAH: Protocolo Hibrido e Adaptativo de Codificação de Rede para Comunicação por Luz Visível</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>ASTRA: Adaptive Student-Teacher Method for Robust Aggregation and Client Drift Reduction in Federated Learning</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td></td><td>Mascaramento por Agrupamento e Rotulagem com LLMs para Compartilhamento de Datasets de Incidentes em Redes</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td></td><td>Detecção de Oportunidades de Sanduíche MEV via Grafo de Fluxo de Controle de Contratos Inteligentes</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td></td><td>C2N: Bridging CAMARA Service APIs and 3GPP Core Network Exposure Function</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td></td><td>Ember: Asynchronous Dynamic Data Serving for PyTorch Distributed Training</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td></td><td></td><td>An Experimental Framework for Studying Non-IID Data in Federated Learning for Network Telemetry</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td></td><td></td><td>Comparative Performance Analysis of IaC Tools for Deploying Containerized SDN Topologies in Cloud Environments</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td></td><td></td><td>On the Scale Transition of Event-Driven IoT Architectures: An Experimental Evaluation</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td></td><td></td><td></td><td>Evasão em Modelos de Detecção de Ameaças de Rede Usando Propriedades do Espaço de Decisão</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td></td><td></td><td></td><td>Orquestração de dispositivos IoT em cenários complexos com interação humana baseada em LLMs</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td></td><td></td><td></td><td>Degradação de Desempenho de Contramedidas Estáticas a Ataques de Negação de Serviço de Baixo Volume</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td></td><td></td><td></td><td>Do Aprendizado Centralizado ao Federado: O Que Acontece com a Explicabilidade dos Modelos?</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td></td><td></td><td></td><td>Escalonamento de Recursos de Rádio para Suporte ao Aprendizado Federado em Redes 5G</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td></td><td></td><td></td><td>Cybersecurity in the CAN Protocol: A Systematic Mapping of Attacks and Vulnerabilities in Practical Scenarios</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td></td><td></td><td></td><td>Latency-Aware Routing and Multidimensional Optical Resource Allocation for CF-RAN over SDM-EON</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td></td><td></td><td></td><td>Framework para Verificação e Validação Experimental de Configurações de Rede Geradas por LLMs</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td></td><td></td><td></td><td>Enforcing Service Stability for WebAssembly Extended Reality Workloads at the Edge A Quality of Service Aware Orchestration Framework</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td></td><td></td><td></td><td>Representação Baseada em Grafos de Infraestrutura como Código: Possibilitando o Raciocínio Semântico para Sistemas Conteinerizados</td></tr>
+</tbody></table>
+</div>
+<h3 id="salão-de-ferramentas-sf"><a class="header" href="#salão-de-ferramentas-sf">Salão de Ferramentas (SF)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Disp.</th><th>Func.</th><th>Sus.</th><th>Repr.</th><th>Título do Trabalho</th></tr></thead><tbody>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>QuantumNet: Um Simulador de Redes Quânticas baseado em uma Arquitetura em Camadas com Interface Gráfica</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>AnonShield: Scalable On-Premise Pseudonymization for CSIRT Network Vulnerability Data</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>UNetyEmuROS: A Unity-Based Multi-Vehicle Simulator with Physically-Grounded Dynamics and ROS2 Sensor Integration</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>IoT-Zoo: A Container-Based Framework for Heterogeneous IoT Device Profiles and Reproducible Traffic Capture</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>From Red Flags to Detection Rules: An LLM-driven Pipeline for Real-Time GOOSE Intrusion Detection and Prevention</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>GhostView: Enabling Deep Visibility in Programmable Data Planes with Minimal Server Overhead</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>Yes, CARLA CAN: Extending the CARLA Simulator for In-Vehicle Network Cybersecurity Experimentation</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>GridGooseSV: um Módulo do NS-3 para Simular Protocolos de Comunicação de Smart Grids definidos na IEC 61850</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>FirewallTester: desenvolvimento de ferramenta para automação de testes e validação de regras de firewalls</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>SAARIS: Um Simulador Aberto de Antenas e Superfícies Inteligentes Reconfiguráveis</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>IoT-ID: Deterministic Device Identity from Hybrid Network Fingerprinting</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>dsm2cli: A Verifiable and Observable Pipeline for Translating Network Intents into Multivendor CLI</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>FL-H.IAAC: Um Testbed Heterogêneo para Aprendizado Federado em Borda</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td></td><td><img src="img/SBRC25_SF_SeloR.png" style="width:40px"></td><td>The Last WAVE: Integrating with Mininet for More Flexible and Reproducible Network Experiments</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloS.png" style="width:40px"></td><td></td><td>MedTracker: A BLE-Based Indoor Localization System for Tracking Portable Medical Devices in Hospital Environments</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td></td><td></td><td>FLeer2FLeer: Uma Ferramenta Web Baseada em Arquitetura Par-a-Par para Orquestração do Aprendizado Federado</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td><img src="img/SBRC25_SF_SeloF.png" style="width:40px"></td><td></td><td></td><td>P4R: Scaling Stateful Network Testing and Trace Replay with Nanosecond-level Accuracy</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td></td><td></td><td></td><td>Metadata privacy and obliviousness in distributed learning via a bulletin board: a proof-of-concept</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td></td><td></td><td></td><td>WASP: Workload Agent-Based Simulation Platform for Migration Recommendations in Federated Kubernetes Environments</td></tr>
+<tr><td><img src="img/SBRC25_SF_SeloD.png" style="width:40px"></td><td></td><td></td><td></td><td>SimpleSim: An Open-Source Python Simulator for SDM-EON Resource Allocation</td></tr>
+</tbody></table>
+</div>
+<h2 id="trabalhos-destaque-na-categoria-artefatos"><a class="header" href="#trabalhos-destaque-na-categoria-artefatos">Trabalhos Destaque na Categoria Artefatos</a></h2>
+<p>TBA</p>
+<h2 id="revisores-destaque"><a class="header" href="#revisores-destaque">Revisores Destaque</a></h2>
+<p>TBA</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="organizadores"><a class="header" href="#organizadores">Organizadores</a></h1>
+<h2 id="coordenadores-do-cta"><a class="header" href="#coordenadores-do-cta">Coordenadores do CTA</a></h2>
+<p>Tiago Heinrich (UFPR/MPI)<br />
+Diego Kreutz (UNIPAMPA)<br />
+Leandro Bertholdo (UFRGS)<br />
+Antonio João Azambuja (UFRGS)</p>
+<h2 id="comitê-técnico-de-artefatos-cta"><a class="header" href="#comitê-técnico-de-artefatos-cta">Comitê Técnico de Artefatos (CTA)</a></h2>
+<p>Alex Sandre Pinheiro Severo (UNIPAMPA)<br />
+Alexandre Sztajnberg (UERJ)<br />
+Aline de Lurdes Zuliani Lunkes (PUCPR)<br />
+Amanda Viescinski (UFPR)<br />
+Anderson Frasão (UFPR)<br />
+Anderson Bergamini de Neira (UFPR)<br />
+Arthur Vinícius Cunha Camargo (UFRGS)<br />
+Beatriz Roland Machado (UNIPAMPA)<br />
+Cristhian Eduardo Kapelinski de Avilla (UNIPAMPA)<br />
+David Arantes Pereira (UFU)<br />
+Diego Kreutz (UNIPAMPA)<br />
+Diego Medeiros de Abreu (UFPA)<br />
+Douglas Lautert (UNIPAMPA)<br />
+Douglas Rodrigues Fideles (UNIPAMPA)<br />
+Edvar Afonso Luciano Filho (PETROBRAS)<br />
+Emanuel Carricio Ferreira (UNIPAMPA)<br />
+Fabricio Eduardo Rodriguez Cesen (Telefónica Research)<br />
+Fêlipe Rosário de Araújo (UFBA)<br />
+Fernando Silva (UFRJ)<br />
+Fiterlinge Martins de Sousa (RNP)<br />
+Gefte Alcantara de Almeida (UNIPAMPA)<br />
+Gustavo Zambonin (UFSC)<br />
+Jeronimo Soares de Castro Menezes (UNIPAMPA)<br />
+Joner Assolin (UFAM)<br />
+Laerte Peotta de Melo (UnB)<br />
+Laura Negreiros Naves (UNICAMP)<br />
+Leandro C. de Almeida (IFPB)<br />
+Leonardo de Jesus Bitzki (UNIPAMPA)<br />
+Lucas Mayr (UFSC)<br />
+Matheus Cabral (UNIPAMPA)<br />
+Matheus Martins Ciocca (UNIPAMPA)<br />
+Nicolas Kolling Ribas (UFRGS)<br />
+Paulo Ditarso Maciel Jr. (IFPB)<br />
+Rafael Santa Rosa Alves (UNICAMP)<br />
+Ramon Fontes (UFRN)<br />
+Rodrigo Mansilha (UNIPAMPA)<br />
+Vitor Reiel Moura de Lima (UFC)<br />
+Weslei Ferreira Santos (UFBA)<br />
+William Akihiro Alves Aisawa (ICMC-USP)</p>
+<h2 id="melhores-revisores-do-cta"><a class="header" href="#melhores-revisores-do-cta">Melhores Revisores do CTA</a></h2>
+<p>TBD</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contato"><a class="header" href="#contato">Contato</a></h1>
+<p>Comite Tecnico <code>comite.tecnico.de.artefatos@gmail.com</code></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

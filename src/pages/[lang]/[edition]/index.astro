@@ -1,0 +1,85 @@
+---
+import EditionLayout from '../../../layouts/EditionLayout.astro';
+import Seals from '../../../components/Seals.astro';
+import { editionStaticPaths, editionTitle, type ResolvedEdition } from '../../../data/editions';
+import { localizePath, useTranslations, type Lang } from '../../../i18n/utils';
+
+export const getStaticPaths = editionStaticPaths;
+
+const { r } = Astro.props as { r: ResolvedEdition };
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const heading = editionTitle(r);
+const intro = t('edition.intro').replace('{event}', heading);
+const year = r.edition.year;
+
+const links = [
+  { label: t('nav.call'), href: localizePath(lang, r.edition.slug, 'chamadas') },
+  { label: t('edition.seeInstructions').replace('{year}', String(year)), href: localizePath(lang, 'instrucoes', String(year)) },
+  { label: t('nav.committee'), href: localizePath(lang, r.edition.slug, 'comite') },
+  { label: t('nav.results'), href: localizePath(lang, r.edition.slug, 'resultados') },
+];
+---
+
+<EditionLayout lang={lang} r={r} active="overview">
+  <div class="intro">
+    <p>{intro}</p>
+    <Seals lang={lang} />
+  </div>
+
+  <ul class="quick">
+    {
+      links.map((l) => (
+        <li>
+          <a href={l.href}>
+            {l.label}
+            <span>→</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</EditionLayout>
+
+<style>
+  .intro p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink-2);
+    max-width: 68ch;
+    margin: 0 0 26px;
+  }
+  .quick {
+    list-style: none;
+    margin: 36px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .quick a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 16px 20px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .quick a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .quick span {
+    color: var(--accent);
+  }
+  @media (max-width: 640px) {
+    .quick {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

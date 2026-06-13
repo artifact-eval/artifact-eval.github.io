@@ -1,0 +1,182 @@
+---
+import { render } from 'astro:content';
+import Base from '../../../../layouts/Base.astro';
+import '../../../../styles/prose.css';
+import { getInstructions, getYearSections } from '../../../../data/instructions';
+import { localizePath, useTranslations, type Lang } from '../../../../i18n/utils';
+
+export async function getStaticPaths() {
+  const { langOrder } = await import('../../../../i18n/utils');
+  const paths = [];
+  for (const lang of langOrder) {
+    const entries = await getInstructions(lang);
+    for (const entry of entries) {
+      paths.push({
+        params: { lang, year: String(entry.data.year), section: entry.data.section },
+        props: { entry },
+      });
+    }
+  }
+  return paths;
+}
+
+const { entry } = Astro.props;
+const lang = Astro.params.lang as Lang;
+const year = entry.data.year;
+const t = useTranslations(lang);
+const { Content } = await render(entry);
+
+const siblings = await getYearSections(lang, year);
+const idx = siblings.findIndex((s) => s.data.section === entry.data.section);
+const prev = idx > 0 ? siblings[idx - 1] : null;
+const next = idx < siblings.length - 1 ? siblings[idx + 1] : null;
+---
+
+<Base lang={lang} title={entry.data.title} description={entry.data.summary}>
+  <div class="container layout">
+    <aside class="side">
+      <a class="back" href={localizePath(lang, 'instrucoes')}>← {t('nav.instructions')}</a>
+      <div class="year-pill">{year}</div>
+      <nav aria-label={t('nav.instructions')}>
+        <ul>
+          {
+            siblings.map((s) => (
+              <li>
+                <a
+                  href={localizePath(lang, 'instrucoes', String(year), s.data.section)}
+                  class:list={{ on: s.data.section === entry.data.section }}
+                  aria-current={s.data.section === entry.data.section ? 'page' : undefined}
+                >
+                  {s.data.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="prose">
+      <h1>{entry.data.title}</h1>
+      <Content />
+
+      <nav class="pager" aria-label="pagination">
+        {
+          prev ? (
+            <a class="pager__link prev" href={localizePath(lang, 'instrucoes', String(year), prev.data.section)}>
+              <span>←</span>
+              {prev.data.title}
+            </a>
+          ) : (
+            <span />
+          )
+        }
+        {
+          next && (
+            <a class="pager__link next" href={localizePath(lang, 'instrucoes', String(year), next.data.section)}>
+              {next.data.title}
+              <span>→</span>
+            </a>
+          )
+        }
+      </nav>
+    </article>
+  </div>
+</Base>
+
+<style>
+  .layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    padding-block: clamp(28px, 5vw, 44px);
+    align-items: start;
+  }
+  .side {
+    position: sticky;
+    top: 88px;
+  }
+  .back {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .year-pill {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: var(--r-pill);
+    padding: 4px 12px;
+  }
+  .side nav ul {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 2px;
+  }
+  .side nav a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: var(--r-sm);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+  }
+  .side nav a:hover {
+    background: var(--surface-3);
+    color: var(--ink);
+  }
+  .side nav a.on {
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-left-color: var(--accent);
+    font-weight: 600;
+  }
+  .prose h1 {
+    font-size: clamp(28px, 5vw, 36px);
+    margin: 0 0 0.6em;
+  }
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .pager__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .pager__link.next {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  @media (max-width: 820px) {
+    .layout {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .side {
+      position: static;
+    }
+    .side nav ul {
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
+      overflow-x: auto;
+    }
+  }
+</style>

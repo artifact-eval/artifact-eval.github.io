@@ -1,0 +1,116 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import { getInstructions, getYearSections, instructionYears } from '../../../../data/instructions';
+import { localizePath, useTranslations, langOrder, type Lang } from '../../../../i18n/utils';
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const lang of langOrder) {
+    for (const year of await instructionYears(lang)) {
+      paths.push({ params: { lang, year: String(year) }, props: { year } });
+    }
+  }
+  return paths;
+}
+
+const { year } = Astro.props;
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const sections = await getYearSections(lang, year);
+---
+
+<Base lang={lang} title={`${t('nav.instructions')} ${year}`}>
+  <section class="head">
+    <div class="container">
+      <a class="back" href={localizePath(lang, 'instrucoes')}>← {t('nav.instructions')}</a>
+      <span class="pill">{year}</span>
+      <h1>{t('nav.instructions')} {year}</h1>
+    </div>
+  </section>
+
+  <section class="container body">
+    <ul class="cards">
+      {
+        sections.map((s) => (
+          <li>
+            <a class="card" href={localizePath(lang, 'instrucoes', String(year), s.data.section)}>
+              <h2>{s.data.title}</h2>
+              <p>{s.data.summary}</p>
+              <span class="more">→</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .head {
+    background: var(--hero-bg);
+    padding-block: clamp(32px, 5vw, 48px);
+  }
+  .back {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .pill {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: var(--r-pill);
+    padding: 6px 14px;
+  }
+  .head h1 {
+    font-size: clamp(28px, 5vw, 38px);
+    margin: 14px 0 0;
+  }
+  .body {
+    padding-block: clamp(28px, 5vw, 40px);
+  }
+  .cards {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 18px;
+  }
+  .card {
+    display: block;
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 24px 26px;
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .card:hover {
+    text-decoration: none;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .card h2 {
+    font-size: 20px;
+    margin: 0 0 6px;
+  }
+  .card p {
+    color: var(--muted);
+    margin: 0;
+    font-size: 14.5px;
+  }
+  .card .more {
+    position: absolute;
+    top: 24px;
+    right: 26px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+</style>

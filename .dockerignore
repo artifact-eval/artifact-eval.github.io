@@ -1,0 +1,10 @@
+node_modules
+dist
+.astro
+.git
+.remember
+.superpowers
+design-mockups
+mdbook
+*.log
+.DS_Store

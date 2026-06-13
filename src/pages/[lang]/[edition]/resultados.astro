@@ -1,0 +1,181 @@
+---
+import EditionLayout from '../../../layouts/EditionLayout.astro';
+import { editionStaticPaths, editionTitle, type ResolvedEdition, type ResultRow } from '../../../data/editions';
+import { seals as sealDefs } from '../../../data/events';
+import { useTranslations, type Lang } from '../../../i18n/utils';
+
+export const getStaticPaths = editionStaticPaths;
+
+const { r } = Astro.props as { r: ResolvedEdition };
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const heading = editionTitle(r);
+const rows = r.data.results;
+const hasLink = rows.some((row) => row.link);
+
+// Group by track (preserving first-seen order); null track → single unlabeled group.
+const order: (string | null)[] = [];
+const byTrack = new Map<string | null, ResultRow[]>();
+for (const row of rows) {
+  const key = row.track;
+  if (!byTrack.has(key)) {
+    byTrack.set(key, []);
+    order.push(key);
+  }
+  byTrack.get(key)!.push(row);
+}
+const grouped = order.map((key) => ({ track: key, rows: byTrack.get(key)! }));
+const sealColor: Record<string, string> = { D: 'var(--seal-d)', F: 'var(--seal-f)', S: 'var(--seal-s)', R: 'var(--seal-r)' };
+---
+
+<EditionLayout lang={lang} r={r} active="resultados" title={`${t('nav.results')} · ${heading}`}>
+  <h2>{t('nav.results')}</h2>
+
+  {
+    rows.length === 0 ? (
+      <p class="tbd">{t('results.tbd')}</p>
+    ) : (
+      <>
+        <p class="intro">{t('results.intro')}</p>
+        {grouped.map((group) => (
+          <section class="group">
+            {group.track && <h3>{group.track}</h3>}
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="th-seals" scope="col">
+                      <span class="seal-head">
+                        {sealDefs.map((s) => (
+                          <abbr title={t(`seal.${s.key}` as const)}>{s.key}</abbr>
+                        ))}
+                      </span>
+                    </th>
+                    <th scope="col">{t('results.col.work')}</th>
+                    {hasLink && <th scope="col">{t('results.col.link')}</th>}
+                  </tr>
+                </thead>
+                <tbody>
+                  {group.rows.map((row) => (
+                    <tr>
+                      <td class="seals-cell">
+                        {sealDefs.map((s) => (
+                          <span
+                            class:list={['mini', { off: !row.seals[s.key as 'D' | 'F' | 'S' | 'R'] }]}
+                            style={`--c:${sealColor[s.key]}`}
+                            title={t(`seal.${s.key}` as const)}
+                          >
+                            {s.key}
+                          </span>
+                        ))}
+                      </td>
+                      <td class="work">{row.title}</td>
+                      {hasLink && (
+                        <td class="link">
+                          {row.link && (
+                            <a href={row.link} target="_blank" rel="noopener">
+                              {t('results.col.link')} ↗
+                            </a>
+                          )}
+                        </td>
+                      )}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        ))}
+      </>
+    )
+  }
+</EditionLayout>
+
+<style>
+  h2 {
+    font-size: 26px;
+    margin: 0 0 8px;
+  }
+  .intro {
+    color: var(--muted);
+    margin: 0 0 24px;
+  }
+  .tbd {
+    color: var(--muted-2);
+    font-style: italic;
+  }
+  .group {
+    margin-bottom: 36px;
+  }
+  .group h3 {
+    font-size: 16px;
+    margin: 0 0 12px;
+    color: var(--ink);
+  }
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+  }
+  thead th {
+    text-align: left;
+    background: var(--surface-3);
+    color: var(--muted);
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 12px 16px;
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 12px 16px;
+    border-top: 1px solid var(--line);
+    vertical-align: top;
+  }
+  tbody tr:hover {
+    background: var(--surface-2);
+  }
+  .seal-head {
+    display: inline-flex;
+    gap: 6px;
+  }
+  .seal-head abbr {
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    cursor: help;
+  }
+  .seals-cell {
+    white-space: nowrap;
+  }
+  .mini {
+    display: inline-grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    margin-right: 4px;
+    border-radius: 6px;
+    background: var(--c);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+  }
+  .mini.off {
+    background: transparent;
+    color: var(--line-2);
+    box-shadow: inset 0 0 0 1.5px var(--line-2);
+  }
+  .work {
+    min-width: 280px;
+  }
+  .link a {
+    white-space: nowrap;
+    font-weight: 600;
+  }
+</style>

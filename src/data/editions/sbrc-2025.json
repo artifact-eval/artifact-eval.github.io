@@ -1,0 +1,221 @@
+{
+  "slug": "sbrc-2025",
+  "legacyDir": "sbrc2025",
+  "committee": [
+    {
+      "group": "Coordenadores do CTA",
+      "members": [
+        "Rodrigo Brandão Mansilha (UNIPAMPA)",
+        "Tiago Heinrich (UFPR/MPI)"
+      ]
+    },
+    {
+      "group": "Comitê Técnico de Artefatos (CTA)",
+      "members": [
+        "Aline de Lurdes Zuliani Lunkes (PUCPR)",
+        "Amanda Viescinski (UFPR)",
+        "Anderson Frasão (UFPR)",
+        "Anderson Bergamini de Neira (UFPR)",
+        "Angelo Gaspar Diniz Nogueira (UNIPAMPA)",
+        "Antonio João Gonçalves de Azambuja (ITA)",
+        "Bruno Santos (UFBA)",
+        "Cristian Souza (IME/USP e Kaspersky Lab)",
+        "David Cavalcanti (CIn/UFPE e IFPE Campus Igarassu)",
+        "Diego Kreutz (UNIPAMPA)",
+        "Diego Nunes Molinos (UFU)",
+        "Edllyn de Jesus Silva (USP)",
+        "Eduardo Kugler Viegas (PUCPR)",
+        "Eduardo Luzeiro Feitosa (UFAM)",
+        "Emanuel de Franceschi Vieira (UFSM)",
+        "Galileu Batista de Sousa (IFRN)",
+        "Joner Assolin (UFAM)",
+        "Kelson Carvalho Santos (UFU e IFPI)",
+        "Leandro M. Bertholdo (UFRGS)",
+        "Lucas Airam Castro de Souza (UFRJ/INRIA/École Polytechnique)",
+        "Marcelo Araújo (IC/UNICAMP)",
+        "Roben Castagna Lunardi (IFRS)",
+        "Thiago Guimarães Tavares (IFTO)",
+        "Vanderson da Silva Rocha (UFAM)",
+        "William Akihiro Alves Aisawa (ICMC - USP)"
+      ]
+    }
+  ],
+  "results": [
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "A New WAVE: Exploring New Load Pattern Models for Experimentation in Computer Networks",
+      "track": null,
+      "link": "https://github.com/ifpb/new_wave"
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": false
+      },
+      "title": "AGATA – Arquitetura para Gerenciamento Automático de Tarefas de Aprendizado Federado",
+      "track": null,
+      "link": "https://github.com/GTA-UFRJ/FLMNGR.git"
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Cloud AutoDroid: Um Sistema Distribuído Escalável para Execução de Ferramentas de IA Generativa",
+      "track": null,
+      "link": "https://github.com/MalwareDataLab/autodroid-sbrc25"
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Dashboard HackInSDN: plataforma web para experimentação em redes e cibersegurança através de clusters Kubernetes",
+      "track": null,
+      "link": "https://github.com/hackinsdn/dashboard"
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "Hórus-CDS: O Olho Digital na Segurança das Smart Grids",
+      "track": null,
+      "link": "https://github.com/wesleiferreira98/Horus-CDS.git"
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "Inteligência de Ameaças Cibernéticas para Melhoria na Detecção e Resposta a Incidentes",
+      "track": null,
+      "link": "https://zenodo.org/records/14885398"
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "Lab Cyber Academy: Um Cyber Range para Treinamento em Segurança da Informação Utilizando AWS e IaC",
+      "track": null,
+      "link": "https://github.com/vitorreiel/lab-cyber-academy.git"
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Mininet-GUI: Uma Abordagem Visual e Interativa para Experimentação em Redes SDN",
+      "track": null,
+      "link": "https://github.com/latarc/mininet-gui"
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": true
+      },
+      "title": "Mininet-WPAN: Enabling WPAN and IoT Emulations with 802.15.4 Support",
+      "track": null,
+      "link": "https://github.com/ramonfontes/mn-wpan"
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "NFV-Prime: Uma Ferramenta para Prototipação e Visualização de Funções Virtualizadas de Rede",
+      "track": null,
+      "link": "https://github.com/fequiles/NFV-Prime"
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "Sensor de Software Robusto para Identificar Pessoas em uma Cena de Vídeo",
+      "track": null,
+      "link": "https://gitlab.com/LCC/deploy-detector-pessoas"
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "THexCAD: Uma Plataforma de Prototipagem e Simulação de Cobertura para Área com Múltiplos Drones",
+      "track": null,
+      "link": "https://gitlab.com/maxwellfdasilva/THEXCAD_APP"
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": true
+      },
+      "title": "TrueState-SNA: Uma Solução Baseada em SSoT para Automação de Redes Heterogêneas",
+      "track": null,
+      "link": "https://github.com/net2d-community/net2d"
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "UNetyEmu: Unity-based simulator for aerial and non-aerial vehicles with integrated network emulation",
+      "track": null,
+      "link": "https://github.com/intrig-unicamp/UNetyEmu"
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "VulnSyncAI: PLN e LLMs para Construção e Atualização Contínua de Datasets de Vulnerabilidades",
+      "track": null,
+      "link": "https://github.com/datasets-community/VulnSyncAI"
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": false
+      },
+      "title": "ns3-oran-customizable-db: Uma Ferramenta para Construção de Base de Dados Personalizável para Simulações Open RAN",
+      "track": null,
+      "link": "https://github.com/felip-t/ns3-oran"
+    }
+  ]
+}

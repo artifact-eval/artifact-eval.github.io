@@ -1,0 +1,67 @@
+---
+import Base from '../../../layouts/Base.astro';
+import EventCard from '../../../components/EventCard.astro';
+import { events } from '../../../data/events';
+import { useTranslations, langOrder, type Lang } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+  return langOrder.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+---
+
+<Base lang={lang} title={t('nav.events')} description={t('events.lead')}>
+  <section class="head">
+    <div class="container">
+      <span class="pill">{t('site.tagline')}</span>
+      <h1>{t('nav.events')}</h1>
+      <p class="lead">{t('events.lead')}</p>
+    </div>
+  </section>
+
+  <section class="container body">
+    <div class="events">
+      {events.map((event) => <EventCard event={event} lang={lang} />)}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .head {
+    background: var(--hero-bg);
+    padding-block: clamp(36px, 6vw, 52px);
+  }
+  .pill {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: var(--r-pill);
+    padding: 6px 14px;
+  }
+  .head h1 {
+    font-size: clamp(30px, 5vw, 40px);
+    margin: 16px 0 0;
+  }
+  .lead {
+    color: var(--muted);
+    max-width: 60ch;
+    margin: 12px 0 0;
+  }
+  .body {
+    padding-block: clamp(32px, 5vw, 44px);
+  }
+  .events {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 720px) {
+    .events {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,27 @@
+{
+  "slug": "sbseg-2026",
+  "legacyDir": "sbseg2026",
+  "committee": [
+    {
+      "group": "Coordenadores do CTA",
+      "members": [
+        "Tiago Heinrich (UFPR/MPI)",
+        "Roben Castagna Lunardi (IFRS)",
+        "Lourenco Alves Pereira Jr (ITA)"
+      ]
+    },
+    {
+      "group": "Comitê Técnico de Artefatos (CTA)",
+      "members": [
+        "TBD"
+      ]
+    },
+    {
+      "group": "Melhores Revisores do CTA",
+      "members": [
+        "TBD"
+      ]
+    }
+  ],
+  "results": []
+}

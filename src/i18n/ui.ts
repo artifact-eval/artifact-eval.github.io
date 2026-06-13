@@ -1,0 +1,150 @@
+export const languages = {
+  pt: 'Português',
+  en: 'English',
+  es: 'Español',
+} as const;
+
+export type Lang = keyof typeof languages;
+export const defaultLang: Lang = 'pt';
+
+// UI strings shared across pages. Page/edition *content* lives in the content
+// collections; this is only chrome (nav, labels, recurring section titles).
+export const ui = {
+  pt: {
+    'site.title': 'Comitê Técnico de Artefatos',
+    'site.short': 'CTA',
+    'site.tagline': 'Avaliação de Artefatos · SBC',
+    'nav.events': 'Eventos',
+    'nav.instructions': 'Instruções',
+    'nav.seals': 'Selos',
+    'nav.faq': 'Dúvidas',
+    'home.hero.title': 'Pesquisa que outros podem reproduzir.',
+    'home.hero.lead':
+      'Reconhecemos artigos que disponibilizam software, dados e documentação para que a comunidade possa expandir, utilizar e reproduzir seus resultados. Quatro selos de qualidade, processo inspirado em SIGCOMM, USENIX e EuroSys.',
+    'home.events.title': 'Eventos & Edições',
+    'home.callout.title': 'Instruções',
+    'home.callout.body':
+      'submissão, revisão e exemplos de README, versionados e usados por todas as edições do ano.',
+    'home.callout.cta': 'Ler instruções',
+    'seals.title': 'Selos de qualidade',
+    'seals.lead':
+      'Cada artefato pode receber até quatro selos, atribuídos de forma independente pelo comitê de revisão conforme os requisitos atendidos.',
+    'seals.req': 'Requisitos',
+    'seal.D': 'Disponível',
+    'seal.F': 'Funcional',
+    'seal.S': 'Sustentável',
+    'seal.R': 'Reprodutível',
+    'events.lead': 'Eventos e edições com avaliação de artefatos pelo CTA.',
+    'events.editions': 'Edições',
+    'nav.call': 'Chamada',
+    'nav.committee': 'Comitê',
+    'nav.results': 'Resultados',
+    'nav.contact': 'Contato',
+    'edition.current': 'Edição atual',
+    'edition.intro':
+      'O {event} conta com um Comitê Técnico de Artefatos (CTA) para avaliar os artefatos dos artigos aceitos. Os artefatos incluem software, dados, documentação complementar, resultados brutos, provas de conceito, modelos, benchmarks, etc. O artefato é um recurso essencial para a pesquisa, e sua qualidade é tão importante quanto a do próprio artigo. Cada artefato é avaliado por um comitê específico, que pode atribuir até quatro selos. O processo tem como base o de conferências renomadas como SIGCOMM, USENIX, CoNEXT e EuroSys.',
+    'edition.call':
+      'Autores com artigos aceitos no {event} são incentivados a submeter seus artefatos para avaliação pelo Comitê Técnico de Artefatos (CTA). Um artefato pode ser software, dados, documentação, resultados brutos, provas, modelos, benchmarks, etc. Quatro selos de qualidade podem ser considerados. Antes de submeter, verifique os requisitos de cada selo. Em caso de dúvida, entre em contato.',
+    'edition.contact.lead': 'Dúvidas sobre a avaliação de artefatos? Fale com o comitê.',
+    'edition.seeInstructions': 'Instruções {year}',
+    'committee.tbd': 'A definir.',
+    'results.intro': 'Trabalhos com selos atribuídos.',
+    'results.tbd': 'Resultados a definir.',
+    'results.col.work': 'Trabalho',
+    'results.col.track': 'Trilha',
+    'results.col.link': 'Artefato',
+    'lang.label': 'Idioma',
+  },
+  en: {
+    'site.title': 'Artifact Technical Committee',
+    'site.short': 'CTA',
+    'site.tagline': 'Artifact Evaluation · SBC',
+    'nav.events': 'Events',
+    'nav.instructions': 'Instructions',
+    'nav.seals': 'Badges',
+    'nav.faq': 'FAQ',
+    'home.hero.title': 'Research others can reproduce.',
+    'home.hero.lead':
+      'We recognize papers that release software, data, and documentation so the community can extend, use, and reproduce their results. Four quality badges, a process inspired by SIGCOMM, USENIX, and EuroSys.',
+    'home.events.title': 'Events & Editions',
+    'home.callout.title': 'Instructions',
+    'home.callout.body':
+      'submission, review, and README examples — versioned and used by every edition of the year.',
+    'home.callout.cta': 'Read instructions',
+    'seals.title': 'Quality badges',
+    'seals.lead':
+      'Each artifact can earn up to four badges, assigned independently by the review committee according to the requirements met.',
+    'seals.req': 'Requirements',
+    'seal.D': 'Available',
+    'seal.F': 'Functional',
+    'seal.S': 'Sustainable',
+    'seal.R': 'Reproducible',
+    'events.lead': 'Events and editions with artifact evaluation by the CTA.',
+    'events.editions': 'Editions',
+    'nav.call': 'Call',
+    'nav.committee': 'Committee',
+    'nav.results': 'Results',
+    'nav.contact': 'Contact',
+    'edition.current': 'Current edition',
+    'edition.intro':
+      '{event} features an Artifact Technical Committee (CTA) to evaluate the artifacts of accepted papers. Artifacts include software, data, supplementary documentation, raw results, proofs of concept, models, benchmarks, etc. The artifact is an essential research resource, and its quality is as important as the paper itself. Each artifact is evaluated by a dedicated committee that can award up to four badges. The process is based on that of renowned conferences such as SIGCOMM, USENIX, CoNEXT, and EuroSys.',
+    'edition.call':
+      'Authors with papers accepted at {event} are encouraged to submit their artifacts for evaluation by the Artifact Technical Committee (CTA). An artifact can be software, data, documentation, raw results, proofs, models, benchmarks, etc. Four quality badges can be considered. Before submitting, check the requirements for each badge. If in doubt, get in touch.',
+    'edition.contact.lead': 'Questions about artifact evaluation? Reach the committee.',
+    'edition.seeInstructions': 'Instructions {year}',
+    'committee.tbd': 'To be announced.',
+    'results.intro': 'Works with awarded badges.',
+    'results.tbd': 'Results to be announced.',
+    'results.col.work': 'Work',
+    'results.col.track': 'Track',
+    'results.col.link': 'Artifact',
+    'lang.label': 'Language',
+  },
+  es: {
+    'site.title': 'Comité Técnico de Artefactos',
+    'site.short': 'CTA',
+    'site.tagline': 'Evaluación de Artefactos · SBC',
+    'nav.events': 'Eventos',
+    'nav.instructions': 'Instrucciones',
+    'nav.seals': 'Sellos',
+    'nav.faq': 'Dudas',
+    'home.hero.title': 'Investigación que otros pueden reproducir.',
+    'home.hero.lead':
+      'Reconocemos artículos que publican software, datos y documentación para que la comunidad pueda ampliar, utilizar y reproducir sus resultados. Cuatro sellos de calidad, proceso inspirado en SIGCOMM, USENIX y EuroSys.',
+    'home.events.title': 'Eventos y Ediciones',
+    'home.callout.title': 'Instrucciones',
+    'home.callout.body':
+      'envío, revisión y ejemplos de README, versionados y usados por todas las ediciones del año.',
+    'home.callout.cta': 'Leer instrucciones',
+    'seals.title': 'Sellos de calidad',
+    'seals.lead':
+      'Cada artefacto puede recibir hasta cuatro sellos, asignados de forma independiente por el comité de revisión según los requisitos cumplidos.',
+    'seals.req': 'Requisitos',
+    'seal.D': 'Disponible',
+    'seal.F': 'Funcional',
+    'seal.S': 'Sostenible',
+    'seal.R': 'Reproducible',
+    'events.lead': 'Eventos y ediciones con evaluación de artefactos por el CTA.',
+    'events.editions': 'Ediciones',
+    'nav.call': 'Convocatoria',
+    'nav.committee': 'Comité',
+    'nav.results': 'Resultados',
+    'nav.contact': 'Contacto',
+    'edition.current': 'Edición actual',
+    'edition.intro':
+      '{event} cuenta con un Comité Técnico de Artefactos (CTA) para evaluar los artefactos de los artículos aceptados. Los artefactos incluyen software, datos, documentación complementaria, resultados brutos, pruebas de concepto, modelos, benchmarks, etc. El artefacto es un recurso esencial para la investigación, y su calidad es tan importante como la del propio artículo. Cada artefacto es evaluado por un comité específico que puede asignar hasta cuatro sellos. El proceso se basa en el de conferencias reconocidas como SIGCOMM, USENIX, CoNEXT y EuroSys.',
+    'edition.call':
+      'Se anima a los autores con artículos aceptados en {event} a enviar sus artefactos para evaluación por el Comité Técnico de Artefactos (CTA). Un artefacto puede ser software, datos, documentación, resultados brutos, pruebas, modelos, benchmarks, etc. Se pueden considerar cuatro sellos de calidad. Antes de enviar, verifique los requisitos de cada sello. Si tiene dudas, contáctenos.',
+    'edition.contact.lead': '¿Preguntas sobre la evaluación de artefactos? Contacte al comité.',
+    'edition.seeInstructions': 'Instrucciones {year}',
+    'committee.tbd': 'Por definir.',
+    'results.intro': 'Trabajos con sellos asignados.',
+    'results.tbd': 'Resultados por definir.',
+    'results.col.work': 'Trabajo',
+    'results.col.track': 'Track',
+    'results.col.link': 'Artefacto',
+    'lang.label': 'Idioma',
+  },
+} as const;
+
+export type UIKey = keyof (typeof ui)['pt'];

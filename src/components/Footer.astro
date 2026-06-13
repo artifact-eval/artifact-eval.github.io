@@ -1,0 +1,65 @@
+---
+import { useTranslations, localizePath, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer id="footer" class="footer">
+  <div class="container foot">
+    <div>
+      <strong>{t('site.title')}</strong>
+      <span class="tag">{t('site.tagline')}</span>
+    </div>
+    <nav class="footlinks" aria-label={t('site.title')}>
+      <a href={localizePath(lang, 'eventos')}>{t('nav.events')}</a>
+      <a href={localizePath(lang, 'instrucoes')}>{t('nav.instructions')}</a>
+      <a href={localizePath(lang, 'selos')}>{t('nav.seals')}</a>
+      <a href="https://github.com/artifact-eval/artifact-eval.github.io" target="_blank" rel="noopener">
+        GitHub
+      </a>
+    </nav>
+    <small class="copy">© {year} SBC · CTA</small>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    margin-top: 64px;
+  }
+  .foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 28px;
+    padding-block: 28px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .foot strong {
+    color: var(--ink);
+  }
+  .tag {
+    display: block;
+    font-size: 12px;
+    color: var(--muted-2);
+  }
+  .footlinks {
+    display: flex;
+    gap: 20px;
+    margin-left: auto;
+  }
+  .footlinks a {
+    color: var(--muted);
+  }
+  .copy {
+    color: var(--muted-2);
+    width: 100%;
+  }
+</style>

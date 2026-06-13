@@ -1,0 +1,6 @@
+design-mockups/
+.superpowers/
+.remember/
+node_modules/
+dist/
+.astro/

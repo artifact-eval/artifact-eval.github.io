@@ -1,0 +1,47 @@
+---
+import { langOrder, switchLangPath, useTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<nav class="lang" aria-label={t('lang.label')}>
+  {
+    langOrder.map((code) => (
+      <a
+        href={switchLangPath(Astro.url, code)}
+        class:list={['lang__item', { on: code === lang }]}
+        hreflang={code}
+        aria-current={code === lang ? 'true' : undefined}
+      >
+        {code.toUpperCase()}
+      </a>
+    ))
+  }
+</nav>
+
+<style>
+  .lang {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .lang__item {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted-2);
+    padding: 4px 6px;
+    border-radius: var(--r-sm);
+    text-decoration: none;
+  }
+  .lang__item:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .lang__item.on {
+    color: var(--accent);
+  }
+</style>

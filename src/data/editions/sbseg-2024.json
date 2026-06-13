@@ -1,0 +1,69 @@
+{
+  "slug": "sbseg-2024",
+  "legacyDir": "sbseg2024",
+  "committee": [
+    {
+      "group": "Coordenadores do CTA",
+      "members": [
+        "Tiago Heinrich (UFPR/MPI)",
+        "Diego Kreutz (UNIPAMPA)"
+      ]
+    },
+    {
+      "group": "Comitê Técnico de Artefatos (CTA)",
+      "members": [
+        "Aline de Lurdes Zuliani Lunkes, PUCPR",
+        "Amanda Viescinski, UFPR",
+        "Anderson Aparecido do Carmo Frasão, UFPA",
+        "Anderson Bergamini de Neira, UFPR",
+        "Andre Leon Sampaio Gradvohl, Unicamp",
+        "Angelo Gaspar Diniz Nogueira, UNIPAMPA",
+        "Anselmo Lacerda Gomes, Instituto Atlântico",
+        "Antonio João Gonçalves de Azambuja, UFRGS",
+        "Augusto Parisot de Gusmão Neto, UFF",
+        "Bruno Albertini, USP",
+        "Diego Kreutz, UNIPAMPA",
+        "Eduardo Feitosa, UFAM",
+        "Eduardo Kugler Viegas, PUCPR",
+        "Eduardo Takeo Ueda, IPT",
+        "Felipe José Aguiar Rampazzo, Unicamp",
+        "Françoa Taffarel, Marinha do Brasil",
+        "Galileu Batista de Sousa, IFRN / Polícia Federal",
+        "Hugo Pereira Kuribayashi, UFPA",
+        "Ioram Schechtman Sette, CESAR",
+        "Jeandro de Mesquita Bezerra, UFC Quixadá/UFMG",
+        "Jéferson Campos Nobre, UFRGS",
+        "João Gondim, UnB",
+        "Joner Melo Assolin, UFAM",
+        "Jorge Pires Correia, UFPR",
+        "Kalinka Castelo Branco, ICMC/USP",
+        "Kamilla Dória da Silveira, UNIT",
+        "Leandro Bertholdo, UFRGS",
+        "Leonardo Toshinobu Kimura, USP",
+        "Lucas Airam Castro de Souza, UFRJ",
+        "Marcio Barbado Junior, YDUQS Estácio",
+        "Marco Antonio Torrez Rojas, IFC",
+        "Mateus Tymburibá, CEFET-MG",
+        "Natascha Sander de Abreu, GGF Agro",
+        "Roben Castagna Lunardi, IFRS",
+        "Rodrigo Brandão Mansilha, UNIPAMPA",
+        "Rodrigo Carneiro Munhoz Coimbra, TSE",
+        "Sidnei Barbieri, ITA",
+        "Thiago Guimarães Tavares, IFTO",
+        "Tiago Heinrich, UFPR/MPI",
+        "Vanderson da Silva Rocha, UFAM",
+        "Vitor Satoru Machi Matsumine, Unicamp / SiDi",
+        "William Akihiro Alves Aisawa, USP",
+        "Aline de Lurdes Zuliani Lunkes (PUCPR)",
+        "Anselmo Lacerda Gomes (Instituto Atlântico)",
+        "Antonio João Azambuja (UFRGS)",
+        "Diego Kreutz (UNIPAMPA)",
+        "Eder John Scheid (UFRGS) - externo",
+        "Leandro Bertholdo (UFRGS)",
+        "Ramon dos Reis Fontes(UFRN) - externo",
+        "Tiago Heinrich (UFPR/MPI)"
+      ]
+    }
+  ],
+  "results": []
+}

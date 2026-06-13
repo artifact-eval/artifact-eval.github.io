@@ -1,0 +1,42 @@
+/* Design tokens — Direction B "Moderno" (selected mockup).
+   Sans-serif (IBM Plex Sans) body, Space Grotesk display, blue→purple gradient. */
+:root {
+  /* Type */
+  --font-body: 'IBM Plex Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-display: 'Space Grotesk', var(--font-body);
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Brand palette */
+  --ink: #0d1b3e;          /* deep navy — headings */
+  --ink-2: #1a2233;        /* body text on light */
+  --muted: #5b6678;        /* secondary text */
+  --muted-2: #8d99ad;      /* tertiary text */
+  --line: #eef1f6;         /* hairline borders */
+  --line-2: #e3e8f0;
+  --surface: #ffffff;
+  --surface-2: #f7f9fc;    /* page background */
+  --surface-3: #f0f3fa;    /* chips, subtle fills */
+  --accent: #4f7cff;       /* primary blue */
+  --accent-2: #8a4fff;     /* purple */
+  --accent-soft: #e7eeff;  /* tinted blue bg */
+  --gradient: linear-gradient(135deg, var(--accent), var(--accent-2));
+  --hero-bg: radial-gradient(120% 140% at 80% -10%, #eaf0ff 0%, var(--surface-2) 55%);
+
+  /* Seal colors */
+  --seal-d: #16a571;       /* Disponível / Available */
+  --seal-f: #3b82f6;       /* Funcional / Functional */
+  --seal-s: #f59e0b;       /* Sustentável / Sustainable */
+  --seal-r: #ec4899;       /* Reprodutível / Reproducible */
+
+  /* Radius & shadow */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-pill: 999px;
+  --shadow-card: 0 10px 30px -22px rgba(13, 27, 62, 0.5);
+  --shadow-pop: 0 8px 18px -6px rgba(79, 124, 255, 0.5);
+
+  /* Layout */
+  --maxw: 1080px;
+  --pad-x: clamp(20px, 5vw, 44px);
+}

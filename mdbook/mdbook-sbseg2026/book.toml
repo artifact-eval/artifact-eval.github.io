@@ -1,0 +1,10 @@
+[book]
+authors = ["h31nr1ch and kreutz"]
+language = "pt"
+multilingual = false
+src = "src"
+title = "Avaliação de Artefato"
+
+[output.html]
+no-section-label = true
+default-theme = "light"

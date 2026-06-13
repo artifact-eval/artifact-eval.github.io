@@ -1,0 +1,18 @@
+---
+// Domain root → redirect to the default language. Static-friendly meta refresh
+// (works on GitHub Pages without server config) plus a manual link fallback.
+const target = '/pt/';
+---
+
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <title>Comitê Técnico de Artefatos</title>
+  </head>
+  <body>
+    <p>Redirecionando para <a href={target}>{target}</a>…</p>
+  </body>
+</html>

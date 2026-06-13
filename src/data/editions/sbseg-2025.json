@@ -1,0 +1,503 @@
+{
+  "slug": "sbseg-2025",
+  "legacyDir": "sbseg2025",
+  "committee": [
+    {
+      "group": "Coordenadores do CTA",
+      "members": [
+        "Tiago Heinrich (UFPR/MPI)",
+        "Roben Castagna Lunardi (IFRS)",
+        "Lourenco Alves Pereira Jr (ITA)"
+      ]
+    },
+    {
+      "group": "Tutores",
+      "members": [
+        "Anderson Frasão (UFPR)",
+        "Cristian Souza (IME/USP e Kaspersky Lab)",
+        "Diego Kreutz (UNIPAMPA)"
+      ]
+    },
+    {
+      "group": "Comitê Técnico de Artefatos (CTA)",
+      "members": [
+        "Alex Sandre Pinheiro Severo (UNIPAMPA)",
+        "Aline de Lurdes Zuliani Lunkes (PUCPR)",
+        "Alvaro Ernesto Robles Rincon (MAG Seguros)",
+        "Amanda Viescinski (UFPR)",
+        "Anderson Frasão (UFPR)",
+        "Anderson Bergamini de Neira (UFPR)",
+        "Antonio João Gonçalves de Azambuja (UFRGS)",
+        "Claudio Torres Junior (UFPR)",
+        "Cristian Souza (IME/USP e Kaspersky Lab)",
+        "Davi Daniel Gemmer (RNP)",
+        "David Arantes Pereira (Fortinet Network Security)",
+        "Davidson Boccardo (Hospital Albert Einstein)",
+        "Diego Kreutz (UNIPAMPA)",
+        "Diego Nunes Molinos (UFU)",
+        "Douglas Lautert (UNIPAMPA)",
+        "Douglas Rodrigues Fideles (UNIPAMPA)",
+        "Edllyn de Jesus Silva (USP)",
+        "Edvar Afonso Luciano Filho (PETROBRAS)",
+        "Emanuel de Franceschi Vieira (UFSM)",
+        "Felipe H. Scherer (UNIPAMPA)",
+        "Felipe Nestor Dresch (UNIPAMPA)",
+        "Fêlipe Rosário de Araújo (UFBA)",
+        "Fiterlinge Martins de Sousa (RNP)",
+        "Flavio Luiz dos Santos de Souza (IFSP / ITA)",
+        "Françoa Taffarel Rosário Corrêa (ITA)",
+        "Galileu Batista de Sousa (IFRN)",
+        "Gefte Alcantara de Almeida (UNIPAMPA)",
+        "Guilherme Dall'Agnol Deconto (PUCRS)",
+        "Guilherme Diel (UDESC)",
+        "Helio Nascimento Cunha Neto (UERJ)",
+        "José Roberto Vieira Junior (UNICAMP)",
+        "Joyce Quintino Alves (Fundação Cearense de Pesquisa e Cultura)",
+        "Juan Marcelo Dell'Oso (IFAM)",
+        "Laerte Peotta de Melo (UnB)",
+        "Lara Camilly da Silva (Inmetro)",
+        "Laura Negreiros Naves (UNICAMP)",
+        "Leonardo Barbosa da Rosa (PUCRS)",
+        "Leonardo Toshinobu Kimura (USP)",
+        "Lucas Cupertino Cardoso (USP)",
+        "Lucas Ferreira Areias de Oliveira (UNIPAMPA)",
+        "Malkai Santos Pereira Oliveira (Inmetro)",
+        "Matheus Vilarim Pereira dos Santos (Cesar - CISSA)",
+        "Muriel Figueredo Franco (UFCSPA)",
+        "Paulo Eduardo Silva dos Santos (Inmetro)",
+        "Paulo Sérgio de Souza Leite de Assumpção (UFRJ)",
+        "Rafael Santa Rosa Alves (UNICAMP)",
+        "Sidnei Barbieri (Carnegie Mellon University - CMU)",
+        "Stephanie Tygna (Inmetro)",
+        "Thiago Guimarães Tavares (IFTO)",
+        "William Akihiro Alves Aisawa (ICMC - USP)"
+      ]
+    },
+    {
+      "group": "Selo Design",
+      "members": [
+        "Manoela Resende (UNIPAMPA)"
+      ]
+    }
+  ],
+  "results": [
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Uma Ferramenta de Seleção de Features Baseada na Metaheurística GRASP com Fila de Prioridades para Sistemas de Detecção de Intrusão",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Foremost-NG: An Open-Source Toolkit for Advanced File Carving and Analysis",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Mecanismos de Transparência e Auditoria de Blockchains Permissionadas",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "MiniMoni: Combining HLS with Payword",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "Proteção em hardware com Security Protocol and Data Model",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Contradef: Uma Ferramenta de Instrumentação Binária Dinâmica para Análise de Malware Evasivo",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "NuAppFirewall: An Open-Source macOS Application Firewall for Corporate Security",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "Testbed para Proxies de Gestão de Identidades: Uma Análise Prática do Shibboleth, SimpleSAMLphp e SATOSA",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "MalDataGen: A Modular Framework for Synthetic Tabular Data Generation in Malware Detection",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Building a Labeled Smart Contract Dataset for Evaluating Vulnerability Detection Tools’ Effectiveness",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "P4NIPS: P4 Network Intrusion Prevention System",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "IMPACTO: Plataforma de Capacitação em Cibersegurança Baseada em Simulação de Aspectos Econômicos de Ciberataques",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "Revisão Multifocal sobre ferramentas de teste e estratégias de segurança de APIs em microsserviços",
+      "track": "WTICG",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": false
+      },
+      "title": "Avaliação Comparativa do Desempenho de Inteligências Artificiais Generativas e Ferramentas Tradicionais na Análise de Código-Fonte JavaScript",
+      "track": "WTICG",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "Uma Abordagem Baseada em Big Data para Detecção de Intrusões com Aprendizado de Máquina sobre Dados de Múltiplos Domínios",
+      "track": "WTICG",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "Scalable Batch Verification for Post-Quantum Hash-Based Signatures Using STARKs",
+      "track": "WTICG",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": false
+      },
+      "title": "Classificação de Malwares Android com Análise Dinâmica Segmentada e Estratégia Multivisualização",
+      "track": "WTICG",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Cordeiro em Pele de Lobo: Desvelando a Negação de Serviço Baseada em Envenenamento de Reputação",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "Mitigando Técnicas de Anti-Instrumentação em DBI: Contramedidas baseadas em Overhead e Transparência",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "Analysis of insecure configurations in Chrome Web Store extensions: Impact on user security and privacy",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Regressão da eficácia de analisadores de vulnerabilidades em contratos inteligentes de blockchains",
+      "track": "WTICG",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "MIRAK: Um Artefato para Robustecimento do Ambiente Relying Party RPKI",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "TOFL: Time Optimized Federated Learning",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Introducing two ROS attack variants: breaking one-more unforgeability of BZ blind signatures",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Guardrail: Uma Abordagem Modular para Sistemas de Segurança em Inteligência Artificial Generativa",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Uma Nova Abordagem para Detecção de Cabeçalhos SMTP Falsos usando Aprendizado Profundo e Geração de Dados Sintéticos",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Data traffic interruption detection and mitigation framework for RPL-based WSNs",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Phishing Guardian: Detecção de sites de phishing com Machine Learning",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "How does reducing the dimension of feature vectors impact Biometric Systems that use Homomorphic Encryption?",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Filo-Transformer: Um modelo baseado em Grafo de Alinhamento de Árvores Filogenéticas e Transformers para Identificação de Rumores e Fake News",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": false
+      },
+      "title": "Anonimização de Incidentes de Segurança com Reidentificação Controlada",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Detecção de Botnets em Dispositivos IoT Utilizando Análise de Consultas DNS com One-class SVM",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Gerenciamento Integrado e Adaptativo de Firewalls baseado na Fonte Única de Verdade (SSoT) da Rede",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Avaliação da Privacidade Diferencial Aplicada ao Aprendizado Federado Através de Ataques de Inversão de Modelo",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Avaliação do NeMo Guardrails como um Firewall para a Interação Usuário-LLM",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Simplificação da análise forense de logs utilizando Grandes Modelos de Linguagem com a técnica RAG",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": false
+      },
+      "title": "MicroSec Traffic: Utilizando Estratégias de Engenharia de Tráfego para Aprimoramento da Eficiência de Sistemas de Detecção de Intrusão",
+      "track": "TP",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": false
+      },
+      "title": "Simplificando a adoção de ZTA com Motor de Políticas e Decisões Baseadas em Logs",
+      "track": "TP",
+      "link": null
+    }
+  ]
+}

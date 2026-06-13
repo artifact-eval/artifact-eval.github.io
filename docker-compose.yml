@@ -1,0 +1,20 @@
+services:
+  web:
+    image: node:20-alpine
+    working_dir: /app
+    command: sh -c "npm install && npm run dev"
+    ports:
+      - "4321:4321"
+    volumes:
+      # Bind-mount the repo for hot-reload...
+      - ./:/app
+      # ...but keep node_modules inside the VM (Linux/arm64 native binaries,
+      # and it stays off the macOS bind-mount for speed + cleanliness).
+      - cta_node_modules:/app/node_modules
+    environment:
+      - ASTRO_TELEMETRY_DISABLED=1
+      # Polling makes file-watch reliable across the macOS→VM mount boundary.
+      - CHOKIDAR_USEPOLLING=true
+
+volumes:
+  cta_node_modules:

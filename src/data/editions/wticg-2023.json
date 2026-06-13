@@ -1,0 +1,205 @@
+{
+  "slug": "wticg-2023",
+  "legacyDir": "wticg2023",
+  "committee": [
+    {
+      "group": "Coordenadores do CTA e CTAA",
+      "members": [
+        "Diego Kreutz (UNIPAMPA)",
+        "Lourenço Alves Pereira (ITA)",
+        "Tiago Heinrich (UFPR)"
+      ]
+    },
+    {
+      "group": "Comitê Técnico de Artefatos (CTA)",
+      "members": [
+        "Diego Kreutz, UNIPAMPA",
+        "Dionisio Leite, Universidade Federal de Mato Grosso do Sul",
+        "Gerson Castro, Tempest Security Intelligence",
+        "Hendrio Luis de Souza Bragança, UFAM",
+        "Henrique Arcover, Tempest Security Intelligence",
+        "Jéferson Campos Nobre, UFRGS",
+        "João Gondim, UnB",
+        "Lourenço A Pereira, ITA",
+        "Paulo Freitas, Universidade Federal de Pernambuco",
+        "Paulo Matias, Universidade Federal de São Carlos",
+        "Ramon dos Reis Fontes, UFRN",
+        "Roben Lunardi, Federal Institute of Rio Grande do Sul (IFRS)",
+        "Rodrigo Mansilha, Federal University of Pampa",
+        "Silvio E. Quincozes, Universidade Federal de Uberlândia",
+        "Tiago Heinrich, UFPR",
+        "Vinícius Vielmo Cogo, University of Lisbon"
+      ]
+    },
+    {
+      "group": "Comitê Técnico Auxiliar de Artefatos (CTAA)",
+      "members": [
+        "Arthur Albuquerque Zopellaro Soares, UFF",
+        "Caio Marcos Chaves Viana, ITA",
+        "Cleber Kiel Olivo, PUCPR/SERPRO",
+        "Frank Castilio Pinheiro de Alencar, UFMS",
+        "Gabriel Cardoso de Carvalho, UFF",
+        "Gustavo Cardozo Rodrigues, CondoConta",
+        "Hélio do Nascimento Cunha Neto, UFF",
+        "Jhonatan Geremias, PUCPR",
+        "Joner Mello Assolin, UFAM",
+        "Jorge Pires Correia, UFPR",
+        "Kayuã Oleques Paim, UNIPAMPA",
+        "Lucas Alves dos Santos, UFMS",
+        "Rafael Gomes Moreira, ITA",
+        "Rafael Oliveira da Rocha, ITA",
+        "Robin Vassantlal, University of Lisbon",
+        "Roger Robson dos Santos, PUCPR/VIVO",
+        "Vanderson da Silva Rocha, UFAM",
+        "Jorge Pires Correia (UFPR)",
+        "Gustavo Cardozo Rodrigues (CondoConta)",
+        "Rafael Gomes Moreira (ITA)"
+      ]
+    }
+  ],
+  "results": [
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Fuzzing para o Protocolo TLS: Estado da Arte e Comparação de Fuzzers Existentes",
+      "track": "Trabalho em Andamento (até 6 páginas)",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Segurança em Internet das Coisas: Uma Análise de Comportamento de Rede sob Ataque",
+      "track": "Trabalho Completo (até 12 páginas)",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": true
+      },
+      "title": "Detecção de ataques de phishing em tempo real utilizando algoritmos de aprendizado de máquina",
+      "track": "Trabalho Completo (até 12 páginas)",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "Análise comparativa da eficiência de mecanismos de consenso Proof-of-Stake com e sem comitês de validação",
+      "track": "Trabalho em Andamento (até 6 páginas)",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "Framework de autenticação web via reconhecimento facial",
+      "track": "Trabalho Completo (até 12 páginas)",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "Análise de dados administrativos de e-commerce: Uma abordagem focada no cliente",
+      "track": "Trabalho em Andamento (até 6 páginas)",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "Analysis of Committeeless Proof-of-Stake protocol: Searching for a better point of operation",
+      "track": "Trabalho em Andamento (até 6 páginas)",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "BOU-Guard: Uma Abordagem para Detecção de Conteúdo Impróprio na Internet",
+      "track": "Trabalho em Andamento (até 6 páginas)",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "Detecção de Ataques DDoS em Redes SDN Utilizando Aprendizado de Máquina: Uma Abordagem em Microsserviços",
+      "track": "Trabalho Completo (até 12 páginas)",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "Filtragem de Pacotes na Borda da Rede: uma Análise Comparativa com Foco no Consumo de Energia",
+      "track": "Trabalho Completo (até 12 páginas)",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "Instrumentação de programas binários legados para compatibilização com Intel CET",
+      "track": "Trabalho Completo (até 12 páginas)",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "iOSDBuilder: Uma Ferramenta de Construção de Datasets para Detecção de Malwares iOS",
+      "track": "Trabalho Completo (até 12 páginas)",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "Uma análise de desempenho de funções de encriptação nativas de SGDBs Open Source",
+      "track": "Trabalho Completo (até 12 páginas)",
+      "link": null
+    }
+  ]
+}

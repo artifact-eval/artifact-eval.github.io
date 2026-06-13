@@ -1,0 +1,126 @@
+---
+import Base from './Base.astro';
+import { localizePath, useTranslations, type Lang } from '../i18n/utils';
+import { editionTitle, type ResolvedEdition } from '../data/editions';
+
+interface Props {
+  lang: Lang;
+  r: ResolvedEdition;
+  active: 'overview' | 'chamadas' | 'comite' | 'resultados' | 'contato';
+  title?: string;
+}
+const { lang, r, active, title } = Astro.props;
+const t = useTranslations(lang);
+const heading = editionTitle(r);
+const slug = r.edition.slug;
+const year = r.edition.year;
+
+const tabs = [
+  { id: 'overview', label: t('nav.events'), href: localizePath(lang, slug) },
+  { id: 'chamadas', label: t('nav.call'), href: localizePath(lang, slug, 'chamadas') },
+  { id: 'comite', label: t('nav.committee'), href: localizePath(lang, slug, 'comite') },
+  { id: 'resultados', label: t('nav.results'), href: localizePath(lang, slug, 'resultados') },
+  { id: 'contato', label: t('nav.contact'), href: localizePath(lang, slug, 'contato') },
+] as const;
+---
+
+<Base lang={lang} title={title ?? heading}>
+  <header class="ed-head">
+    <div class="container">
+      <a class="back" href={localizePath(lang, 'eventos')}>← {t('nav.events')}</a>
+      <div class="titlerow">
+        <h1>{heading}</h1>
+        {r.edition.current && <span class="cur">{t('edition.current')}</span>}
+      </div>
+      <p class="full">{r.event.name[lang]}</p>
+    </div>
+    <nav class="subnav" aria-label={heading}>
+      <div class="container subnav__inner">
+        {
+          tabs.map((tab) => (
+            <a href={tab.href} class:list={['tab', { on: tab.id === active }]} aria-current={tab.id === active ? 'page' : undefined}>
+              {tab.label}
+            </a>
+          ))
+        }
+        <a class="tab tab--ext" href={localizePath(lang, 'instrucoes', String(year))}>
+          {t('edition.seeInstructions').replace('{year}', String(year))}
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="container ed-body">
+    <slot />
+  </section>
+</Base>
+
+<style>
+  .ed-head {
+    background: var(--hero-bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .ed-head .container {
+    padding-top: clamp(28px, 5vw, 44px);
+  }
+  .back {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .titlerow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .titlerow h1 {
+    font-size: clamp(30px, 5vw, 42px);
+    margin: 0;
+  }
+  .cur {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--gradient);
+    border-radius: var(--r-pill);
+    padding: 5px 12px;
+  }
+  .full {
+    color: var(--muted);
+    margin: 8px 0 22px;
+    max-width: 60ch;
+  }
+  .subnav {
+    overflow-x: auto;
+  }
+  .subnav__inner {
+    display: flex;
+    gap: 4px;
+  }
+  .tab {
+    white-space: nowrap;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+  }
+  .tab:hover {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .tab.on {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .tab--ext {
+    margin-left: auto;
+    color: var(--accent);
+  }
+  .ed-body {
+    padding-block: clamp(28px, 5vw, 44px);
+  }
+</style>

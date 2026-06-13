@@ -1,0 +1,80 @@
+---
+import EditionLayout from '../../../layouts/EditionLayout.astro';
+import { editionStaticPaths, editionTitle, type ResolvedEdition } from '../../../data/editions';
+import { useTranslations, type Lang } from '../../../i18n/utils';
+
+export const getStaticPaths = editionStaticPaths;
+
+const { r } = Astro.props as { r: ResolvedEdition };
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const heading = editionTitle(r);
+const groups = r.data.committee;
+const isTbd = (members: string[]) => members.length === 1 && /tbd/i.test(members[0]);
+---
+
+<EditionLayout lang={lang} r={r} active="comite" title={`${t('nav.committee')} · ${heading}`}>
+  <h2>{t('nav.committee')}</h2>
+
+  {
+    groups.length === 0 ? (
+      <p class="tbd">{t('committee.tbd')}</p>
+    ) : (
+      <div class="groups">
+        {groups.map((g) => (
+          <section class="group">
+            <h3>{g.group}</h3>
+            {isTbd(g.members) ? (
+              <p class="tbd">{t('committee.tbd')}</p>
+            ) : (
+              <ul>
+                {g.members.map((m) => (
+                  <li>{m}</li>
+                ))}
+              </ul>
+            )}
+          </section>
+        ))}
+      </div>
+    )
+  }
+</EditionLayout>
+
+<style>
+  h2 {
+    font-size: 26px;
+    margin: 0 0 24px;
+  }
+  .groups {
+    display: grid;
+    gap: 32px;
+  }
+  .group h3 {
+    font-size: 18px;
+    margin: 0 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 2;
+    column-gap: 32px;
+    font-size: 15px;
+    color: var(--ink-2);
+  }
+  .group li {
+    padding: 4px 0;
+    break-inside: avoid;
+  }
+  .tbd {
+    color: var(--muted-2);
+    font-style: italic;
+  }
+  @media (max-width: 640px) {
+    .group ul {
+      columns: 1;
+    }
+  }
+</style>

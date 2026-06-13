@@ -1,0 +1,65 @@
+---
+import EditionLayout from '../../../layouts/EditionLayout.astro';
+import { editionStaticPaths, editionTitle, type ResolvedEdition } from '../../../data/editions';
+import { localizePath, useTranslations, type Lang } from '../../../i18n/utils';
+
+export const getStaticPaths = editionStaticPaths;
+
+const { r } = Astro.props as { r: ResolvedEdition };
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const heading = editionTitle(r);
+const body = t('edition.call').replace('{event}', heading);
+const year = r.edition.year;
+---
+
+<EditionLayout lang={lang} r={r} active="chamadas" title={`${t('nav.call')} · ${heading}`}>
+  <h2>{t('nav.call')}</h2>
+  <p class="lead">{body}</p>
+
+  <div class="actions">
+    <a class="btn" href={localizePath(lang, 'instrucoes', String(year))}>
+      {t('edition.seeInstructions').replace('{year}', String(year))} →
+    </a>
+    <a class="btn btn--ghost" href={localizePath(lang, 'selos')}>{t('nav.seals')}</a>
+    <a class="btn btn--ghost" href={localizePath(lang, r.edition.slug, 'contato')}>{t('nav.contact')}</a>
+  </div>
+</EditionLayout>
+
+<style>
+  h2 {
+    font-size: 26px;
+    margin: 0 0 14px;
+  }
+  .lead {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink-2);
+    max-width: 68ch;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--gradient);
+    color: #fff;
+    border-radius: var(--r-pill);
+    padding: 11px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  .btn--ghost {
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--line-2);
+  }
+  .btn:hover {
+    text-decoration: none;
+    filter: brightness(1.03);
+  }
+</style>

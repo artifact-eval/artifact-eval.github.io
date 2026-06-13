@@ -1,0 +1,75 @@
+---
+import { localizePath, type Lang } from '../i18n/utils';
+import type { CtaEvent } from '../data/events';
+
+interface Props {
+  event: CtaEvent;
+  lang: Lang;
+}
+const { event, lang } = Astro.props;
+---
+
+<article class="ev">
+  <h3 class="ev__code">{event.code}</h3>
+  <p class="ev__full">{event.name[lang]}</p>
+  <ul class="chips">
+    {
+      event.editions.map((ed) => (
+        <li>
+          <a
+            href={localizePath(lang, ed.slug)}
+            class:list={['chip', { cur: ed.current }]}
+            aria-current={ed.current ? 'true' : undefined}
+          >
+            {ed.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</article>
+
+<style>
+  .ev {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 26px;
+    box-shadow: var(--shadow-card);
+  }
+  .ev__code {
+    font-size: 24px;
+    margin: 0;
+  }
+  .ev__full {
+    font-size: 13px;
+    color: var(--muted-2);
+    margin: 6px 0 18px;
+  }
+  .chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+  .chip {
+    display: inline-block;
+    font-size: 13px;
+    border-radius: var(--r-pill);
+    padding: 7px 14px;
+    color: var(--ink-2);
+    font-weight: 600;
+    background: var(--surface-3);
+    text-decoration: none;
+  }
+  .chip:hover {
+    text-decoration: none;
+    filter: brightness(0.97);
+  }
+  .chip.cur {
+    background: var(--gradient);
+    color: #fff;
+  }
+</style>
