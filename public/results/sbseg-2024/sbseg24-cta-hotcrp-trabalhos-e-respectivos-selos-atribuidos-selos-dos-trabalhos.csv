@@ -1,0 +1,30 @@
+ID,Selos Atribuídos,ID JEMS e Título,# Reviews
+3,SeloD + SeloF + SeloS + SeloR,243402: Autenticação de Sistemas Baseados em Biometria Comportamental,5
+17,SeloD + SeloF + SeloS + SeloR,243376: IWSHAP: Uma Ferramenta para Seleção Incremental de Caracterı́sticas utilizando IWSS e SHAP,5
+18,SeloD + SeloF + SeloS + SeloR,"243363: MH-FSF: um Framework para Reprodução, Experimentação e Avaliação de Métodos de Seleção de Caracterı́sticas",3
+19,SeloD + SeloF + SeloS + SeloR,"243362: MH-AutoML: Transparência, Interpretabilidade e Desempenho na Detecção de Malware Android",4
+20,SeloD + SeloF + SeloS + SeloR,243361: SigAPI AutoCraft: uma ferramenta de seleção de caracterı́sticas com capacidade de generalização,6
+21,SeloD + SeloF + SeloS + SeloR,243359: MalSynGen: redes neurais artificiais na geração de dados tabulares sintéticos para detecção de malware,5
+12,SeloD + SeloF + SeloR ,241836: Seleção de Características Multi-objetivo para Detecção de Malwares Android PreviousNext,4/5
+22,SeloD + SeloF + SeloR ,243354: EXSS: Um Emulador Educativo de Ataques Cross-Site Scripting (Código Aberto),6/7
+8,SeloD + SeloF + SeloR ,243355: Identificação de Ataques de Phishing através de Machine Learning PreviousNext,4/6
+28,SeloD + SeloF + SeloS,242014: Web xKaliBurr: uma Plataforma Online para Levantamento de Informações em Pentest em Aplicações na Internet,5
+29,SeloD + SeloF + SeloS,241936: Mininet-Sec: plataforma de experimentação para segurança cibernética em redes programáveis,4/6
+5,SeloD + SeloF,243388: Compact Memory Implementations of the ML-DSA Post-Quantum Digital Signature Algorithm,4/6
+9,SeloD + SeloF,243344: Melhorias no Processo de Armazenamento de Dados em TPM para Gerenciamento de Integridade PreviousNext,4/5
+14,SeloD + SeloF,243396: HuskyCI: um orquestrador de testes de segurança em software para ciclos ágeis de desenvolvimento,5/6
+15,SeloD + SeloF,243395: OCULTADO: Um gerador de senhas seguras e memoráveis,5/7
+25,SeloD + SeloF,243326: APKAnalyzer: Ferramenta de Classificação de Malwares Android Baseada em Multi-view e Seleção de Caracterı́sticas Multiobjetivo,4/6
+26,SeloD + SeloF,243210: Smelly Kube: A tool used to identify security smells in Kubernetes infrastructure manifests,5/6
+30,SeloD + SeloF,241931: AMPOLA: Criação de Cenários de Análise de Malware focados em Red Team via Orquestração de Ambientes,3/5
+32,SeloD + SeloF,241540: MinIndy: Ferramenta Automatizada para Construção de Redes Blockchain Hyperledger Indy,4/5
+6,SeloD + SeloF,243386: Evaluating the network traffic on an improved version of the Committeeless Proof-of-Stake blockchain consensus algorithm PreviousNext,4/6
+4,SeloD,243399: Detecção de Intrusões na Internet das Coisas (IoT): Um Ambiente de Experimentação para Obtenção de Dados Reais sobre Protocolos Emergentes,6
+7,SeloD,243381: Comparando Médias Móveis com Integral de Choquet para Detectar Anomalias no Tráfego de Redes PreviousNext,6
+10,SeloD,243284: Aplicação da Técnica Fuzzing em Testes da Implementação de Referência do SPDM PreviousNext,5/7
+11,SeloD,242822: Introdução à Computação Quântica: um Estudo de Caso de Ensino por Pares PreviousNext,5/6
+16,Selos não atribuidos,243394: Sectum O ChatBot de Segurança da Informação,4/5
+23,Selos não atribuidos,243334: Plataforma de Micropagamentos (uPay),3/5
+24,Selos não atribuidos,243328: SACI: Solução para Análise Comportamental Automatizada de Código Infeccioso em SO MS Windows Modernos,5
+27,Selos não atribuidos,242225: Emulador para Treinamento em Segurança Cibernética,6/7
+31,Selos não atribuidos,241631: PARDED uma ferramenta de detecção passiva de malware com foco em rootkits que utilizam técnicas de ofuscação de tráfego,5/6

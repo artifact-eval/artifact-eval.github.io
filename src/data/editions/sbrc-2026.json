@@ -71,8 +71,8 @@
         "R": true
       },
       "title": "Agente K-alibra: Estratégia para Seleção de K-Clientes em Aprendizado Federado autônoma",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/rafaeloj/sbrc2026.git"
     },
     {
       "seals": {
@@ -82,8 +82,8 @@
         "R": true
       },
       "title": "Unsupervised DDoS Detection in High-Speed Networks: An Evaluation Using Real Transit Provider Data",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/MuriloChianfa/isp-ddos-auto-detector"
     },
     {
       "seals": {
@@ -93,8 +93,8 @@
         "R": true
       },
       "title": "Flex-Cubic: A Runtime-Adaptive Loss-Tolerant TCP Cubic",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/nerds-ufes/Flex-Cubic.git"
     },
     {
       "seals": {
@@ -104,8 +104,8 @@
         "R": true
       },
       "title": "GlobalAmBC-DRL: Reproducible Artifact for \"A New Centralized DRL-Based Control Module for Dense Batteryless IoT Networks with Ambient Backscatter\"",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/LABORA-INF-UFG/GlobalAmBC-DRL-SBRC2026"
     },
     {
       "seals": {
@@ -115,8 +115,8 @@
         "R": true
       },
       "title": "ORION: Escalonamento de Tarefas baseado em Otimização Multiobjetivo para Nuvens Veiculares",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/joahannes/ORION/blob/main/README_CTA_SBRC2026.md"
     },
     {
       "seals": {
@@ -126,8 +126,8 @@
         "R": true
       },
       "title": "PRINCE: A Proactive Client Selection in Federated Learning for Connected and Autonomous Vehicles",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/Twinte/PRINCE---Proactive.git"
     },
     {
       "seals": {
@@ -137,8 +137,8 @@
         "R": true
       },
       "title": "CAIROS: Controle Adaptativo do aprendIzado fedeRadO em redes Sem fio",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/AiramL/cairos"
     },
     {
       "seals": {
@@ -148,8 +148,8 @@
         "R": true
       },
       "title": "Tronco: Um Operador Genético para Remapeamento de Serviços de Rede Sensível ao Histórico",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/ViniGarcia/NFV-FLERAS/tree/GesemaExperiments/GESEMA/Tests/Test%20%2319%20(SBRC%202026%20Stem%20Operator)"
     },
     {
       "seals": {
@@ -159,8 +159,8 @@
         "R": true
       },
       "title": "Aprendizado Federado com Geração de Embeddings para Controle da Heterogeneidade Estatística",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/gustavoguaragna/FLEG"
     },
     {
       "seals": {
@@ -170,8 +170,8 @@
         "R": true
       },
       "title": "Ataques de Envenenamento de Rótulos contra a Detecção de Zero-Day em Sistemas de Detecção de Intrusão Colaborativos",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/sequincozes/CounselorNode/tree/artefatos_sbrc"
     },
     {
       "seals": {
@@ -181,8 +181,8 @@
         "R": true
       },
       "title": "Seleção de Clientes Federados usando Aprendizado por Reforço Multiagente",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/braiton1277/fedmarl-sbrc26"
     },
     {
       "seals": {
@@ -192,8 +192,8 @@
         "R": true
       },
       "title": "Modelagem e Otimização do Aprendizado Federado para Justiça do Nível de Energia em Redes Sem Fio",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/GTA-UFRJ/OptimizingFairnessRemainingBatteryFL"
     },
     {
       "seals": {
@@ -203,8 +203,8 @@
         "R": true
       },
       "title": "Avaliação de Inferência em Edge AI sob Restrições Embarcadas em um Sistema Robótico Simulado Baseado na Internet das Coisas Robóticas",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/Keltonmd/EdgeAI_SBRC"
     },
     {
       "seals": {
@@ -214,8 +214,8 @@
         "R": true
       },
       "title": "Uma Análise Comparativa de Algoritmos de Machine Learning e Explicabilidade para Detecção de Intrusão de Redes",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/jhonatasjgr/Deteccao_Intrusao_Redes"
     },
     {
       "seals": {
@@ -225,8 +225,8 @@
         "R": true
       },
       "title": "Recomendação de rotas consciente de QoE com Atenção e Comunicação",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/LABORA-INF-UFG/Rota-CAC-recommendation"
     },
     {
       "seals": {
@@ -236,8 +236,8 @@
         "R": true
       },
       "title": "Uma Extensão Pós-Quântica Híbrida para o Protocolo Matrix: Avaliação Experimental e Impacto Sistêmico",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/mdo-br/matrix_pqc"
     },
     {
       "seals": {
@@ -247,8 +247,8 @@
         "R": true
       },
       "title": "IMPA: Novo algoritmo para atribuição de potência de forma adaptativa em SDM-EONs",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/alexandrefontinele/SNetS-SDM-SBRC26"
     },
     {
       "seals": {
@@ -258,8 +258,8 @@
         "R": true
       },
       "title": "Uma Abordagem Declarativa e Modular para Adaptação Dinâmica da Camada de Enlace de Redes Heterogêneas",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/cleberaraujo/l2i-dsl.git"
     },
     {
       "seals": {
@@ -269,8 +269,8 @@
         "R": true
       },
       "title": "Agente VAMOS! Planejamento de Rotas Veiculares Cientes de Contexto Semântico com Agentes de LLM",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/carnotbraun/VAMOS"
     },
     {
       "seals": {
@@ -280,8 +280,8 @@
         "R": true
       },
       "title": "NOAH: Protocolo Hibrido e Adaptativo de Codificação de Rede para Comunicação por Luz Visível",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/lesc-ufv/NOAH"
     },
     {
       "seals": {
@@ -291,8 +291,8 @@
         "R": true
       },
       "title": "ASTRA: Adaptive Student-Teacher Method for Robust Aggregation and Client Drift Reduction in Federated Learning",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/IcsPingu/ASTRA-FL"
     },
     {
       "seals": {
@@ -302,8 +302,8 @@
         "R": false
       },
       "title": "Mascaramento por Agrupamento e Rotulagem com LLMs para Compartilhamento de Datasets de Incidentes em Redes",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/GTA-UFRJ/MECAL"
     },
     {
       "seals": {
@@ -313,8 +313,8 @@
         "R": false
       },
       "title": "Detecção de Oportunidades de Sanduíche MEV via Grafo de Fluxo de Controle de Contratos Inteligentes",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/lesc-ufv/static-sandwich-mev-detector"
     },
     {
       "seals": {
@@ -324,8 +324,8 @@
         "R": false
       },
       "title": "C2N: Bridging CAMARA Service APIs and 3GPP Core Network Exposure Function",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/LABORA-INF-UFG/C2N"
     },
     {
       "seals": {
@@ -335,8 +335,8 @@
         "R": false
       },
       "title": "Ember: Asynchronous Dynamic Data Serving for PyTorch Distributed Training",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/lesc-ufv/Ember"
     },
     {
       "seals": {
@@ -346,8 +346,8 @@
         "R": false
       },
       "title": "An Experimental Framework for Studying Non-IID Data in Federated Learning for Network Telemetry",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/EricssonResearch/smartness-experiments"
     },
     {
       "seals": {
@@ -357,8 +357,8 @@
         "R": false
       },
       "title": "Comparative Performance Analysis of IaC Tools for Deploying Containerized SDN Topologies in Cloud Environments",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/vitorreiel/cloud-sdn-setup.git"
     },
     {
       "seals": {
@@ -368,8 +368,8 @@
         "R": false
       },
       "title": "On the Scale Transition of Event-Driven IoT Architectures: An Experimental Evaluation",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/cairomn/event-driven-architecture-jems3"
     },
     {
       "seals": {
@@ -379,8 +379,8 @@
         "R": false
       },
       "title": "Evasão em Modelos de Detecção de Ameaças de Rede Usando Propriedades do Espaço de Decisão",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/RafaelDiasCampos/PolyMap-SBRC"
     },
     {
       "seals": {
@@ -390,8 +390,8 @@
         "R": false
       },
       "title": "Orquestração de dispositivos IoT em cenários complexos com interação humana baseada em LLMs",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/AugustoPerin/orquestrador-iot-llm"
     },
     {
       "seals": {
@@ -401,8 +401,8 @@
         "R": false
       },
       "title": "Degradação de Desempenho de Contramedidas Estáticas a Ataques de Negação de Serviço de Baixo Volume",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/brumesan/LDoS-SDN-2026"
     },
     {
       "seals": {
@@ -412,8 +412,8 @@
         "R": false
       },
       "title": "Do Aprendizado Centralizado ao Federado: O Que Acontece com a Explicabilidade dos Modelos?",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/danielrt/fed_xai_sbrc2026"
     },
     {
       "seals": {
@@ -423,8 +423,8 @@
         "R": false
       },
       "title": "Escalonamento de Recursos de Rádio para Suporte ao Aprendizado Federado em Redes 5G",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/LABORA-INF-UFG/FedSched-5G"
     },
     {
       "seals": {
@@ -434,8 +434,8 @@
         "R": false
       },
       "title": "Cybersecurity in the CAN Protocol: A Systematic Mapping of Attacks and Vulnerabilities in Practical Scenarios",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://osf.io/2v6eg/overview?view_only=38dcdb3464ab448b930e0ae22d5735d4"
     },
     {
       "seals": {
@@ -445,8 +445,8 @@
         "R": false
       },
       "title": "Latency-Aware Routing and Multidimensional Optical Resource Allocation for CF-RAN over SDM-EON",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/AdrielRodrigues/flexgridsim-5g/"
     },
     {
       "seals": {
@@ -456,8 +456,8 @@
         "R": false
       },
       "title": "Framework para Verificação e Validação Experimental de Configurações de Rede Geradas por LLMs",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/cscolomboIA/llm-network-validation-framework"
     },
     {
       "seals": {
@@ -467,8 +467,8 @@
         "R": false
       },
       "title": "Enforcing Service Stability for WebAssembly Extended Reality Workloads at the Edge A Quality of Service Aware Orchestration Framework",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/gustavojardim/wasm-object-detection"
     },
     {
       "seals": {
@@ -478,8 +478,8 @@
         "R": false
       },
       "title": "Representação Baseada em Grafos de Infraestrutura como Código: Possibilitando o Raciocínio Semântico para Sistemas Conteinerizados",
-      "track": "TP",
-      "link": null
+      "track": null,
+      "link": "https://github.com/ComputerNetworks-UFRGS/compose-kg-mcp"
     },
     {
       "seals": {
@@ -489,8 +489,8 @@
         "R": true
       },
       "title": "QuantumNet: Um Simulador de Redes Quânticas baseado em uma Arquitetura em Camadas com Interface Gráfica",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/quantumgercom/QuantumNet"
     },
     {
       "seals": {
@@ -500,8 +500,8 @@
         "R": true
       },
       "title": "AnonShield: Scalable On-Premise Pseudonymization for CSIRT Network Vulnerability Data",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/AnonShield/tool"
     },
     {
       "seals": {
@@ -511,8 +511,8 @@
         "R": true
       },
       "title": "UNetyEmuROS: A Unity-Based Multi-Vehicle Simulator with Physically-Grounded Dynamics and ROS2 Sensor Integration",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/intrig-unicamp/UNetyEmu"
     },
     {
       "seals": {
@@ -522,8 +522,8 @@
         "R": true
       },
       "title": "IoT-Zoo: A Container-Based Framework for Heterogeneous IoT Device Profiles and Reproducible Traffic Capture",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/GT-IoTEdu/sbrc2026-IoT-Zoo"
     },
     {
       "seals": {
@@ -533,8 +533,8 @@
         "R": true
       },
       "title": "From Red Flags to Detection Rules: An LLM-driven Pipeline for Real-Time GOOSE Intrusion Detection and Prevention",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/lucastuxnet/SBRC_2026/"
     },
     {
       "seals": {
@@ -544,8 +544,8 @@
         "R": true
       },
       "title": "GhostView: Enabling Deep Visibility in Programmable Data Planes with Minimal Server Overhead",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/FranciscoVogt/GhostView/"
     },
     {
       "seals": {
@@ -555,8 +555,8 @@
         "R": true
       },
       "title": "Yes, CARLA CAN: Extending the CARLA Simulator for In-Vehicle Network Cybersecurity Experimentation",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/luigiluz/yes-carla-can"
     },
     {
       "seals": {
@@ -566,8 +566,8 @@
         "R": true
       },
       "title": "GridGooseSV: um Módulo do NS-3 para Simular Protocolos de Comunicação de Smart Grids definidos na IEC 61850",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/lucasoshiro/GridGooseSV"
     },
     {
       "seals": {
@@ -577,8 +577,8 @@
         "R": true
       },
       "title": "FirewallTester: desenvolvimento de ferramenta para automação de testes e validação de regras de firewalls",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/luizabasseto/firewallTester"
     },
     {
       "seals": {
@@ -588,8 +588,8 @@
         "R": true
       },
       "title": "SAARIS: Um Simulador Aberto de Antenas e Superfícies Inteligentes Reconfiguráveis",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/julioxcsf/SAARIS"
     },
     {
       "seals": {
@@ -599,8 +599,8 @@
         "R": true
       },
       "title": "IoT-ID: Deterministic Device Identity from Hybrid Network Fingerprinting",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/GT-IoTEdu/sbrc26_fingerprint"
     },
     {
       "seals": {
@@ -610,8 +610,8 @@
         "R": true
       },
       "title": "dsm2cli: A Verifiable and Observable Pipeline for Translating Network Intents into Multivendor CLI",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/net2d-community/dsm2cli/"
     },
     {
       "seals": {
@@ -621,8 +621,8 @@
         "R": true
       },
       "title": "FL-H.IAAC: Um Testbed Heterogêneo para Aprendizado Federado em Borda",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/artur-rozados/HIAAC-FL-Testbed-SBRC"
     },
     {
       "seals": {
@@ -632,8 +632,8 @@
         "R": true
       },
       "title": "The Last WAVE: Integrating with Mininet for More Flexible and Reproducible Network Experiments",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/1valcl3b/last_wave"
     },
     {
       "seals": {
@@ -643,8 +643,8 @@
         "R": false
       },
       "title": "MedTracker: A BLE-Based Indoor Localization System for Tracking Portable Medical Devices in Hospital Environments",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/life-ufes/MedTracker"
     },
     {
       "seals": {
@@ -654,8 +654,8 @@
         "R": false
       },
       "title": "FLeer2FLeer: Uma Ferramenta Web Baseada em Arquitetura Par-a-Par para Orquestração do Aprendizado Federado",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/Jscosta7/FLeer2FLeer.git"
     },
     {
       "seals": {
@@ -665,8 +665,8 @@
         "R": false
       },
       "title": "P4R: Scaling Stateful Network Testing and Trace Replay with Nanosecond-level Accuracy",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/intrig-unicamp/P4R/"
     },
     {
       "seals": {
@@ -676,8 +676,8 @@
         "R": false
       },
       "title": "Metadata privacy and obliviousness in distributed learning via a bulletin board: a proof-of-concept",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/AndreisPurim/Bedlam"
     },
     {
       "seals": {
@@ -687,8 +687,8 @@
         "R": false
       },
       "title": "WASP: Workload Agent-Based Simulation Platform for Migration Recommendations in Federated Kubernetes Environments",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/cloud-ai-ufcg/simulator"
     },
     {
       "seals": {
@@ -698,8 +698,16 @@
         "R": false
       },
       "title": "SimpleSim: An Open-Source Python Simulator for SDM-EON Resource Allocation",
-      "track": "SF",
-      "link": null
+      "track": null,
+      "link": "https://github.com/Ramonnnnnn/SimpleSim/tree/main/docs"
+    }
+  ],
+  "intro": "O CTA avaliou 65 trabalhos com artefatos, totalizando 130 revisões. A Declaração Geral Final do CTA (PDF) apresenta a lista completa de avaliadores, tutores, coordenadores, comitê de seleção e os resultados oficiais.",
+  "documents": [
+    {
+      "label": "Declaração Geral Final do CTA (PDF)",
+      "href": "/results/sbrc-2026/sbrc26-cta-declaracao-geral-final.pdf",
+      "section": null
     }
   ]
 }

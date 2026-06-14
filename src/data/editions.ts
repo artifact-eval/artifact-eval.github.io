@@ -21,11 +21,21 @@ export interface ResultRow {
   track: string | null;
   link: string | null;
 }
+/** A published result document (declaration, feedback, badge spreadsheet). */
+export interface ResultDoc {
+  label: string;
+  href: string;
+  section: string | null;
+}
 export interface EditionData {
   slug: string;
   legacyDir: string;
   committee: CommitteeGroup[];
   results: ResultRow[];
+  /** Narrative paragraph shown above the results, when present. */
+  intro: string | null;
+  /** Downloadable result documents, self-hosted under public/results/<slug>/. */
+  documents: ResultDoc[];
 }
 
 const dataBySlug: Record<string, EditionData> = {
@@ -78,7 +88,7 @@ export function resolveEdition(slug: string): ResolvedEdition | undefined {
       return {
         edition,
         event,
-        data: dataBySlug[slug] ?? { slug, legacyDir: '', committee: [], results: [] },
+        data: dataBySlug[slug] ?? { slug, legacyDir: '', committee: [], results: [], intro: null, documents: [] },
         contact: contactBySlug[slug] ?? DEFAULT_CONTACT,
         instructionsYear: edition.year,
       };

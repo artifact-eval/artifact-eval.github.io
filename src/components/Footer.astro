@@ -24,7 +24,10 @@ const year = new Date().getFullYear();
         GitHub
       </a>
     </nav>
-    <small class="copy">© {year} {t('site.title')}</small>
+    <small class="copy">
+      © {year} {t('site.title')} ({t('site.short')}) {t('footer.and')}{' '}
+      <a href="https://ai-horizon-labs.github.io" target="_blank" rel="noopener">AI Horizon Labs</a>
+    </small>
   </div>
 </footer>
 
@@ -62,5 +65,10 @@ const year = new Date().getFullYear();
   .copy {
     color: var(--muted-2);
     width: 100%;
+  }
+  .copy a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 </style>

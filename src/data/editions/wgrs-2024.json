@@ -39,5 +39,28 @@
       ]
     }
   ],
-  "results": []
+  "results": [],
+  "intro": "Esta página apresenta os resultados da primeira edição do Comitê Técnico de Artefatos (CTA) do XXIX Workshop de Gerência e Operação de Redes e Serviços (WGRS 2024), realizado durante o XXIII Simpósio Brasileiro de Redes de Computadores e Sistemas Distribuídos (SBRC), em Niterói-RJ, de 20 a 24 de maio de 2024. Agradecemos a oportunidade e a colaboração de todos! O engajamento de autores, avaliadores e coordenadores foi determinante para esta primeira edição do CTA do WGRS24. Esta edição, cuja ideia teve início em 2023 no WTICG/SBSeg, serviu mais uma vez para gerar insights e ideias para a melhoria contínua do processo de submissão e avaliação de artefatos. Para além de simplesmente avaliar os trabalhos, o objetivo do CTA é fornecer feedbacks para os autores de forma a qualificar os artefatos (e.g., repositórios de dados e/ou software no GitHub), garantindo aspectos como funcionalidade, qualidade e reprodutibilidade.",
+  "documents": [
+    {
+      "label": "WGRS24 - CTA - Trabalhos com Selos Atribuídos",
+      "href": "/results/wgrs-2024/wgrs24-cta-selos-atribuidos.pdf",
+      "section": "Resultados do CTA"
+    },
+    {
+      "label": "WGRS24 - CTA - feedback dos avaliadores",
+      "href": "/results/wgrs-2024/wgrs24-cta-feedback-avaliadores.pdf",
+      "section": "Resultados do CTA"
+    },
+    {
+      "label": "WGRS24 - CTA - Declaração para o TPC",
+      "href": "/results/wgrs-2024/wgrs24-cta-declaracao-tpc.pdf",
+      "section": "Declarações e Premiação"
+    },
+    {
+      "label": "WGRS24 - CTA - Declaração de Premiação",
+      "href": "/results/wgrs-2024/wgrs24-cta-declaracao-premiacao.pdf",
+      "section": "Declarações e Premiação"
+    }
+  ]
 }

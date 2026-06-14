@@ -65,5 +65,263 @@
       ]
     }
   ],
-  "results": []
+  "results": [
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "Autenticação de Sistemas Baseados em Biometria Comportamental",
+      "track": "WTICG",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "IWSHAP: Uma Ferramenta para Seleção Incremental de Caracterı́sticas utilizando IWSS e SHAP",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "MH-FSF: um Framework para Reprodução, Experimentação e Avaliação de Métodos de Seleção de Caracterı́sticas",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "MH-AutoML: Transparência, Interpretabilidade e Desempenho na Detecção de Malware Android",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "SigAPI AutoCraft: uma ferramenta de seleção de caracterı́sticas com capacidade de generalização",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": true
+      },
+      "title": "MalSynGen: redes neurais artificiais na geração de dados tabulares sintéticos para detecção de malware",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": true
+      },
+      "title": "Seleção de Características Multi-objetivo para Detecção de Malwares Android PreviousNext",
+      "track": "WTICG",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": true
+      },
+      "title": "EXSS: Um Emulador Educativo de Ataques Cross-Site Scripting (Código Aberto)",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": true
+      },
+      "title": "Identificação de Ataques de Phishing através de Machine Learning PreviousNext",
+      "track": "WTICG",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": false
+      },
+      "title": "Web xKaliBurr: uma Plataforma Online para Levantamento de Informações em Pentest em Aplicações na Internet",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": true,
+        "R": false
+      },
+      "title": "Mininet-Sec: plataforma de experimentação para segurança cibernética em redes programáveis",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "Compact Memory Implementations of the ML-DSA Post-Quantum Digital Signature Algorithm",
+      "track": "WTICG",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "Melhorias no Processo de Armazenamento de Dados em TPM para Gerenciamento de Integridade PreviousNext",
+      "track": "WTICG",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "HuskyCI: um orquestrador de testes de segurança em software para ciclos ágeis de desenvolvimento",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "APKAnalyzer: Ferramenta de Classificação de Malwares Android Baseada em Multi-view e Seleção de Caracterı́sticas Multiobjetivo",
+      "track": "SF",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": true,
+        "S": false,
+        "R": false
+      },
+      "title": "Evaluating the network traffic on an improved version of the Committeeless Proof-of-Stake blockchain consensus algorithm PreviousNext",
+      "track": "WTICG",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "Detecção de Intrusões na Internet das Coisas (IoT): Um Ambiente de Experimentação para Obtenção de Dados Reais sobre Protocolos Emergentes",
+      "track": "WTICG",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "Comparando Médias Móveis com Integral de Choquet para Detectar Anomalias no Tráfego de Redes PreviousNext",
+      "track": "WTICG",
+      "link": null
+    },
+    {
+      "seals": {
+        "D": true,
+        "F": false,
+        "S": false,
+        "R": false
+      },
+      "title": "Aplicação da Técnica Fuzzing em Testes da Implementação de Referência do SPDM PreviousNext",
+      "track": "WTICG",
+      "link": null
+    }
+  ],
+  "intro": "Estatísticas do processo de avaliação dos artefatos:",
+  "documents": [
+    {
+      "label": "Declaração dos Trabalhos / Artefatos Destaque (PDF)",
+      "href": "/results/sbseg-2024/sbseg24-cta-declaracao-melhores-trabalhos-trabalhos-destaque-assinado.pdf",
+      "section": "Trabalhos Destaque na Categoria Artefatos"
+    },
+    {
+      "label": "Declaração dos Revisores Destaque (PDF)",
+      "href": "/results/sbseg-2024/sbseg24-cta-declaracao-melhores-revisores-revisores-destaque-assinada.pdf",
+      "section": "Revisores Destaque"
+    },
+    {
+      "label": "planilha de avaliadores e artefatos avaliados — PDF",
+      "href": "/results/sbseg-2024/sbseg24-cta-avaliadores-e-artefatos-avaliados.pdf",
+      "section": "Revisores e número de artefatos avaliados"
+    },
+    {
+      "label": "Declaração de Atuação dos Membros do CTA (PDF)",
+      "href": "/results/sbseg-2024/sbseg24-cta-declara-o-de-atua-o-dos-membros-do-cta-assinada.pdf",
+      "section": "Documentos oficiais e dados"
+    },
+    {
+      "label": "Relatório Final do CTA (PDF)",
+      "href": "/results/sbseg-2024/sbseg24-cta-relatorio-final.pdf",
+      "section": "Documentos oficiais e dados"
+    },
+    {
+      "label": "PDF",
+      "href": "/results/sbseg-2024/sbseg24-cta-trabalhos-e-selos-atribuidos.pdf",
+      "section": "Documentos oficiais e dados"
+    },
+    {
+      "label": "XLSX",
+      "href": "/results/sbseg-2024/sbseg24-cta-hotcrp-trabalhos-e-respectivos-selos-atribuidos.xlsx",
+      "section": "Documentos oficiais e dados"
+    },
+    {
+      "label": "CSV",
+      "href": "/results/sbseg-2024/sbseg24-cta-hotcrp-trabalhos-e-respectivos-selos-atribuidos-selos-dos-trabalhos.csv",
+      "section": "Documentos oficiais e dados"
+    },
+    {
+      "label": "CSV",
+      "href": "/results/sbseg-2024/sbseg24-cta-hotcrp-avaliadores-e-artefatos-avaliados-sheet1.csv",
+      "section": "Documentos oficiais e dados"
+    }
+  ]
 }
