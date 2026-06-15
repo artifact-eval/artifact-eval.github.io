@@ -501,5 +501,23 @@
     }
   ],
   "intro": null,
-  "documents": []
+  "documents": [],
+  "sections": [
+    {
+      "title": "Trabalhos Destaque na Categoria Artefatos",
+      "paragraphs": [
+        "Uma Ferramenta de Seleção de Features Baseada na Metaheurística GRASP com Fila de Prioridades para Sistemas de Detecção de Intrusão<br> Mecanismos de Transparência e Auditoria de Blockchains Permissionadas<br> MalDataGen: A Modular Framework for Synthetic Tabular Data Generation in Malware Detection<br> Cordeiro em Pele de Lobo: Desvelando a Negação de Serviço Baseada em Envenenamento de Reputação<br> Regressão da eficácia de analisadores de vulnerabilidades em contratos inteligentes de blockchains<br> Introducing two ROS attack variants: breaking one-more unforgeability of BZ blind signatures<br> Filo-Transformer: Um modelo baseado em Grafo de Alinhamento de Árvores Filogenéticas e Transformers para Identificação de Rumores e Fake News<br> Anonimização de Incidentes de Segurança com Reidentificação Controlada"
+      ],
+      "list": [],
+      "table": null
+    },
+    {
+      "title": "Revisores Destaque",
+      "paragraphs": [
+        "Aline de Lurdes Zuliani Lunkes<br> Amanda Viescinski<br> Antonio João Gonçalves de Azambuja<br> David Arantes Pereira<br> Diego Nunes Molinos<br> Douglas Lautert<br> Edllyn de Jesus Silva<br> Felipe Nestor Dresch<br> Flavio Luiz dos Santos de Souza<br> Françoa Taffarel Rosário Corrêa<br> Gefte Alcantara de Almeida<br> Guilherme Dall'Agnol Deconto<br> Helio Nascimento Cunha Neto<br> Juan Marcelo Dell'Oso<br> Lara Camilly da Silva<br> Lucas Cupertino Cardoso<br> Lucas Ferreira Areias de Oliveira<br> Malkai Santos Pereira Oliveira<br> Muriel Figueredo Franco<br> Paulo Sérgio de Souza Leite de Assumpção<br> Sidnei Barbieri<br> Stephanie Tygna<br> Thiago Guimarães Tavares"
+      ],
+      "list": [],
+      "table": null
+    }
+  ]
 }

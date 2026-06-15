@@ -11,9 +11,9 @@ const lang = Astro.params.lang as Lang;
 const t = useTranslations(lang);
 const heading = editionTitle(r);
 const rows = r.data.results;
-const docs = r.data.documents;
+const sections = r.data.sections ?? [];
 const intro = r.data.intro;
-const hasContent = rows.length > 0 || docs.length > 0;
+const hasContent = rows.length > 0 || sections.length > 0;
 const hasLink = rows.some((row) => row.link);
 const base = import.meta.env.BASE_URL; // e.g. "/" — keeps doc hrefs base-safe
 
@@ -30,19 +30,10 @@ for (const row of rows) {
 }
 const grouped = order.map((key) => ({ track: key, rows: byTrack.get(key)! }));
 
-// Group documents by their source section (preserving first-seen order).
-const docOrder: (string | null)[] = [];
-const docBySection = new Map<string | null, typeof docs>();
-for (const d of docs) {
-  const key = d.section;
-  if (!docBySection.has(key)) {
-    docBySection.set(key, []);
-    docOrder.push(key);
-  }
-  docBySection.get(key)!.push(d);
-}
-const docGroups = docOrder.map((key) => ({ section: key, items: docBySection.get(key)! }));
-const docHref = (href: string) => `${base}${href.replace(/^\//, '')}`;
+// Inline HTML from the extractor uses root-relative doc hrefs (/results/...);
+// rebase them so the site still works when served from a sub-path.
+const rebase = (html: string) =>
+  base === '/' ? html : html.replace(/href="\/results\//g, `href="${base}results/`);
 const sealColor: Record<string, string> = { D: 'var(--seal-d)', F: 'var(--seal-f)', S: 'var(--seal-s)', R: 'var(--seal-r)' };
 
 // Localized labels for canonical track codes; unknown codes fall back to the raw string.
@@ -62,7 +53,7 @@ const trackLabel = (key: string | null): string | null => (key ? (trackLabels[la
       <p class="tbd">{t('results.tbd')}</p>
     ) : (
       <>
-        <p class="intro">{intro ?? t('results.intro')}</p>
+        {intro ? <p class="intro" set:html={rebase(intro)} /> : <p class="intro">{t('results.intro')}</p>}
         {grouped.map((group) => (
           <section class="group">
             {group.track && <h3>{trackLabel(group.track)}</h3>}
@@ -112,25 +103,43 @@ const trackLabel = (key: string | null): string | null => (key ? (trackLabels[la
             </div>
           </section>
         ))}
-        {docs.length > 0 && (
-          <section class="docs">
-            <h3>{t('results.docs')}</h3>
-            {docGroups.map((g) => (
-              <div class="doc-group">
-                {g.section && <h4>{g.section}</h4>}
-                <ul class="doc-list">
-                  {g.items.map((d) => (
-                    <li>
-                      <a href={docHref(d.href)} target="_blank" rel="noopener">
-                        {d.label} ↗
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        {sections.map((sec) => (
+          <section class="narrative">
+            <h3>{sec.title}</h3>
+            {sec.paragraphs.map((p) => (
+              <p set:html={rebase(p)} />
             ))}
+            {sec.list.length > 0 && (
+              <ul class="narrative-list">
+                {sec.list.map((item) => (
+                  <li set:html={rebase(item)} />
+                ))}
+              </ul>
+            )}
+            {sec.table && (
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      {sec.table.headers.map((h) => (
+                        <th scope="col">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {sec.table.rows.map((row) => (
+                      <tr>
+                        {row.map((cell) => (
+                          <td>{cell}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </section>
-        )}
+        ))}
       </>
     )
   }
@@ -223,31 +232,37 @@ const trackLabel = (key: string | null): string | null => (key ? (trackLabels[la
     white-space: nowrap;
     font-weight: 600;
   }
-  .docs {
-    margin-top: 8px;
+  .narrative {
+    margin: 0 0 32px;
   }
-  .docs > h3 {
+  .narrative h3 {
     font-size: 18px;
-    margin: 0 0 16px;
+    margin: 0 0 12px;
     color: var(--ink);
   }
-  .doc-group {
-    margin-bottom: 20px;
+  .narrative :global(p) {
+    margin: 0 0 12px;
+    color: var(--ink);
+    line-height: 1.65;
   }
-  .doc-group h4 {
-    font-size: 14px;
-    margin: 0 0 8px;
-    color: var(--muted);
-    font-weight: 700;
+  .narrative :global(code) {
+    font-size: 0.9em;
+    background: var(--surface-3);
+    padding: 1px 5px;
+    border-radius: 5px;
   }
-  .doc-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  .narrative-list {
+    margin: 0 0 12px;
+    padding-left: 20px;
     display: grid;
     gap: 6px;
+    line-height: 1.6;
   }
-  .doc-list a {
+  .narrative-list :global(a),
+  .narrative :global(a) {
     font-weight: 600;
+  }
+  .narrative .table-wrap {
+    margin-top: 4px;
   }
 </style>

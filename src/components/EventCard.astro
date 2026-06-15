@@ -12,10 +12,10 @@ const { event, lang } = Astro.props;
 <article class="ev">
   <h3 class="ev__code">{event.code}</h3>
   <p class="ev__full">{event.name[lang]}</p>
-  <ul class="chips">
+  <ul class="editions">
     {
       event.editions.map((ed) => (
-        <li>
+        <li class="edition">
           <a
             href={localizePath(lang, ed.slug)}
             class:list={['chip', { cur: ed.current }]}
@@ -23,6 +23,7 @@ const { event, lang } = Astro.props;
           >
             {ed.label}
           </a>
+          {ed.track && <span class="track">{ed.track[lang]}</span>}
         </li>
       ))
     }
@@ -46,16 +47,22 @@ const { event, lang } = Astro.props;
     color: var(--muted-2);
     margin: 6px 0 18px;
   }
-  .chips {
+  .editions {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .edition {
     display: flex;
+    align-items: baseline;
     flex-wrap: wrap;
-    gap: 9px;
+    gap: 4px 10px;
   }
   .chip {
     display: inline-block;
+    flex: none;
     font-size: 13px;
     border-radius: var(--r-pill);
     padding: 7px 14px;
@@ -63,6 +70,11 @@ const { event, lang } = Astro.props;
     font-weight: 600;
     background: var(--surface-3);
     text-decoration: none;
+  }
+  .track {
+    font-size: 12.5px;
+    color: var(--muted-2);
+    line-height: 1.4;
   }
   .chip:hover {
     text-decoration: none;

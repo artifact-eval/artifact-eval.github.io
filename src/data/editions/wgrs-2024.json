@@ -40,7 +40,7 @@
     }
   ],
   "results": [],
-  "intro": "Esta página apresenta os resultados da primeira edição do Comitê Técnico de Artefatos (CTA) do XXIX Workshop de Gerência e Operação de Redes e Serviços (WGRS 2024), realizado durante o XXIII Simpósio Brasileiro de Redes de Computadores e Sistemas Distribuídos (SBRC), em Niterói-RJ, de 20 a 24 de maio de 2024. Agradecemos a oportunidade e a colaboração de todos! O engajamento de autores, avaliadores e coordenadores foi determinante para esta primeira edição do CTA do WGRS24. Esta edição, cuja ideia teve início em 2023 no WTICG/SBSeg, serviu mais uma vez para gerar insights e ideias para a melhoria contínua do processo de submissão e avaliação de artefatos. Para além de simplesmente avaliar os trabalhos, o objetivo do CTA é fornecer feedbacks para os autores de forma a qualificar os artefatos (e.g., repositórios de dados e/ou software no GitHub), garantindo aspectos como funcionalidade, qualidade e reprodutibilidade.",
+  "intro": "Esta página apresenta os resultados da <strong>primeira edição do Comitê Técnico de Artefatos (CTA)</strong> do XXIX Workshop de Gerência e Operação de Redes e Serviços (WGRS 2024), realizado durante o XXIII Simpósio Brasileiro de Redes de Computadores e Sistemas Distribuídos (SBRC), em Niterói-RJ, de 20 a 24 de maio de 2024. Agradecemos a oportunidade e a colaboração de todos! O engajamento de autores, avaliadores e coordenadores foi determinante para esta primeira edição do CTA do WGRS24. Esta edição, cuja ideia teve início em 2023 no WTICG/SBSeg, serviu mais uma vez para gerar <em>insights</em> e ideias para a melhoria contínua do processo de submissão e avaliação de artefatos. Para além de simplesmente avaliar os trabalhos, o objetivo do CTA é fornecer <em>feedbacks</em> para os autores de forma a qualificar os artefatos (e.g., repositórios de dados e/ou software no GitHub), garantindo aspectos como funcionalidade, qualidade e reprodutibilidade.",
   "documents": [
     {
       "label": "WGRS24 - CTA - Trabalhos com Selos Atribuídos",
@@ -61,6 +61,79 @@
       "label": "WGRS24 - CTA - Declaração de Premiação",
       "href": "/results/wgrs-2024/wgrs24-cta-declaracao-premiacao.pdf",
       "section": "Declarações e Premiação"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Estatísticas gerais",
+      "paragraphs": [
+        "A contribuição de todos os avaliadores foi fundamental no processo de avaliação qualitativa dos artefatos dos <strong>16 (dezesseis) trabalhos aceitos</strong> no WGRS 2024. Ao total, tivemos <strong>41 avaliações</strong> produzidas pelos membros do CTA para <strong>10 (dez) trabalhos com artefatos</strong>. Cada artefato recebeu de 3 a 5 avaliações."
+      ],
+      "list": [],
+      "table": {
+        "headers": [
+          "Indicador",
+          "Total"
+        ],
+        "rows": [
+          [
+            "Trabalhos com artefatos",
+            "10"
+          ],
+          [
+            "Avaliadores de artefatos",
+            "17"
+          ],
+          [
+            "Avaliações de artefatos",
+            "41"
+          ],
+          [
+            "Avaliadores das revisões do CTA",
+            "4"
+          ]
+        ]
+      }
+    },
+    {
+      "title": "Resultados do CTA",
+      "paragraphs": [
+        "Com o objetivo de aprimorar futuras contribuições, compartilhamos duas planilhas com os resultados do processo de avaliação. Acreditamos que o <em>feedback</em> dos avaliadores pode ser útil como recurso de aprendizado para os jovens autores do WGRS.",
+        "<strong>Note</strong> Caso algum autor queira as avaliações específicas do seu trabalho/artefato devidamente identificadas, por favor, entre em contato conosco."
+      ],
+      "list": [
+        "<a href=\"/results/wgrs-2024/wgrs24-cta-selos-atribuidos.pdf\" target=\"_blank\" rel=\"noopener\">WGRS24 - CTA - Trabalhos com Selos Atribuídos</a> &mdash; relação dos 10 trabalhos avaliados que receberam selos de artefatos.",
+        "<a href=\"/results/wgrs-2024/wgrs24-cta-feedback-avaliadores.pdf\" target=\"_blank\" rel=\"noopener\">WGRS24 - CTA - <em>feedback</em> dos avaliadores</a> &mdash; as 41 avaliações detalhadas dos artefatos dos trabalhos."
+      ],
+      "table": null
+    },
+    {
+      "title": "Declarações e Premiação",
+      "paragraphs": [],
+      "list": [
+        "<a href=\"/results/wgrs-2024/wgrs24-cta-declaracao-tpc.pdf\" target=\"_blank\" rel=\"noopener\">WGRS24 - CTA - Declaração para o TPC</a>",
+        "<a href=\"/results/wgrs-2024/wgrs24-cta-declaracao-premiacao.pdf\" target=\"_blank\" rel=\"noopener\">WGRS24 - CTA - Declaração de Premiação</a>"
+      ],
+      "table": null
+    },
+    {
+      "title": "Avaliadores do Comitê Técnico de Artefatos (CTA)",
+      "paragraphs": [
+        "Declaramos que os nomes relacionados a seguir participaram ativamente como avaliadores do Comitê Técnico de Artefatos (CTA) do WGRS 2024:",
+        "Amanda Viescinski (UFPR)<br> Anderson Aparecido do Carmo Frasão (UFPR)<br> Anderson Bergamini de Neira (UFPR)<br> Arthur Albuquerque Zopellaro Soares (UFF)<br> Diego Kreutz (UNIPAMPA)<br> Dionisio Machado Leite Filho (UFMS)<br> Jéferson Campos Nobre (UFRGS)<br> Jorge Pires Correia (UFPR)<br> José Flauzino (UFPR)<br> Rafael Gomes Moreira (ITA)<br> Ramon dos Reis Fontes (UFRN)<br> Roben Castagna Lunardi (IFRS)<br> Rodrigo Brandão Mansilha (UNIPAMPA)<br> Silvio Ereno Quincozes (UNIPAMPA)<br> Tiago Heinrich (UFPR/MPI)<br> Vanderson da Silva Rocha (UFAM)<br> Vinicius Cogo (Universidade de Lisboa)"
+      ],
+      "list": [],
+      "table": null
+    },
+    {
+      "title": "Coordenação",
+      "paragraphs": [
+        "<strong>Coordenadores do CTA do WGRS 2024</strong><br> Diego Kreutz (UNIPAMPA) &mdash; <code>diegokreutz@unipampa.edu.br</code><br> Tiago Heinrich (UFPR/MPI) &mdash; <code>theinrich@inf.ufpr.br</code>",
+        "<strong>Coordenadores do WGRS 2024</strong><br> Lourenço Alves Pereira (ITA) &mdash; <code>lourenco.junior@gp.ita.br</code><br> Muriel F. Franco (UFRGS) &mdash; <code>mffranco@inf.ufrgs.br</code>",
+        "<em>Alegrete-RS, 24 de Junho de 2024.</em>"
+      ],
+      "list": [],
+      "table": null
     }
   ]
 }

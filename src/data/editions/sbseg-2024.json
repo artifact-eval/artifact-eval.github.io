@@ -323,5 +323,276 @@
       "href": "/results/sbseg-2024/sbseg24-cta-hotcrp-avaliadores-e-artefatos-avaliados-sheet1.csv",
       "section": "Documentos oficiais e dados"
     }
+  ],
+  "sections": [
+    {
+      "title": "Trabalhos Destaque na Categoria Artefatos",
+      "paragraphs": [
+        "Título: <strong>Autenticação de Sistemas Baseados em Biometria Comportamental</strong><br> Autores: Lucas Rafael Azevedo Correa, Agda Beatriz Gonçalves Costa, Paulo Sérgio de Souza Lei Assumpção, Wilson de Souza Melo Jr<br> Paper: <a href=\"https://doi.org/10.5753/sbseg_estendido.2024.243402\" target=\"_blank\" rel=\"noopener\">https://doi.org/10.5753/sbseg_estendido.2024.243402</a>",
+        "Título: <strong>IWSHAP: Uma Ferramenta para Seleção Incremental de Características utilizando IWSS e SHAP</strong><br> Autores: Felipe Scherer, Felipe Dresch, Diego Kreutz, Silvio Quincozes, Vagner Quincozes<br> Paper: <a href=\"https://doi.org/10.5753/sbseg_estendido.2024.243376\" target=\"_blank\" rel=\"noopener\">https://doi.org/10.5753/sbseg_estendido.2024.243376</a>",
+        "Título: <strong>MH-AutoML: Transparência, Interpretabilidade e Desempenho na Detecção de Malware Android</strong><br> Autores: Joner Assolin, Diego Kreutz, Gabriel Sousa Canto, Eduardo Feitosa<br> Paper: <a href=\"https://doi.org/10.5753/sbseg_estendido.2024.243362\" target=\"_blank\" rel=\"noopener\">https://doi.org/10.5753/sbseg_estendido.2024.243362</a>",
+        "Título: <strong>MH-FSF: um Framework para Reprodução, Experimentação e Avaliação de Métodos de Seleção de Caracterı́sticas</strong><br> Autores: Vanderson Rocha, Hendrio Luis Bragança, Diego Kreutz, Eduardo Feitosa<br> Paper: <a href=\"https://doi.org/10.5753/sbseg_estendido.2024.243363\" target=\"_blank\" rel=\"noopener\">https://doi.org/10.5753/sbseg_estendido.2024.243363</a>",
+        "Título: <strong>MalSynGen: redes neurais artificiais na geração de dados tabulares sintéticos para detecção de malware</strong><br> Autores: Angelo Diniz, Kayuã Paim, Rodrigo Mansilha, Hendrio Luis Bragança, Diego Kreutz<br> Paper: <a href=\"https://doi.org/10.5753/sbseg_estendido.2024.243359\" target=\"_blank\" rel=\"noopener\">https://doi.org/10.5753/sbseg_estendido.2024.243359</a>",
+        "Título: <strong>SigAPI AutoCraft: uma ferramenta de seleção de caracterı́sticas com capacidade de generalização</strong><br> Autores: Laura Tschiedel, Joner Assolin, Diego Kreutz, Silvio Quincozes, Hendrio Luis Bragança, Vanderson Rocha<br> Paper: <a href=\"https://doi.org/10.5753/sbseg_estendido.2024.243361\" target=\"_blank\" rel=\"noopener\">https://doi.org/10.5753/sbseg_estendido.2024.243361</a>",
+        "Título: <strong>EXSS: Um Emulador Educativo de Ataques Cross-Site Scripting</strong><br> Autores: Bianca Guarizi, Isabela Alves, Júlia Souza, Guilherme Pimentel, João Watanabe, Dalbert Mascarenhas, Ian Vilar Bastos, Marcelo Rubinstein, Igor Moraes<br> Paper: <a href=\"https://doi.org/10.5753/sbseg_estendido.2024.243354\" target=\"_blank\" rel=\"noopener\">https://doi.org/10.5753/sbseg_estendido.2024.243354</a>",
+        "Título: <strong>Seleção de Características Multi-objetivo para Detecção de Malwares Android PreviousNext</strong><br> Autores: Philipe Fransozi, Jhonatan Geremias, Eduardo Kugler Viegas, Altair Olivo Santin<br> Paper: <a href=\"https://doi.org/10.5753/sbseg_estendido.2024.241836\" target=\"_blank\" rel=\"noopener\">https://doi.org/10.5753/sbseg_estendido.2024.241836</a>",
+        "Declaração oficial assinada: <a href=\"/results/sbseg-2024/sbseg24-cta-declaracao-melhores-trabalhos-trabalhos-destaque-assinado.pdf\" target=\"_blank\" rel=\"noopener\">Declaração dos Trabalhos / Artefatos Destaque (PDF)</a>."
+      ],
+      "list": [],
+      "table": null
+    },
+    {
+      "title": "Revisores Destaque",
+      "paragraphs": [
+        "Aline de Lurdes Zuliani Lunkes (PUCPR)<br> Amanda Viescinski (UFPR)<br> Angelo Gaspar Diniz Nogueira (UNIPAMPA)<br> Anselmo Lacerda Gomes (Instituto Atlântico)<br> Bruno Albertini (USP)<br> Diego Kreutz (UNIPAMPA)<br> Françoa Taffarel (ITA e Marinha do Brasil)<br> Ioram Schechtman Sette (CESAR)<br> Leandro Bertholdo (UFRGS)<br> Leonardo Toshinobu Kimura (USP)<br> Roben Lunardi (IFRS)",
+        "Declaração oficial assinada: <a href=\"/results/sbseg-2024/sbseg24-cta-declaracao-melhores-revisores-revisores-destaque-assinada.pdf\" target=\"_blank\" rel=\"noopener\">Declaração dos Revisores Destaque (PDF)</a>."
+      ],
+      "list": [],
+      "table": null
+    },
+    {
+      "title": "Revisores e número de artefatos avaliados",
+      "paragraphs": [
+        "Lista completa dos revisores do CTA e o número de artefatos avaliados por cada um (fonte: <a href=\"/results/sbseg-2024/sbseg24-cta-avaliadores-e-artefatos-avaliados.pdf\" target=\"_blank\" rel=\"noopener\">planilha de avaliadores e artefatos avaliados — PDF</a>).",
+        "<em>Observação: valores no formato X/Y são reproduzidos conforme a planilha de origem (artefatos avaliados / atribuídos).</em>"
+      ],
+      "list": [],
+      "table": {
+        "headers": [
+          "Revisor(a)",
+          "Instituição",
+          "# artefatos"
+        ],
+        "rows": [
+          [
+            "Diego Kreutz",
+            "UNIPAMPA",
+            "8"
+          ],
+          [
+            "Anderson Frasão",
+            "Universidade Federal do Paraná",
+            "5"
+          ],
+          [
+            "Anselmo Lacerda Gomes",
+            "Instituto Atlântico",
+            "5"
+          ],
+          [
+            "Jorge Correia",
+            "Universidade Federal do Paraná (UFPR)",
+            "5"
+          ],
+          [
+            "Aline de Lurdes Zuliani Lunkes",
+            "PUCPR",
+            "4"
+          ],
+          [
+            "Anderson Bergamini de Neira",
+            "UFPR",
+            "4"
+          ],
+          [
+            "Bruno Albertini",
+            "USP",
+            "4"
+          ],
+          [
+            "Ioram Schechtman Sette",
+            "CESAR",
+            "4"
+          ],
+          [
+            "Joner Assolin",
+            "UFAM",
+            "4"
+          ],
+          [
+            "Kalinka Castelo Branco",
+            "ICMC/USP",
+            "4"
+          ],
+          [
+            "Rodrigo Mansilha",
+            "UNIPAMPA",
+            "4"
+          ],
+          [
+            "Rodrigo Carneiro Munhoz Coimbra",
+            "Tribunal Superior Eleitoral",
+            "4"
+          ],
+          [
+            "Andre Leon Sampaio Gradvohl",
+            "Universidade Estadual de Campinas",
+            "3/6"
+          ],
+          [
+            "Amanda Viescinski",
+            "UFPR",
+            "3"
+          ],
+          [
+            "Angelo Gaspar Diniz Nogueira",
+            "UNIPAMPA",
+            "3"
+          ],
+          [
+            "Antonio João Gonçalves de Azambuja",
+            "UFRGS",
+            "3"
+          ],
+          [
+            "Augusto Parisot de Gusmão Neto",
+            "Universidade Federal Fluminense",
+            "3"
+          ],
+          [
+            "Eduardo Feitosa",
+            "Universidade Federal do Amazonas",
+            "3"
+          ],
+          [
+            "Eduardo Kugler Viegas",
+            "PUCPR",
+            "3"
+          ],
+          [
+            "Françoa Taffarel",
+            "Marinha do Brasil",
+            "3"
+          ],
+          [
+            "Hugo Pereira Kuribayashi",
+            "Universidade Federal do Sul e Sudeste do Pará",
+            "3"
+          ],
+          [
+            "Jeandro de Mesquita Bezerra",
+            "UFC Quixadá/UFMG",
+            "3"
+          ],
+          [
+            "João Gondim",
+            "UnB",
+            "3"
+          ],
+          [
+            "Leandro Bertholdo",
+            "UFRGS",
+            "3"
+          ],
+          [
+            "Leonardo Toshinobu Kimura",
+            "USP",
+            "3"
+          ],
+          [
+            "Lucas Airam Castro de Souza",
+            "UFRJ/INRIA",
+            "3"
+          ],
+          [
+            "Mateus Tymburibá",
+            "Centro Federal de Educação Tecnológica de Minas Gerais",
+            "3"
+          ],
+          [
+            "Natascha Sander de Abreu",
+            "GGF Agro",
+            "3"
+          ],
+          [
+            "Roben Lunardi",
+            "IFRS",
+            "3"
+          ],
+          [
+            "Sidnei Barbieri",
+            "Instituto Tecnológico de Aeronáutica (ITA)",
+            "3"
+          ],
+          [
+            "Thiago Guimarães Tavares",
+            "IFTO",
+            "3"
+          ],
+          [
+            "Tiago Heinrich",
+            "Max Planck Institute for Informatics",
+            "3"
+          ],
+          [
+            "Vanderson da Silva Rocha",
+            "UFAM",
+            "3"
+          ],
+          [
+            "William Akihiro Alves Aisawa",
+            "USP",
+            "3"
+          ],
+          [
+            "Eduardo Takeo Ueda",
+            "Instituto de Pesquisas Tecnológicas do Estado de São Paulo (IPT)",
+            "2/4"
+          ],
+          [
+            "Felipe José Aguiar Rampazzo",
+            "Unicamp",
+            "2/4"
+          ],
+          [
+            "Jéferson Campos Nobre",
+            "UFRGS",
+            "2/4"
+          ],
+          [
+            "Kamilla Dória da Silveira",
+            "Universidade Tiradentes",
+            "2/4"
+          ],
+          [
+            "Marcio Barbado, Jr.",
+            "YDUQS Estácio",
+            "2/4"
+          ],
+          [
+            "Marco Antonio Torrez Rojas",
+            "Instituto Federal Catarinense (IFC)",
+            "2/3"
+          ],
+          [
+            "Galileu Batista de Sousa",
+            "IFRN / Polícia Federal",
+            "2"
+          ]
+        ]
+      }
+    },
+    {
+      "title": "Declarações oficiais assinadas",
+      "paragraphs": [
+        "Declarações emitidas e assinadas pela coordenação do Comitê Técnico de Artefatos (CTA), disponíveis na íntegra em formato PDF:"
+      ],
+      "list": [
+        "<a href=\"/results/sbseg-2024/sbseg24-cta-declaracao-melhores-trabalhos-trabalhos-destaque-assinado.pdf\" target=\"_blank\" rel=\"noopener\">Declaração dos Trabalhos / Artefatos Destaque (PDF)</a> — certifica os artefatos selecionados como destaque na categoria Artefatos, conforme a seção Trabalhos Destaque na Categoria Artefatos.",
+        "<a href=\"/results/sbseg-2024/sbseg24-cta-declaracao-melhores-revisores-revisores-destaque-assinada.pdf\" target=\"_blank\" rel=\"noopener\">Declaração dos Revisores Destaque (PDF)</a> — certifica os revisores reconhecidos como destaque do CTA, conforme a seção Revisores Destaque.",
+        "<a href=\"/results/sbseg-2024/sbseg24-cta-declara-o-de-atua-o-dos-membros-do-cta-assinada.pdf\" target=\"_blank\" rel=\"noopener\">Declaração de Atuação dos Membros do CTA (PDF)</a> — atesta a participação e atuação de cada membro do Comitê Técnico de Artefatos no processo de avaliação."
+      ],
+      "table": null
+    },
+    {
+      "title": "Relatório e dados do processo",
+      "paragraphs": [],
+      "list": [
+        "<a href=\"/results/sbseg-2024/sbseg24-cta-relatorio-final.pdf\" target=\"_blank\" rel=\"noopener\">Relatório Final do CTA (PDF)</a>",
+        "Dados — Trabalhos e selos atribuídos: <a href=\"/results/sbseg-2024/sbseg24-cta-trabalhos-e-selos-atribuidos.pdf\" target=\"_blank\" rel=\"noopener\">PDF</a> (dados brutos: <a href=\"/results/sbseg-2024/sbseg24-cta-hotcrp-trabalhos-e-respectivos-selos-atribuidos.xlsx\" target=\"_blank\" rel=\"noopener\">XLSX</a> · <a href=\"/results/sbseg-2024/sbseg24-cta-hotcrp-trabalhos-e-respectivos-selos-atribuidos-selos-dos-trabalhos.csv\" target=\"_blank\" rel=\"noopener\">CSV</a>)",
+        "Dados — Avaliadores e artefatos avaliados: <a href=\"/results/sbseg-2024/sbseg24-cta-avaliadores-e-artefatos-avaliados.pdf\" target=\"_blank\" rel=\"noopener\">PDF</a> (dados brutos: <a href=\"/results/sbseg-2024/sbseg24-cta-hotcrp-avaliadores-e-artefatos-avaliados-sheet1.csv\" target=\"_blank\" rel=\"noopener\">CSV</a>)"
+      ],
+      "table": null
+    }
   ]
 }

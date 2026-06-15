@@ -27,6 +27,22 @@ export interface ResultDoc {
   href: string;
   section: string | null;
 }
+/** A simple data table inside a narrative result section (stats, reviewer counts). */
+export interface ResultTable {
+  headers: string[];
+  rows: string[][];
+}
+/**
+ * A narrative result section beyond the seal table — award/highlight lists,
+ * statistics, reviewer tables, signed declarations, coordination. `paragraphs`
+ * and `list` items carry sanitized inline HTML (emphasis + self-hosted links).
+ */
+export interface ResultSection {
+  title: string;
+  paragraphs: string[];
+  list: string[];
+  table: ResultTable | null;
+}
 export interface EditionData {
   slug: string;
   legacyDir: string;
@@ -36,6 +52,8 @@ export interface EditionData {
   intro: string | null;
   /** Downloadable result documents, self-hosted under public/results/<slug>/. */
   documents: ResultDoc[];
+  /** Narrative result sections (highlights, awards, statistics, coordination). */
+  sections: ResultSection[];
 }
 
 const dataBySlug: Record<string, EditionData> = {
@@ -88,7 +106,7 @@ export function resolveEdition(slug: string): ResolvedEdition | undefined {
       return {
         edition,
         event,
-        data: dataBySlug[slug] ?? { slug, legacyDir: '', committee: [], results: [], intro: null, documents: [] },
+        data: dataBySlug[slug] ?? { slug, legacyDir: '', committee: [], results: [], intro: null, documents: [], sections: [] },
         contact: contactBySlug[slug] ?? DEFAULT_CONTACT,
         instructionsYear: edition.year,
       };

@@ -111,22 +111,40 @@ def parse_sealtext(cell_text: str):
     return seals
 
 
+# Headings that are section labels rather than track names — never used as tracks.
+NON_TRACK_HEADING = ("selos atribu", "resultado", "destaque", "revisor",
+                     "estatística", "estatistica", "declara", "premia",
+                     "coordena", "documento", "keyboard")
+
+
+def normalize_track(label: str):
+    """Collapse a free-text track heading to a canonical code when recognizable."""
+    low = label.lower()
+    if "(tp)" in low or "trilha principal" in low:
+        return "TP"
+    if "(sf)" in low or "salão de ferramentas" in low or "salao de ferramentas" in low:
+        return "SF"
+    if "wticg" in low:
+        return "WTICG"
+    return label
+
+
 def parse_results(html: str):
     region = main_region(html)
     rows_out = []
-    # Walk h2 subsections (used by some editions as track labels) + tables in order.
-    # Simpler: process each table; use Track column when present, else nearest
-    # preceding <h2> as the track label.
-    tokens = re.split(r"(<h2\b[^>]*>.*?</h2>|<table>.*?</table>)", region, flags=re.S)
-    current_h2 = None
+    # Walk h2/h3 subsections (used by some editions as track labels) + tables in
+    # order; use the Track column when present, else the nearest preceding
+    # heading (e.g. SBRC 2026 splits Trilha Principal / Salão de Ferramentas via
+    # <h3> subsections rather than a column).
+    tokens = re.split(r"(<h[23]\b[^>]*>.*?</h[23]>|<table>.*?</table>)", region, flags=re.S)
+    current_track = None
     for tok in tokens:
-        if tok.startswith("<h2"):
+        if re.match(r"<h[23]", tok):
             label = text(tok)
-            # ignore generic section titles
-            if "selos atribu" in label.lower() or "resultado" in label.lower():
-                current_h2 = None
+            if not label or any(k in label.lower() for k in NON_TRACK_HEADING):
+                current_track = None
             else:
-                current_h2 = label
+                current_track = normalize_track(label)
         elif tok.startswith("<table"):
             thead = re.search(r"<thead>(.*?)</thead>", tok, re.S)
             if not thead:
@@ -143,7 +161,7 @@ def parse_results(html: str):
                 if not cells:
                     continue
                 row = {"seals": {"D": False, "F": False, "S": False, "R": False},
-                       "title": "", "track": current_h2, "link": None}
+                       "title": "", "track": current_track, "link": None}
                 for idx, cell in enumerate(cells):
                     role = roles[idx] if idx < len(roles) else None
                     if role in ("D", "F", "S", "R"):
@@ -170,16 +188,20 @@ def parse_results(html: str):
     return rows_out
 
 
-def parse_intro(html: str):
-    """The narrative paragraph(s) between the page <h1> and the first <h2>/<table>."""
+def parse_intro(html: str, slug: str, legacy_dir: str):
+    """The narrative paragraph(s) between the page <h1> and the first <h2>/<table>.
+
+    Returns sanitized inline HTML so any links (e.g. SBRC 2026's "Declaração
+    Geral Final" PDF) stay clickable rather than being flattened to text.
+    """
     region = main_region(html)
     after_h1 = re.split(r"</h1>", region, maxsplit=1)
     region = after_h1[1] if len(after_h1) > 1 else region
-    head = re.split(r"<h2\b|<table\b", region, maxsplit=1)[0]
-    paras = [text(p) for p in re.findall(r"<p>(.*?)</p>", head, re.S)]
+    head = re.split(r"<h2\b|<h3\b|<table\b", region, maxsplit=1)[0]
+    paras = [sanitize_inline(p, slug, legacy_dir) for p in re.findall(r"<p\b[^>]*>(.*?)</p>", head, re.S)]
     intro = " ".join(p for p in paras if p).strip()
     # Skip empty or placeholder intros.
-    if not intro or intro.upper() == "TBD":
+    if not intro or text(intro).upper() == "TBD":
         return None
     return intro
 
@@ -191,6 +213,23 @@ def clean_filename(href: str) -> str:
     base = stem if dot else name
     base = re.sub(r"[^A-Za-z0-9]+", "-", base).strip("-").lower()
     return f"{base}.{ext.lower()}" if dot else base
+
+
+def download_doc(href: str, legacy_dir: str, slug: str, local: str):
+    """Fetch a referenced file from the live old site into public/results/<slug>/."""
+    if not DOWNLOAD:
+        return
+    dest = PUBLIC_DOCS / slug / local
+    if dest.exists():
+        return
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    src = f"{DOC_BASE_URL}/{legacy_dir}/{href.lstrip('/')}"
+    try:
+        with urllib.request.urlopen(src) as resp:
+            dest.write_bytes(resp.read())
+        print(f"  downloaded {src} -> {dest.relative_to(ROOT)}")
+    except Exception as e:  # noqa: BLE001 — surface and continue
+        print(f"  FAILED {src}: {e}", file=sys.stderr)
 
 
 def parse_documents(html: str, legacy_dir: str, slug: str):
@@ -226,17 +265,129 @@ def parse_documents(html: str, legacy_dir: str, slug: str):
         seen.add(local_href)
         label = text(tok) or local
         docs.append({"label": label, "href": local_href, "section": current_h2})
-        if DOWNLOAD:
-            dest = PUBLIC_DOCS / slug / local
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            src = f"{DOC_BASE_URL}/{legacy_dir}/{href.lstrip('/')}"
-            try:
-                with urllib.request.urlopen(src) as resp:
-                    dest.write_bytes(resp.read())
-                print(f"  downloaded {src} -> {dest.relative_to(ROOT)}")
-            except Exception as e:  # noqa: BLE001 — surface and continue
-                print(f"  FAILED {src}: {e}", file=sys.stderr)
+        download_doc(href, legacy_dir, slug, local)
     return docs
+
+
+# Inline tags preserved verbatim inside narrative paragraphs (rendered with
+# set:html on the Astro side); everything else is unwrapped to its text.
+ALLOWED_INLINE = {"strong", "b", "em", "i", "br", "code"}
+
+
+def sanitize_inline(frag: str, slug: str, legacy_dir: str) -> str:
+    """Reduce a paragraph/blockquote to a safe inline-HTML string.
+
+    Keeps basic emphasis tags and links; rewrites relative file links to the
+    self-hosted /results/<slug>/ path (downloading them when --download is set);
+    drops mdBook header self-anchors and images.
+    """
+    frag = re.sub(r'<a class="header"[^>]*>.*?</a>', "", frag, flags=re.S)
+    frag = re.sub(r"<img[^>]*>", "", frag)
+
+    def repl_a(m):
+        attrs, inner = m.group(1), m.group(2)
+        href_m = re.search(r'href="([^"]+)"', attrs)
+        href = href_m.group(1) if href_m else ""
+        # External / email links: keep, opening in a new tab.
+        if href.startswith(("http://", "https://", "mailto:")):
+            return f'<a href="{href}" target="_blank" rel="noopener">{inner}</a>'
+        # Downloadable documents: self-host under /results/<slug>/ and fetch.
+        last = href.split("/")[-1]
+        ext = last.rsplit(".", 1)[-1].lower() if "." in last else ""
+        if ext in DOC_EXT:
+            local = clean_filename(href)
+            download_doc(href, legacy_dir, slug, local)
+            return f'<a href="/results/{slug}/{local}" target="_blank" rel="noopener">{inner}</a>'
+        # In-page anchors (#…) and other legacy relative page links (e.g.
+        # contato.html) can't be mapped to the new site — unwrap to text.
+        return inner
+
+    frag = re.sub(r"<a\b([^>]*)>(.*?)</a>", repl_a, frag, flags=re.S)
+
+    def strip_tag(m):
+        tag = m.group(0)
+        nm = re.match(r"</?\s*([a-zA-Z0-9]+)", tag)
+        if not nm:
+            return ""
+        name = nm.group(1).lower()
+        if name == "a":
+            return tag  # already normalized (opening) or a bare </a>
+        if name in ALLOWED_INLINE:
+            if name == "br":
+                return "<br>"
+            return f"</{name}>" if tag.startswith("</") else f"<{name}>"
+        return ""
+
+    frag = re.sub(r"<[^>]+>", strip_tag, frag)
+    return WS.sub(" ", frag).strip()
+
+
+# Section headings handled elsewhere (the seal table) and not re-emitted here.
+NARR_IGNORE = ("selos atribu", "keyboard")
+
+
+def parse_sections(html: str, slug: str, legacy_dir: str):
+    """Narrative result sections beyond the seal table.
+
+    Captures each text-bearing h2/h3 section as {title, paragraphs, list, table},
+    preserving award/highlight lists, statistics, reviewer tables, coordination,
+    signed declarations and downloadable data — in source order. Doc links are
+    rewritten to self-hosted /results/<slug>/ paths (and downloaded) inline, so
+    these sections carry the full results content; seal tables (handled by
+    parse_results) are skipped.
+    """
+    region = main_region(html)
+    tokens = re.split(
+        r"(<h[23]\b[^>]*>.*?</h[23]>|<table\b[^>]*>.*?</table>|<ul\b[^>]*>.*?</ul>|<p\b[^>]*>.*?</p>|<blockquote\b[^>]*>.*?</blockquote>)",
+        region, flags=re.S,
+    )
+    sections = []
+    cur = None
+
+    def flush():
+        if cur and cur["title"] and (cur["paragraphs"] or cur["list"] or cur["table"]):
+            sections.append(cur)
+
+    for tok in tokens:
+        if re.match(r"<h[23]\b", tok):
+            flush()
+            cur = {"title": text(tok), "paragraphs": [], "list": [], "table": None}
+        elif re.match(r"<ul\b", tok):
+            if cur is None:
+                continue
+            for li in re.findall(r"<li>(.*?)</li>", tok, re.S):
+                frag = sanitize_inline(li, slug, legacy_dir)
+                if frag:
+                    cur["list"].append(frag)
+        elif re.match(r"<table\b", tok):
+            if cur is None:
+                continue
+            thead = re.search(r"<thead>(.*?)</thead>", tok, re.S)
+            ths = re.findall(r"<th[^>]*>(.*?)</th>", thead.group(1), re.S) if thead else []
+            roles = classify_headers(ths)
+            if any(r in ("D", "F", "S", "R", "sealtext") for r in roles):
+                continue  # seal table — emitted by parse_results
+            tbody = re.search(r"<tbody>(.*?)</tbody>", tok, re.S)
+            body = tbody.group(1) if tbody else tok
+            rows = []
+            for chunk in re.split(r"<tr>", body)[1:]:
+                tr = re.split(r"</tr>|</tbody>|</table>", chunk)[0]
+                cells = [text(c) for c in re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)]
+                if cells:
+                    rows.append(cells)
+            cur["table"] = {"headers": [text(h) for h in ths], "rows": rows}
+        elif re.match(r"<p\b", tok) or re.match(r"<blockquote\b", tok):
+            if cur is None:
+                continue
+            inner = tok
+            if re.match(r"<blockquote\b", tok):
+                bm = re.search(r"<blockquote\b[^>]*>(.*?)</blockquote>", tok, re.S)
+                inner = bm.group(1) if bm else tok
+            frag = sanitize_inline(inner, slug, legacy_dir)
+            if frag:
+                cur["paragraphs"].append(frag)
+    flush()
+    return [s for s in sections if not any(k in s["title"].lower() for k in NARR_IGNORE)]
 
 
 def main():
@@ -246,7 +397,7 @@ def main():
         folder = cfg["dir"]
         base = ROOT / folder
         data = {"slug": slug, "legacyDir": folder, "committee": [],
-                "results": [], "intro": None, "documents": []}
+                "results": [], "intro": None, "documents": [], "sections": []}
         comite = base / cfg.get("comite", "comite.html")
         results = base / cfg.get("results", "results.html")
         if comite.exists():
@@ -254,8 +405,9 @@ def main():
         if results.exists():
             html = results.read_text(encoding="utf-8", errors="replace")
             data["results"] = parse_results(html)
-            data["intro"] = parse_intro(html)
+            data["intro"] = parse_intro(html, slug, folder)
             data["documents"] = parse_documents(html, folder, slug)
+            data["sections"] = parse_sections(html, slug, folder)
         (OUT / f"{slug}.json").write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
         summary[slug] = {
             "committee_groups": len(data["committee"]),
@@ -263,6 +415,7 @@ def main():
             "results": len(data["results"]),
             "intro": bool(data["intro"]),
             "documents": len(data["documents"]),
+            "sections": len(data["sections"]),
         }
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
