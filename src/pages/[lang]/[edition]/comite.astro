@@ -9,8 +9,41 @@ const { r } = Astro.props as { r: ResolvedEdition };
 const lang = Astro.params.lang as Lang;
 const t = useTranslations(lang);
 const heading = editionTitle(r);
-const groups = r.data.committee;
 const isTbd = (members: string[]) => members.length === 1 && /tbd/i.test(members[0]);
+
+// Committee group names are stored in Portuguese in the edition data, so they
+// bypass the i18n layer. Translate the known group names for EN/ES pages.
+const groupNames: Record<string, { en: string; es: string }> = {
+  'Coordenadores do CTA': { en: 'CTA Coordinators', es: 'Coordinadores del CTA' },
+  'Coordenadores do CTA e CTAA': {
+    en: 'CTA and CTAA Coordinators',
+    es: 'Coordinadores del CTA y CTAA',
+  },
+  'Comitê Técnico de Artefatos (CTA)': {
+    en: 'Artifact Technical Committee (CTA)',
+    es: 'Comité Técnico de Artefactos (CTA)',
+  },
+  'Comitê Técnico Auxiliar de Artefatos (CTAA)': {
+    en: 'Auxiliary Artifact Technical Committee (CTAA)',
+    es: 'Comité Técnico Auxiliar de Artefactos (CTAA)',
+  },
+  'Melhores Revisores do CTA': {
+    en: 'CTA Best Reviewers',
+    es: 'Mejores Revisores del CTA',
+  },
+  Tutores: { en: 'Tutors', es: 'Tutores' },
+  'Selo Design': { en: 'Design Badge', es: 'Sello Diseño' },
+};
+
+const groupName = (group: string): string =>
+  lang === 'pt' ? group : (groupNames[group]?.[lang as 'en' | 'es'] ?? group);
+
+// The "best reviewers" group only makes sense once names are defined; hide it
+// while it is still a placeholder (TBD).
+const isBestReviewers = (group: string) => /melhores revisores/i.test(group);
+const groups = r.data.committee.filter(
+  (g) => !(isBestReviewers(g.group) && isTbd(g.members)),
+);
 ---
 
 <EditionLayout lang={lang} r={r} active="comite" title={`${t('nav.committee')} · ${heading}`}>
@@ -23,7 +56,7 @@ const isTbd = (members: string[]) => members.length === 1 && /tbd/i.test(members
       <div class="groups">
         {groups.map((g) => (
           <section class="group">
-            <h3>{g.group}</h3>
+            <h3>{groupName(g.group)}</h3>
             {isTbd(g.members) ? (
               <p class="tbd">{t('committee.tbd')}</p>
             ) : (
