@@ -36,7 +36,7 @@ export const events: CtaEvent[] = [
     editions: [
       {
         slug: 'sbrc-2026',
-        label: "SF'26",
+        label: "TP'26 + SF'26",
         year: 2026,
         current: true,
         track: {
@@ -84,7 +84,7 @@ export const events: CtaEvent[] = [
     editions: [
       {
         slug: 'sbseg-2026',
-        label: "SF'26",
+        label: "TP'26 + SF'26",
         year: 2026,
         current: true,
         track: {
@@ -97,7 +97,7 @@ export const events: CtaEvent[] = [
       },
       {
         slug: 'sbseg-2025',
-        label: "SF'25",
+        label: "TP'25 + SF'25",
         year: 2025,
         track: {
           pt: 'Salão de Ferramentas + Trilha Principal',
