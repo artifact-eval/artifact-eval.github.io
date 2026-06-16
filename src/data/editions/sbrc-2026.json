@@ -710,20 +710,44 @@
       "section": null
     }
   ],
-  "sections": [
+  "highlights": [
     {
-      "title": "Trabalhos Destaque na Categoria Artefatos",
-      "paragraphs": [
-        "O Comitê de Seleção selecionou o <strong>Melhor Artefato</strong> do SBRC 2026:",
-        "Também foram selecionados como <strong>artefatos destaque</strong>:"
-      ],
-      "list": [
-        "<a href=\"https://github.com/AnonShield/tool\" target=\"_blank\" rel=\"noopener\">AnonShield: Scalable On-Premise Pseudonymization for CSIRT Network Vulnerability Data</a>",
-        "<a href=\"https://github.com/alexandrefontinele/SNetS-SDM-SBRC26\" target=\"_blank\" rel=\"noopener\">IMPA: Novo algoritmo para atribuição de potência de forma adaptativa em SDM-EONs</a>",
-        "<a href=\"https://github.com/luigiluz/yes-carla-can\" target=\"_blank\" rel=\"noopener\">Yes, CARLA CAN: Extending the CARLA Simulator for In-Vehicle Network Cybersecurity Experimentation</a>"
-      ],
-      "table": null
+      "best": true,
+      "title": "AnonShield: Scalable On-Premise Pseudonymization for CSIRT Network Vulnerability Data",
+      "paper": "https://sol.sbc.org.br/index.php/sbrc_estendido/article/view/42580",
+      "repo": "https://github.com/AnonShield/tool",
+      "authors": [
+        { "name": "Cristhian Eduardo Kapelinski de Avila", "inst": "UNIPAMPA" },
+        { "name": "Douglas Lautert", "inst": "UNIPAMPA" },
+        { "name": "Beatriz Roland Machado", "inst": "UNIPAMPA" },
+        { "name": "Diego Kreutz", "inst": "UNIPAMPA" },
+        { "name": "Isadora Garcia Ferrão", "inst": "UBO" }
+      ]
     },
+    {
+      "title": "IMPA: Novo algoritmo para atribuição de potência de forma adaptativa em SDM-EONs",
+      "paper": "https://sol.sbc.org.br/index.php/sbrc/article/view/42333",
+      "repo": "https://github.com/alexandrefontinele/SNetS-SDM-SBRC26",
+      "authors": [
+        { "name": "Jordana França", "inst": "UFPI" },
+        { "name": "Uriel P. Mori", "inst": "UFPI" },
+        { "name": "Alexandre C. Fontinele", "inst": "UFPI" },
+        { "name": "Iallen Santos", "inst": "IFPI" },
+        { "name": "André C. B. Soares", "inst": "UFPI" }
+      ]
+    },
+    {
+      "title": "Yes, CARLA CAN: Extending the CARLA Simulator for In-Vehicle Network Cybersecurity Experimentation",
+      "paper": "https://sol.sbc.org.br/index.php/sbrc_estendido/article/view/42599",
+      "repo": "https://github.com/luigiluz/yes-carla-can",
+      "authors": [
+        { "name": "Luigi F. Marques da Luz", "inst": "UFPE" },
+        { "name": "Vinicius L. Ventura", "inst": "UFPE" },
+        { "name": "Divanilson R. Campelo", "inst": "UFPE" }
+      ]
+    }
+  ],
+  "sections": [
     {
       "title": "Revisores Destaque",
       "paragraphs": [],

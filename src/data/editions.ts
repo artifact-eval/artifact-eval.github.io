@@ -32,6 +32,25 @@ export interface ResultTable {
   headers: string[];
   rows: string[][];
 }
+/** An author of a highlighted artifact, with their institutional affiliation. */
+export interface HighlightAuthor {
+  name: string;
+  inst: string;
+}
+/**
+ * A highlighted ("destaque") artifact, with the metadata needed to credit it:
+ * paper title, SOL paper link, authors + institutions, and artifact repository.
+ * `best` marks the single Best Artifact, rendered apart from the others.
+ */
+export interface HighlightArtifact {
+  title: string;
+  /** Link to the paper on SBC's SOL/OpenLib. */
+  paper: string;
+  /** Link to the artifact's source repository. */
+  repo: string;
+  authors: HighlightAuthor[];
+  best?: boolean;
+}
 /**
  * A narrative result section beyond the seal table — award/highlight lists,
  * statistics, reviewer tables, signed declarations, coordination. `paragraphs`
@@ -52,6 +71,8 @@ export interface EditionData {
   intro: string | null;
   /** Downloadable result documents, self-hosted under public/results/<slug>/. */
   documents: ResultDoc[];
+  /** Highlighted artifacts (Best Artifact + other destaques), with full credits. */
+  highlights?: HighlightArtifact[];
   /** Narrative result sections (highlights, awards, statistics, coordination). */
   sections: ResultSection[];
 }
@@ -106,7 +127,7 @@ export function resolveEdition(slug: string): ResolvedEdition | undefined {
       return {
         edition,
         event,
-        data: dataBySlug[slug] ?? { slug, legacyDir: '', committee: [], results: [], intro: null, documents: [], sections: [] },
+        data: dataBySlug[slug] ?? { slug, legacyDir: '', committee: [], results: [], intro: null, documents: [], highlights: [], sections: [] },
         contact: contactBySlug[slug] ?? DEFAULT_CONTACT,
         instructionsYear: edition.year,
       };

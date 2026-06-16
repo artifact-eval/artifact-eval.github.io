@@ -12,8 +12,11 @@ const t = useTranslations(lang);
 const heading = editionTitle(r);
 const rows = r.data.results;
 const sections = r.data.sections ?? [];
+const highlights = r.data.highlights ?? [];
+const bestHighlight = highlights.find((h) => h.best);
+const otherHighlights = highlights.filter((h) => !h.best);
 const intro = r.data.intro;
-const hasContent = rows.length > 0 || sections.length > 0;
+const hasContent = rows.length > 0 || sections.length > 0 || highlights.length > 0;
 const hasLink = rows.some((row) => row.link);
 const base = import.meta.env.BASE_URL; // e.g. "/" — keeps doc hrefs base-safe
 
@@ -103,6 +106,66 @@ const trackLabel = (key: string | null): string | null => (key ? (trackLabels[la
             </div>
           </section>
         ))}
+        {highlights.length > 0 && (
+          <section class="highlights">
+            <h3>{t('results.highlights.title')}</h3>
+            {bestHighlight && (
+              <>
+                <p class="hl-lead">{t('results.highlights.bestLead')}</p>
+                <article class="hl-card hl-best">
+                  <span class="hl-badge">★ {t('results.highlights.bestBadge')}</span>
+                  <h4 class="hl-title">{bestHighlight.title}</h4>
+                  <p class="hl-authors">
+                    <span class="hl-label">{t('results.highlights.authors')}:</span>{' '}
+                    {bestHighlight.authors.map((a, i) => (
+                      <>
+                        {i > 0 ? '; ' : ''}
+                        {a.name} ({a.inst})
+                      </>
+                    ))}
+                  </p>
+                  <p class="hl-links">
+                    <a href={bestHighlight.paper} target="_blank" rel="noopener">
+                      {t('results.highlights.paper')} ↗
+                    </a>
+                    <a href={bestHighlight.repo} target="_blank" rel="noopener">
+                      {t('results.highlights.repo')} ↗
+                    </a>
+                  </p>
+                </article>
+              </>
+            )}
+            {otherHighlights.length > 0 && (
+              <>
+                <p class="hl-lead">{t('results.highlights.othersLead')}</p>
+                <div class="hl-grid">
+                  {otherHighlights.map((h) => (
+                    <article class="hl-card">
+                      <h4 class="hl-title">{h.title}</h4>
+                      <p class="hl-authors">
+                        <span class="hl-label">{t('results.highlights.authors')}:</span>{' '}
+                        {h.authors.map((a, i) => (
+                          <>
+                            {i > 0 ? '; ' : ''}
+                            {a.name} ({a.inst})
+                          </>
+                        ))}
+                      </p>
+                      <p class="hl-links">
+                        <a href={h.paper} target="_blank" rel="noopener">
+                          {t('results.highlights.paper')} ↗
+                        </a>
+                        <a href={h.repo} target="_blank" rel="noopener">
+                          {t('results.highlights.repo')} ↗
+                        </a>
+                      </p>
+                    </article>
+                  ))}
+                </div>
+              </>
+            )}
+          </section>
+        )}
         {sections.map((sec) => (
           <section class="narrative">
             <h3>{sec.title}</h3>
@@ -231,6 +294,78 @@ const trackLabel = (key: string | null): string | null => (key ? (trackLabels[la
   .link a {
     white-space: nowrap;
     font-weight: 600;
+  }
+  .highlights {
+    margin: 0 0 36px;
+  }
+  .highlights h3 {
+    font-size: 18px;
+    margin: 0 0 12px;
+    color: var(--ink);
+  }
+  .hl-lead {
+    margin: 0 0 12px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .hl-grid {
+    display: grid;
+    gap: 14px;
+  }
+  @media (min-width: 720px) {
+    .hl-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .hl-card {
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 16px 18px;
+    background: var(--surface-2);
+  }
+  .hl-best {
+    border-color: var(--seal-d);
+    background: var(--surface-3);
+    margin-bottom: 20px;
+  }
+  .hl-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: var(--seal-d);
+    padding: 3px 9px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+  .hl-title {
+    font-size: 15.5px;
+    line-height: 1.4;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+  .hl-authors {
+    margin: 0 0 10px;
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .hl-label {
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .hl-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin: 0;
+  }
+  .hl-links a {
+    font-weight: 600;
+    font-size: 13.5px;
+    white-space: nowrap;
   }
   .narrative {
     margin: 0 0 32px;
