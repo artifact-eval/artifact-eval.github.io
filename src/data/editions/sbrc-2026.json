@@ -60,6 +60,18 @@
       "members": [
         "TBD"
       ]
+    },
+    {
+      "group": "Comitê de Seleção de Artefatos (CTA)",
+      "members": [
+        "Antonio João Gonçalves de Azambuja (UFRGS)",
+        "Hugo Santos (UEPA)",
+        "Leandro M. Bertholdo (UFRGS)",
+        "Leonardo Chahud (ITA)",
+        "Pedro Marcos (FURG)",
+        "Rogério Turchetti (UFSM)",
+        "Valter Roesler (UFRGS)"
+      ]
     }
   ],
   "results": [
@@ -717,11 +729,26 @@
       "paper": "https://sol.sbc.org.br/index.php/sbrc_estendido/article/view/42580",
       "repo": "https://github.com/AnonShield/tool",
       "authors": [
-        { "name": "Cristhian Eduardo Kapelinski de Avila", "inst": "UNIPAMPA" },
-        { "name": "Douglas Lautert", "inst": "UNIPAMPA" },
-        { "name": "Beatriz Roland Machado", "inst": "UNIPAMPA" },
-        { "name": "Diego Kreutz", "inst": "UNIPAMPA" },
-        { "name": "Isadora Garcia Ferrão", "inst": "UBO" }
+        {
+          "name": "Cristhian Eduardo Kapelinski de Avila",
+          "inst": "UNIPAMPA"
+        },
+        {
+          "name": "Douglas Lautert",
+          "inst": "UNIPAMPA"
+        },
+        {
+          "name": "Beatriz Roland Machado",
+          "inst": "UNIPAMPA"
+        },
+        {
+          "name": "Diego Kreutz",
+          "inst": "UNIPAMPA"
+        },
+        {
+          "name": "Isadora Garcia Ferrão",
+          "inst": "UBO"
+        }
       ]
     },
     {
@@ -729,11 +756,26 @@
       "paper": "https://sol.sbc.org.br/index.php/sbrc/article/view/42333",
       "repo": "https://github.com/alexandrefontinele/SNetS-SDM-SBRC26",
       "authors": [
-        { "name": "Jordana França", "inst": "UFPI" },
-        { "name": "Uriel P. Mori", "inst": "UFPI" },
-        { "name": "Alexandre C. Fontinele", "inst": "UFPI" },
-        { "name": "Iallen Santos", "inst": "IFPI" },
-        { "name": "André C. B. Soares", "inst": "UFPI" }
+        {
+          "name": "Jordana França",
+          "inst": "UFPI"
+        },
+        {
+          "name": "Uriel P. Mori",
+          "inst": "UFPI"
+        },
+        {
+          "name": "Alexandre C. Fontinele",
+          "inst": "UFPI"
+        },
+        {
+          "name": "Iallen Santos",
+          "inst": "IFPI"
+        },
+        {
+          "name": "André C. B. Soares",
+          "inst": "UFPI"
+        }
       ]
     },
     {
@@ -741,9 +783,18 @@
       "paper": "https://sol.sbc.org.br/index.php/sbrc_estendido/article/view/42599",
       "repo": "https://github.com/luigiluz/yes-carla-can",
       "authors": [
-        { "name": "Luigi F. Marques da Luz", "inst": "UFPE" },
-        { "name": "Vinicius L. Ventura", "inst": "UFPE" },
-        { "name": "Divanilson R. Campelo", "inst": "UFPE" }
+        {
+          "name": "Luigi F. Marques da Luz",
+          "inst": "UFPE"
+        },
+        {
+          "name": "Vinicius L. Ventura",
+          "inst": "UFPE"
+        },
+        {
+          "name": "Divanilson R. Campelo",
+          "inst": "UFPE"
+        }
       ]
     }
   ],

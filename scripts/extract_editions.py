@@ -39,6 +39,39 @@ EDITIONS = {
     "wticg-2023": {"dir": "wticg2023", "comite": "comite23.html", "results": "resultados.html"},
 }
 
+# Artifact Selection Committee per edition. This body selects the best artifacts
+# and best reviewers and is documented only in each edition's signed declaration
+# PDF (e.g. results/<slug>/...declaracao...pdf), not in the legacy comite.html.
+# Keyed by slug; appended to the parsed committee so the data survives regen.
+SELECTION_COMMITTEE_GROUP = "Comitê de Seleção de Artefatos (CTA)"
+SELECTION_COMMITTEES = {
+    "sbrc-2026": [
+        "Antonio João Gonçalves de Azambuja (UFRGS)",
+        "Hugo Santos (UEPA)",
+        "Leandro M. Bertholdo (UFRGS)",
+        "Leonardo Chahud (ITA)",
+        "Pedro Marcos (FURG)",
+        "Rogério Turchetti (UFSM)",
+        "Valter Roesler (UFRGS)",
+    ],
+    "sbseg-2024": [
+        "Aline de Lurdes Zuliani Lunkes (PUCPR)",
+        "Anselmo Lacerda Gomes (Instituto Atlântico)",
+        "Antonio João Azambuja (UFRGS)",
+        "Diego Kreutz (UNIPAMPA)",
+        "Eder John Scheid (UFRGS) — externo",
+        "Leandro Bertholdo (UFRGS)",
+        "Ramon dos Reis Fontes (UFRN) — externo",
+        "Tiago Heinrich (UFPR/MPI)",
+    ],
+    "wgrs-2024": [
+        "Tiago Heinrich (UFPR/MPI)",
+        "Rafael R. Obelheiro (UDESC)",
+        "Bruno Dalmazo (FURG)",
+        "Roben Lunardi (IFRS)",
+    ],
+}
+
 TAG = re.compile(r"<[^>]+>")
 WS = re.compile(r"\s+")
 
@@ -402,6 +435,15 @@ def main():
         results = base / cfg.get("results", "results.html")
         if comite.exists():
             data["committee"] = parse_committee(comite.read_text(encoding="utf-8", errors="replace"))
+        # Append the Selection Committee (best artifacts + best reviewers) sourced
+        # from the edition's declaration PDF; not present in the legacy comite.html.
+        selection = SELECTION_COMMITTEES.get(slug)
+        if selection and not any(
+            g["group"] == SELECTION_COMMITTEE_GROUP for g in data["committee"]
+        ):
+            data["committee"].append(
+                {"group": SELECTION_COMMITTEE_GROUP, "members": selection}
+            )
         if results.exists():
             html = results.read_text(encoding="utf-8", errors="replace")
             data["results"] = parse_results(html)
