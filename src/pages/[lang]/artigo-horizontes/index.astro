@@ -1,0 +1,120 @@
+---
+import { render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import '../../../styles/prose.css';
+import { getArticle, getArticlePaths } from '../../../data/articles';
+import { localizePath, useTranslations, type Lang } from '../../../i18n/utils';
+
+// Fixed slug for this standalone page. Inlined (not a module const) because
+// Astro hoists getStaticPaths and runs it without surrounding module scope.
+export async function getStaticPaths() {
+  const paths = await getArticlePaths();
+  return paths
+    .filter((p) => p.slug === 'avaliacao-artefatos')
+    .map((p) => ({ params: { lang: p.lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const entry = (await getArticle('avaliacao-artefatos', lang))!;
+const { title, authors, date, dateISO, abstract, isBridge, originalUrl } = entry.data;
+const { Content } = await render(entry);
+---
+
+<Base lang={lang} title={title} description={abstract}>
+  <article class="article">
+    <div class="container narrow">
+      <a class="back" href={localizePath(lang)}>{t('article.backHome')}</a>
+
+      <header class="head">
+        <span class="eyebrow">{t('article.eyebrow')}</span>
+        <h1>{title}</h1>
+        <p class="byline">
+          {authors} · <time datetime={dateISO}>{date}</time>
+        </p>
+        <p class="lead">{abstract}</p>
+
+        <a class="origin-btn" href={originalUrl} target="_blank" rel="noopener">
+          {t('article.readOriginal')} ↗
+        </a>
+        {!isBridge && <p class="origin-note">{t('article.originNote')}</p>}
+      </header>
+
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .article {
+    padding-block: clamp(28px, 5vw, 48px);
+  }
+  .narrow {
+    max-width: 760px;
+  }
+  .back {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .back:hover {
+    color: var(--ink);
+  }
+  .head {
+    margin: 18px 0 32px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: var(--r-pill);
+    padding: 5px 13px;
+  }
+  .head h1 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 16px 0 0;
+  }
+  .byline {
+    margin: 14px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .lead {
+    margin: 18px 0 0;
+    font-size: clamp(16px, 2.4vw, 18px);
+    line-height: 1.6;
+    color: var(--ink-2);
+  }
+  .origin-btn {
+    display: inline-block;
+    margin-top: 22px;
+    background: var(--gradient);
+    color: #fff;
+    border-radius: var(--r-pill);
+    padding: 12px 22px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .origin-btn:hover {
+    text-decoration: none;
+    opacity: 0.92;
+  }
+  .origin-note {
+    margin: 14px 0 0;
+    font-size: 13px;
+    color: var(--muted-2);
+  }
+</style>

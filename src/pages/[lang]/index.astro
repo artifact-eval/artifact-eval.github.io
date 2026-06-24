@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Seals from '../../components/Seals.astro';
 import EventCard from '../../components/EventCard.astro';
 import { events } from '../../data/events';
+import { getArticle } from '../../data/articles';
 import { localizePath, useTranslations, langOrder, type Lang } from '../../i18n/utils';
 
 export function getStaticPaths() {
@@ -11,6 +12,7 @@ export function getStaticPaths() {
 
 const lang = Astro.params.lang as Lang;
 const t = useTranslations(lang);
+const article = await getArticle('avaliacao-artefatos', lang);
 ---
 
 <Base lang={lang}>
@@ -36,6 +38,16 @@ const t = useTranslations(lang);
         </span>
         <span class="callout__btn">{t('home.callout.cta')} →</span>
       </a>
+
+      {
+        article && (
+          <a class="feature" href={localizePath(lang, 'artigo-horizontes')}>
+            <span class="feature__kicker">{t('home.article.kicker')}</span>
+            <span class="feature__title">{article.data.title}</span>
+            <span class="feature__cta">{t('home.article.cta')} →</span>
+          </a>
+        )
+      }
     </div>
   </section>
 </Base>
@@ -113,6 +125,43 @@ const t = useTranslations(lang);
     font-size: 14px;
     font-weight: 700;
     white-space: nowrap;
+  }
+
+  .feature {
+    margin-top: 14px;
+    border: 1px solid var(--line-2);
+    border-radius: var(--r-lg);
+    padding: 22px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: var(--surface);
+    text-decoration: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .feature:hover {
+    text-decoration: none;
+    border-color: var(--accent);
+    box-shadow: var(--shadow-card);
+  }
+  .feature__kicker {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--accent);
+  }
+  .feature__title {
+    font-family: var(--font-display);
+    font-size: clamp(17px, 3vw, 20px);
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .feature__cta {
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
   }
 
   @media (max-width: 720px) {
