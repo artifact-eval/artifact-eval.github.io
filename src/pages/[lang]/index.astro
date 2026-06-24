@@ -27,6 +27,16 @@ const article = await getArticle('avaliacao-artefatos', lang);
 
   <section class="sect">
     <div class="container">
+      {
+        article && (
+          <a class="feature" href={localizePath(lang, 'artigo-horizontes')}>
+            <span class="feature__kicker">{t('home.article.kicker')}</span>
+            <span class="feature__title">{article.data.title}</span>
+            <span class="feature__cta">{t('home.article.cta')} →</span>
+          </a>
+        )
+      }
+
       <h2 class="sect__title">{t('home.events.title')}</h2>
       <div class="events">
         {events.map((event) => <EventCard event={event} lang={lang} />)}
@@ -38,16 +48,6 @@ const article = await getArticle('avaliacao-artefatos', lang);
         </span>
         <span class="callout__btn">{t('home.callout.cta')} →</span>
       </a>
-
-      {
-        article && (
-          <a class="feature" href={localizePath(lang, 'artigo-horizontes')}>
-            <span class="feature__kicker">{t('home.article.kicker')}</span>
-            <span class="feature__title">{article.data.title}</span>
-            <span class="feature__cta">{t('home.article.cta')} →</span>
-          </a>
-        )
-      }
     </div>
   </section>
 </Base>
@@ -128,7 +128,7 @@ const article = await getArticle('avaliacao-artefatos', lang);
   }
 
   .feature {
-    margin-top: 14px;
+    margin-bottom: 28px;
     border: 1px solid var(--line-2);
     border-radius: var(--r-lg);
     padding: 22px 26px;
